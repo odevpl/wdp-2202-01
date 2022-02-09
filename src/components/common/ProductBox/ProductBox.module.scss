@@ -74,5 +74,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .btnActive {
+      background-color: $primary;
+    }
+
+    .iconActive {
+      color: white;
+    }
   }
 }
