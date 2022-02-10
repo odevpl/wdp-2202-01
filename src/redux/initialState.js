@@ -224,6 +224,14 @@ const initialState = {
       newFurniture: true,
     },
   ],
+
+  brands: [
+    {
+      id: 'brand01',
+      image: 'src=../images/furniture-logo.jpg',
+    },
+  ],
+
   cart: {
     products: [],
   },

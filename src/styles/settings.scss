@@ -1,13 +1,72 @@
+// THIS IS A LIST OF COLORS - DONT USE THEM IN PROJECT! JUST USE ASSIGNED COLORS!
+
+$darkGray: #2a2a2a; //rgb(42, 42, 42)//#292929
+$white: #ffffff;
+$dirtyOrange: #d58e32;
+$lightGray:#b6b6b6;
+$gray-200:#e1e1e1; //e2e2e2
+$lightBlack: #363636;
+$justGray: rgb(216, 216, 216);
+$gray-210: rgb(224, 227, 237);
+$silverGray: rgb(169, 169, 169);
+$obsidianBlack: rgba(1, 2, 2, 0.2);
+$coolGray: #434343;
+
+// ASSIGNED COLORS
+
+$button-bg: $darkGray;
+$button-text: $white;
+$primary: $dirtyOrange;
+
+$button-border-color: $darkGray;
+$button-border-text: $darkGray;
+$button-hover-border: $darkGray;
+$button-hover-text: $white;
+
+$featureBox-border-color: $lightGray;
+$featureBox-icon-active: $white;
+$featureBox-text-color: $darkGray;
+$featureBox-bg-color: $white;
+
+$productBox-root-bg: $white;
+$productBox-root-border: $gray-200;
+$productBox-root-sale-bg: $darkGray;
+$productBox-sale-text: $white;
+$productBox-sale-button-content-stars: $darkGray;
+$productBox-line-border: $darkGray;
+
+$newFurniture-panelbar-border: $gray-200;
+$newFurniture-menu-link-text: $darkGray;
+$newFurniture-bg-dots-ul: $white;
+$newFurniture-bg-dots-link: $gray-200;
+
+$form-border-color: $darkGray;
+$text-color: $darkGray;
+
+$header-bg: $lightBlack;
+$companyClaim-phoneNumber-text: $justGray;
+$companyClaim-cartBox-text: $white;
+$companyClaim-cartCounter-text: $gray-210;
+
+$footer-bg: $lightBlack;
+$footer-text: $white;
+$footer-rights-text: $silverGray;
+$footer-hover-text: $white;
+$footer-claim-bg: $darkGray;
+
+$menuBar-box-shadow: $obsidianBlack;
+$menuBar-bg: $white;
+$menuBar-menu-border: $white;
+$menuBar-menu-text-active: $white;
+
+$header-topbar-bg: $coolGray;
+$topBar-root-link-text: $white;
+
+$brand-logo-border-color: $gray-200;
+$brand-logo-bg: $white;
+$brand-border-color: $gray-200;
+$brand-button-bg: $darkGray;
+$brands-logoBox-color: $white;
+
+// FORMAT
 $base-padding: 24px;
-
-$header-topbar-bg: #434343;
-$header-bg: #363636;
-
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
-
-$primary: #d58e32;
-
-$text-color: #2a2a2a;
-
-$form-border-color: #292929;
