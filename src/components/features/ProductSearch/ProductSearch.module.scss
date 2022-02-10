@@ -16,10 +16,16 @@
       padding: 15px 0 0 0;
       text-align: center;
       list-style-type: none;
+      z-index: 2;
+      white-space: nowrap;
 
       .icon {
-        color: $primary;
         margin: 0 5px;
+
+        &:first-child {
+          color: $primary;
+          margin: 0 5px;
+        }
       }
 
       li {
@@ -38,12 +44,13 @@
       display: none;
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -8%);
+      z-index: 1;
 
      li {
         border: 1px solid $form-border-color;
         display: block;
-        padding: 0 $base-padding;
+        padding: 0 ($base-padding);
         background-color: #ffffff;
       }
     }
