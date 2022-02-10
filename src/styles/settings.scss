@@ -11,3 +11,22 @@ $primary: #d58e32;
 $text-color: #2a2a2a;
 
 $form-border-color: #292929;
+
+//placeholder selectors for hover animation
+//1. placeholder for any components, icons and images
+@mixin element-hover-animation($bg-color, $transition-time: 0.25s, $translate-by: 0) {
+  transition: all $transition-time;
+  &:hover {
+    background-color: $bg-color;
+
+    transform: translateY($translate-by);
+  }
+}
+//2. Placeholder for text
+@mixin text-hover-animation($text-color, $text-decor: none, $transition-time: 0.25s) {
+  transition: all $transition-time;
+  &:hover {
+    color: $text-color;
+    text-decoration: $text-decor;
+  }
+}
