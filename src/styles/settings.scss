@@ -67,18 +67,28 @@ $topBar-root-link-text: $white;
 // FORMAT
 $base-padding: 24px;
 
+//transition time
+$global-transition-time: 3s;
+
 //mixins for hover animation
 //1. hover mixin components, icons and images
-@mixin element-hover-animation($bg-color, $transition-time: 0.25s, $translate-by: 0) {
+@mixin element-hover-animation(
+  $bg-color: initial,
+  $transition-time: $global-transition-time,
+  $translate-by: 0
+) {
   transition: all $transition-time;
   &:hover {
     background-color: $bg-color;
-
     transform: translateY($translate-by);
   }
 }
 //2. Placeholder for text
-@mixin text-hover-animation($text-color, $text-decor: none, $transition-time: 0.25s) {
+@mixin text-hover-animation(
+  $text-color,
+  $text-decor: none,
+  $transition-time: $global-transition-time
+) {
   transition: all $transition-time;
   &:hover {
     color: $text-color;
