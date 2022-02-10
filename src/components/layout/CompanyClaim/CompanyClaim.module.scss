@@ -47,7 +47,7 @@
       }
 
       .cartCounter {
-        width: 28px;
+        width: 56px;
         height: 27px;
         border-radius: 14px;
         background-color: $header-bg;
@@ -59,7 +59,7 @@
         position: absolute;
         top: 50%;
         right: 0;
-        transform: translate(50%, -50%);
+        transform: translate(80%, -50%);
       }
 
       &:hover {
