@@ -49,3 +49,19 @@
     }
   }
 }
+
+@media(max-width: 992px) {
+  .root {
+    :global(.container) > :global(.row) {
+      height: 120px;
+      flex-direction: column-reverse;
+    }
+
+    .menu{
+      display: flex;
+      align-self: stretch;
+      max-width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+}
