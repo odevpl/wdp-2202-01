@@ -36,9 +36,3 @@ ProductSearch.propTypes = {
 };
 
 export default ProductSearch;
-
-/*
-<select name='' id=''>
-  <option value=''>Select a category</option>
-</select>
-*/
