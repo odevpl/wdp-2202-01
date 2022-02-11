@@ -15,7 +15,10 @@ export const addFavorite = payload => ({ payload, type: ADD_FAVORITE });
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case ADD_FAVORITE: {
-      return [...statePart, action.payload];
+      if (!statePart.find(favorite => favorite.id === action.payload.id)) {
+        return [...statePart, action.payload];
+      }
+      return statePart;
     }
     default:
       return statePart;
