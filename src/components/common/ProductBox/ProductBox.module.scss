@@ -6,9 +6,10 @@
   margin-bottom: 2rem;
 
   &:hover .photo .buttons {
-    display: block;
-    display: flex;
-    justify-content: space-between;
+    opacity: 1;
+  }
+  .priceButton {
+    transition: all $global-transition-time;
   }
   &:hover .priceButton {
     background-color: $primary;
@@ -26,23 +27,21 @@
     overflow: hidden;
     align-items: flex-end;
 
-    .imageContainer {
+    .image {
       position: absolute;
-      top: 0px;
-      left: 0px;
+      top: 0;
+      left: 0;
+      z-index: 0;
       width: 100%;
-        height: 100%;
-      .image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      height: 100%;
+      object-fit: cover;
     }
 
     .sale {
       position: absolute;
       top: -30px;
       left: 50%;
+      z-index: 1;
       transform: translateX(-50%);
       background-color: $productBox-root-sale-bg;
       border-radius: 50%;
@@ -51,7 +50,12 @@
     }
 
     .buttons {
-      display: none;
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      opacity: 0;
+      transition: opacity $global-transition-time;
     }
   }
 
