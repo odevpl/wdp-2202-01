@@ -15,11 +15,7 @@
       a {
         color: $topBar-root-link-text;
         font-size: 13px;
-
-        &:hover {
-          color: $primary;
-          text-decoration: none;
-        }
+        @include text-hover-animation($primary);
       }
     }
   }

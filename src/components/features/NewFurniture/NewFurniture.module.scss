@@ -89,10 +89,10 @@
             background-color: $newFurniture-bg-dots-link;
             font-size: 0;
 
-            &.active,
-            &:hover {
+            &.active {
               background-color: $primary;
             }
+            @include element-hover-animation($primary);
           }
         }
       }

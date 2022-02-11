@@ -3,8 +3,8 @@
 $darkGray: #2a2a2a; //rgb(42, 42, 42)//#292929
 $white: #ffffff;
 $dirtyOrange: #d58e32;
-$lightGray:#b6b6b6;
-$gray-200:#e1e1e1; //e2e2e2
+$lightGray: #b6b6b6;
+$gray-200: #e1e1e1; //e2e2e2
 $lightBlack: #363636;
 $justGray: rgb(216, 216, 216);
 $gray-210: rgb(224, 227, 237);
@@ -43,6 +43,8 @@ $newFurniture-bg-dots-link: $gray-200;
 $form-border-color: $darkGray;
 $text-color: $darkGray;
 
+$form-border-color: #292929;
+
 $header-bg: $lightBlack;
 $companyClaim-phoneNumber-text: $justGray;
 $companyClaim-cartBox-text: $white;
@@ -70,3 +72,32 @@ $brands-logoBox-color: $white;
 
 // FORMAT
 $base-padding: 24px;
+
+//transition time
+$global-transition-time: 0.25s;
+
+//mixins for hover animation
+//1. hover mixin components, icons and images
+@mixin element-hover-animation(
+  $bg-color: initial,
+  $transition-time: $global-transition-time,
+  $translate-by: 0
+) {
+  transition: all $transition-time;
+  &:hover {
+    background-color: $bg-color;
+    transform: translateY($translate-by);
+  }
+}
+//2. Placeholder for text
+@mixin text-hover-animation(
+  $text-color,
+  $text-decor: none,
+  $transition-time: $global-transition-time
+) {
+  transition: all $transition-time;
+  &:hover {
+    color: $text-color;
+    text-decoration: $text-decor;
+  }
+}
