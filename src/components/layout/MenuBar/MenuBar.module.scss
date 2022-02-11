@@ -36,7 +36,7 @@
       font-weight: 500;
       letter-spacing: 1px;
 
-      &:hover,
+      @include element-hover-animation($primary);
       &.active {
         background-color: $primary;
         color: $menuBar-menu-text-active;

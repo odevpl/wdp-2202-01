@@ -22,9 +22,7 @@
             line-height: 30px;
             color: $footer-rights-text;
 
-            &:hover {
-              color: $footer-hover-text;
-            }
+            @include text-hover-animation($footer-hover-text);
           }
         }
       }
@@ -71,9 +69,7 @@
             color: $footer-rights-text;
             text-decoration: none;
 
-            &:hover {
-              color: $primary;
-            }
+            @include text-hover-animation($primary);
           }
         }
       }
