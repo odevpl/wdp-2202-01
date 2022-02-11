@@ -7,9 +7,11 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
 const ADD_FAVORITE = createActionName('ADD_FAVORITE');
+const REMOVE_FAVORITE = createActionName('REMOVE_FAVORITE');
 
 /* action creators */
 export const addFavorite = payload => ({ payload, type: ADD_FAVORITE });
+export const removeFavorite = payload => ({ payload, type: REMOVE_FAVORITE });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
@@ -20,6 +22,8 @@ export default function reducer(statePart = [], action = {}) {
       }
       return statePart;
     }
+    case REMOVE_FAVORITE:
+      return statePart.filter(favorite => favorite.id !== action.payload);
     default:
       return statePart;
   }
