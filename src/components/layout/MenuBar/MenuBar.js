@@ -5,6 +5,9 @@ import ProductSearch from '../../features/ProductSearch/ProductSearch';
 
 import styles from './MenuBar.module.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 const MenuBar = ({ children }) => (
   <div className={styles.root}>
     <div className='container'>
@@ -12,6 +15,9 @@ const MenuBar = ({ children }) => (
         <div className='col'>
           <ProductSearch />
         </div>
+        <button className={styles.hamburger}>
+          <FontAwesomeIcon className={styles.icon} icon={faBars} />
+        </button>
         <div className={'col-auto ' + styles.menu}>
           <ul>
             <li>
