@@ -15,6 +15,19 @@ import { addFavorite, removeFavorite } from '../../../redux/favoritesRedux';
 
 const ProductBox = ({ name, price, promo, stars, ...props }) => {
   const dispatch = useDispatch();
+  const handleToggleFavorite = () => {
+    if (!props.favorite) {
+      dispatch(
+        addFavorite({
+          page: props.page,
+          index: props.index,
+          ...props.product,
+        })
+      );
+    } else {
+      dispatch(removeFavorite(props.id));
+    }
+  };
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -51,19 +64,8 @@ const ProductBox = ({ name, price, promo, stars, ...props }) => {
       <div className={styles.actions}>
         <div className={styles.outlines}>
           <Button
-            onClick={() => {
-              if (!props.favorite) {
-                dispatch(
-                  addFavorite({
-                    page: props.page,
-                    index: props.index,
-                    ...props.product,
-                  })
-                );
-              } else {
-                dispatch(removeFavorite(props.id));
-              }
-            }}
+            noHover
+            onClick={handleToggleFavorite}
             variant='outline'
             className={props.favorite && styles.btnActive}
           >
@@ -75,6 +77,7 @@ const ProductBox = ({ name, price, promo, stars, ...props }) => {
             </FontAwesomeIcon>
           </Button>
           <Button
+            noHover
             variant='outline'
             className={props.addedForComparison && styles.btnActive}
           >
