@@ -70,3 +70,24 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .root {
+    .logo {
+      order: -3;
+      
+    }
+    .cart {
+      margin-right: 30px;
+      order: -2;
+    }
+    .phoneNumber {
+      flex-basis: 100%;
+      transform: translateX(60%);
+      p {
+        width: 170px !important;
+        font-size: 14px; 
+      }
+    }
+  }
+}
