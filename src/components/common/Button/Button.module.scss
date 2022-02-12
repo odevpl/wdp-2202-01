@@ -46,3 +46,8 @@
     @include text-hover-animation($button-hover-text);
   }
 }
+
+.static {
+  background-color: $primary;
+  color: $button-hover-text;
+}
