@@ -26,6 +26,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
+      deal: true,
       addedForComparison: true,
     },
     {
