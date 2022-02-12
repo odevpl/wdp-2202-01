@@ -22,23 +22,27 @@ const DealsBox = () => {
           <div div className='col-6 d-flex flex-column justify-content-between'>
             <div className={styles.bannerSmallTop}>
               <img
-                alt='office chairs'
+                alt='sofa'
                 src={`${process.env.PUBLIC_URL}/images/banners/banner-small-1.jpg`}
               />
               <div className={styles.description}>
-                <p>Office chair</p>
+                <p>
+                  <span>Office </span>chair
+                </p>
                 <p>collection</p>
-                <p>$200</p>
+                <p>$200.00</p>
               </div>
             </div>
             <div className={styles.bannerSmallBottom}>
               <img
-                alt='bed'
+                alt='sofa'
                 src={`${process.env.PUBLIC_URL}/images/banners/banner-small-2.jpg`}
               />
               <div className={styles.description}>
-                <p>Special collection</p>
-                <p>Save up 5% of furniture</p>
+                <p>
+                  <span>Special</span> collection
+                </p>
+                <p>Save up 45% of furniture</p>
               </div>
             </div>
           </div>
