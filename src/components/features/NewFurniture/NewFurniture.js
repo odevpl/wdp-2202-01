@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 
@@ -67,11 +69,26 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(activePage * 8, (activePage + 1) * 8)
+              .map((item, index) => {
+                const dummy = this.props.favorites.find(
+                  product => product.id === item.id
+                )
+                  ? true
+                  : '';
+                return (
+                  <div key={item.id} className='col-3'>
+                    <ProductBox
+                      {...item}
+                      product={item}
+                      favorite={dummy}
+                      page={activePage}
+                      index={index}
+                    />
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>
@@ -81,6 +98,7 @@ class NewFurniture extends React.Component {
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
+  favorites: PropTypes.array,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -105,4 +123,6 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-export default NewFurniture;
+const mapStateToProps = state => ({ favorites: state.favorites });
+
+export default connect(mapStateToProps)(NewFurniture);
