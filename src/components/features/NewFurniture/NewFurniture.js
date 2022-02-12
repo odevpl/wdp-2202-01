@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 
@@ -8,19 +7,26 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    activePageEffect: styles.fadeIn,
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({ activePageEffect: styles.fadeOut });
+    setTimeout(() => {
+      this.setState({ activePage: newPage, activePageEffect: styles.fadeIn });
+    }, 400);
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({ activePageEffect: styles.fadeOut });
+    setTimeout(() => {
+      this.setState({ activeCategory: newCategory, activePageEffect: styles.fadeIn });
+    }, 400);
   }
 
   render() {
     const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
+    const { activeCategory, activePage, activePageEffect } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
@@ -28,10 +34,13 @@ class NewFurniture extends React.Component {
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
-            onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            href='/#'
+            onClick={() => {
+              this.handlePageChange(i);
+            }}
+            className={i === activePage ? styles.active : ''}
           >
             page {i}
           </a>
@@ -44,16 +53,21 @@ class NewFurniture extends React.Component {
         <div className='container'>
           <div className={styles.panelBar}>
             <div className='row no-gutters align-items-end'>
-              <div className={'col-auto ' + styles.heading}>
+              <div className={'col-12 col-md-auto ' + styles.heading}>
                 <h3>New furniture</h3>
               </div>
-              <div className={'col ' + styles.menu}>
+              <div className={'col-auto col-md ' + styles.menu}>
                 <ul>
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
-                        className={item.id === activeCategory && styles.active}
-                        onClick={() => this.handleCategoryChange(item.id)}
+                        href='/#'
+                        className={
+                          item.id === activeCategory ? styles.active : undefined
+                        }
+                        onClick={() => {
+                          this.handleCategoryChange(item.id);
+                        }}
                       >
                         {item.name}
                       </a>
@@ -66,9 +80,9 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
+          <div className={'row ' + activePageEffect}>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
+              <div key={item.id} className={`col-6 col-md-4 col-lg-3}`}>
                 <ProductBox {...item} />
               </div>
             ))}
@@ -81,6 +95,7 @@ class NewFurniture extends React.Component {
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
+  favorites: PropTypes.array,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
