@@ -64,7 +64,29 @@
       padding: 10px 25px;
       text-decoration: none;
     }
+
+    select {
+      -webkit-appearance: none;
+      border: 0;
+      background-color: transparent;
+      padding: 5px 30px 5px 35px;
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      outline: none;
+    }
+
+    select:focus {
+      outline: none;
+    }
   }
+
+  .category:hover {
+  background: $primary;
+  .icon {
+    color: #ffffff;
+  }
+}
 
   .searchField {
     display: flex;

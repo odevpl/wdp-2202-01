@@ -7,7 +7,7 @@
 
     .menuWrapper {
       h6 {
-        color: #ffffff;
+        color: $footer-text;
         text-transform: uppercase;
         margin: 0 0 1rem 0;
       }
@@ -20,11 +20,9 @@
           a {
             font-size: 14px;
             line-height: 30px;
-            color: rgb(169, 169, 169);
+            color: $footer-rights-text;
 
-            &:hover {
-              color: #ffffff;
-            }
+            @include text-hover-animation($footer-hover-text);
           }
         }
       }
@@ -51,7 +49,7 @@
     .copyright {
       p {
         margin: 0;
-        color: rgb(169, 169, 169);
+        color: $footer-rights-text;
         font-size: 14px;
         line-height: 26px;
       }
@@ -68,12 +66,10 @@
           margin-left: 1rem;
 
           a {
-            color: rgb(169, 169, 169);
+            color: $footer-rights-text;
             text-decoration: none;
 
-            &:hover {
-              color: $primary;
-            }
+            @include text-hover-animation($primary);
           }
         }
       }
