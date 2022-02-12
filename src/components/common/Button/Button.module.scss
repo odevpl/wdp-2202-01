@@ -40,4 +40,9 @@
     background-color: $button-hover-border;
     color: $button-hover-text;
   }
+
+  &.actionbtn {
+    @include element-hover-animation($primary);
+    @include text-hover-animation($button-hover-text);
+  }
 }

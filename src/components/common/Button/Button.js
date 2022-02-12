@@ -18,6 +18,10 @@ const Button = ({ children, variant, noHover, className: propClassName, ...props
     Comp = 'div';
   }
 
+  if (props.actionbtn) {
+    classes.push(styles.actionbtn);
+  }
+
   return (
     <Comp href='#' {...props} className={classes.join(' ')}>
       {children}
@@ -30,6 +34,7 @@ Button.propTypes = {
   noHover: PropTypes.bool,
   className: PropTypes.string,
   variant: PropTypes.string,
+  actionbtn: PropTypes.bool,
 };
 
 export default Button;
