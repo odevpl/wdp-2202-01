@@ -78,14 +78,17 @@
       
     }
     .cart {
-      margin-right: 30px;
+      margin-right: 15%;
       order: -2;
+      top: -10px ;
     }
     .phoneNumber {
+      margin-right: 10%;
+      top: -30px;
       flex-basis: 100%;
       transform: translateX(60%);
       p {
-        width: 170px !important;
+        width: 50% !important;
         font-size: 14px; 
       }
     }
