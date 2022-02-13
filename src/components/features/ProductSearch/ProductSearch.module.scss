@@ -4,25 +4,65 @@
   border: 1px solid $form-border-color;
   display: inline-flex;
   height: 45px;
-  color: $text-color;
 
   .category {
     border-right: 1px solid $form-border-color;
     display: flex;
-    align-items: center;
     position: relative;
+    align-items: center;
+    justify-items: center;
 
-    .icon:first-child {
-      color: $primary;
-      position: absolute;
-      left: 10px;
-      z-index: 0;
+    ul {
+      padding: 15px 0 0 0;
+      text-align: center;
+      list-style-type: none;
+      z-index: 2;
+      white-space: nowrap;
+
+      .icon {
+        margin: 0 5px;
+
+        &:first-child {
+          color: $primary;
+          margin: 0 5px;
+        }
+      }
+
+      li {
+        display: inline-block;
+        position: relative;
+      }
+
+      a {
+        margin: 0 5px 0 5px;
+        color: $text-color;
+        text-decoration: none;
+      }
     }
 
-    .icon:last-child {
+    ul ul {
+      display: none;
       position: absolute;
-      right: 10px;
-      z-index: 0;
+      left: 50%;
+      transform: translate(-50%, -8%);
+      z-index: 1;
+
+     li {
+        border: 1px solid $form-border-color;
+        display: block;
+        padding: 0 ($base-padding);
+        background-color: #ffffff;
+      }
+    }
+
+    li:hover ul {
+      display: block;
+    }
+
+    li ul a {
+      display: block;
+      padding: 10px 25px;
+      text-decoration: none;
     }
 
     select {

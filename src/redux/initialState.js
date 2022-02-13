@@ -15,7 +15,6 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      favorite: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -25,7 +24,6 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      favorite: true,
       addedForComparison: true,
     },
     {
@@ -228,10 +226,31 @@ const initialState = {
       newFurniture: true,
     },
   ],
+
+  brands: [
+    {
+      id: 'brand01',
+      image: 'src=../images/furniture-logo.jpg',
+    },
+  ],
+
   cart: {
     products: [],
   },
   viewport: '',
+  favorites: [
+    {
+      page: 0,
+      index: 0,
+      id: 'aenean-ru-bristique-1',
+      name: 'Aenean Ru Bristique 1',
+      category: 'bed',
+      price: 30,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+    },
+  ],
 };
 
 export default initialState;
