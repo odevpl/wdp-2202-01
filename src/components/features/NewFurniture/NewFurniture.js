@@ -72,7 +72,12 @@ class NewFurniture extends React.Component {
             {categoryProducts
               .slice(activePage * 8, (activePage + 1) * 8)
               .map((item, index) => {
-                const dummy = this.props.favorites.find(
+                const favorite = this.props.favorites.find(
+                  product => product.id === item.id
+                )
+                  ? true
+                  : '';
+                const addedForComparison = this.props.comparedProducts.find(
                   product => product.id === item.id
                 )
                   ? true
@@ -82,9 +87,8 @@ class NewFurniture extends React.Component {
                     <ProductBox
                       {...item}
                       product={item}
-                      favorite={dummy}
-                      page={activePage}
-                      index={index}
+                      favorite={favorite}
+                      addedForComparison={addedForComparison}
                     />
                   </div>
                 );
@@ -99,6 +103,7 @@ class NewFurniture extends React.Component {
 NewFurniture.propTypes = {
   children: PropTypes.node,
   favorites: PropTypes.array,
+  comparedProducts: PropTypes.array,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -123,6 +128,9 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-const mapStateToProps = state => ({ favorites: state.favorites });
+const mapStateToProps = state => ({
+  favorites: state.favorites,
+  comparedProducts: state.comparedProducts,
+});
 
 export default connect(mapStateToProps)(NewFurniture);

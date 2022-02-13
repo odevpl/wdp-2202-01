@@ -285,6 +285,7 @@ const initialState = {
       newFurniture: true,
     },
   ],
+  comparedProducts: [],
 };
 
 export default initialState;
