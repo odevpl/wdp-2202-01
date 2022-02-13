@@ -231,6 +231,20 @@ const initialState = {
   cart: {
     products: [],
   },
+  deals: [
+    {
+      id: 'banner-large',
+      content: ['Guestroom', 'sofa', '-20%'],
+    },
+    {
+      id: 'banner-small-top',
+      content: ['Office', 'chair', 'collection', '$200'],
+    },
+    {
+      id: 'banner-small-bottom',
+      content: ['Special', 'collection', 'Save up 45% of furniture'],
+    },
+  ],
 };
 
 export default initialState;

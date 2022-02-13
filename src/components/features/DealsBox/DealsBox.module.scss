@@ -154,6 +154,37 @@
   }
 }
 
+@media (max-width: 481px) {
+  .root {
+    .bannerLarge {
+      .description {
+        left: 10%;
+        p:first-child {
+          font-size: 18px;
+        }
+        p:nth-child(2) {
+          font-size: 40px;
+        }
+      }
+    }
+    .bannerSmallTop {
+      .description {
+        p:first-child {
+          font-size: 18px;
+        }
+      }
+    }
+    .bannerSmallBottom {
+      .description {
+        p:first-child {
+          line-height: 1.3;
+          margin-bottom: 2px;
+        }
+      }
+    }
+  }
+}
+
 
 
 
