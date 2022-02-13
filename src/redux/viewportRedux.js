@@ -1,4 +1,7 @@
 /* action name creator */
+export const getViewport = ({ viewport }) => viewport;
+
+/* action name creator */
 const reducerName = 'viewport';
 const createActionName = name => `app/${reducerName}/${name}`;
 
