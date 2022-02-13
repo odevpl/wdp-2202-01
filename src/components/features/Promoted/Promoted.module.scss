@@ -2,7 +2,7 @@
 
 .root {
   .hotDealPanel {
-    border: 1px solid $gray-200;
+    border: 1px solid$promoted-border-color;
     &:hover .priceButton {
       background-color: $primary;
     }
@@ -22,7 +22,6 @@
       letter-spacing: 1px;
       line-height: 40px;
     }
-
     ul {
       display: flex;
       flex-direction: row;
@@ -52,15 +51,16 @@
   .imageContainer {
     position: relative;
     height: 250px;
+    object-fit: cover;
 
-    &:hover .button {
+    &:hover .button,
+    &:hover .discountTime {
       opacity: 1;
     }
 
     .image {
       width: 100%;
       height: 100%;
-      object-fit: cover;
     }
 
     .button {
@@ -70,11 +70,13 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-transform: uppercase;
-      transition: all $global-transition-time;
+      transition: all static;
+
       .icon {
         margin-right: 5px;
       }
     }
+
     .discountTime {
       position: absolute;
       bottom: 5%;
@@ -86,6 +88,8 @@
       justify-content: center;
       color: $white;
       text-transform: uppercase;
+      transition: all static;
+      opacity: 0;
 
       .circle {
         display: flex;
@@ -126,9 +130,8 @@
 
   .line {
     margin: 15px;
-    border-bottom: 1px solid $productBox-line-border;
+    border-bottom: 1px solid $promoted-line-border-color;
     position: relative;
-
     &::before {
       content: "";
       position: absolute;
@@ -145,8 +148,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .priceButton {
-      transition: all $global-transition-time;
+    .price {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .previousPrice {
+        margin-right: 10px;
+        text-decoration: line-through;
+        color: $silverGray;
+      }
+      .priceButton {
+        transition: all $global-transition-time;
+      }
     }
 
     .btnActive {
@@ -196,9 +209,10 @@
       &::before {
         content: "";
         position: absolute;
+        display: flex;
+        justify-content: center;
         width: 100%;
         height: 200%;
-        left: 0;
         top: -50%;
         z-index: -1;
         background: rgba(0, 0, 0, 0.6);
@@ -224,10 +238,9 @@
       position: absolute;
       display: flex;
       flex-direction: row;
+      justify-content: center;
       width: 100%;
-      left: 50%;
       bottom: 0;
-      transform: translateX(-50%);
 
       div {
         width: 50%;

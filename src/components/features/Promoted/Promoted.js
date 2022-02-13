@@ -9,15 +9,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { getAll } from '../../../redux/productsRedux';
 import Button from '../../common/Button/Button';
 import styles from './Promoted.module.scss';
 
 const Promoted = () => {
-  const { activeDeal, setActiveDeal } = useState('');
-
   const products = useSelector(getAll);
   const hotDealProduct = products.find(product => product.deal === true);
 
@@ -25,12 +23,7 @@ const Promoted = () => {
   for (let i = 0; i < 3; i++) {
     dots.push(
       <li>
-        <a
-          onClick={() => setActiveDeal(i)}
-          className={i === activeDeal && styles.active}
-        >
-          {' '}
-        </a>
+        <a> </a>
       </li>
     );
   }
@@ -38,7 +31,7 @@ const Promoted = () => {
   return (
     <div className={styles.root}>
       <div className='container d-flex'>
-        <div className='col-4'>
+        <div className='col-4 pl-0'>
           <div className={styles.hotDealPanel}>
             <div className={styles.dealsBar}>
               <h3>Hot Deals</h3>
@@ -97,6 +90,9 @@ const Promoted = () => {
                 </Button>
               </div>
               <div className={styles.price}>
+                <div className={styles.previousPrice}>
+                  $ {hotDealProduct.price + 50}
+                </div>
                 <Button noHover variant='small' className={styles.priceButton}>
                   $ {hotDealProduct.price}
                 </Button>
@@ -104,7 +100,7 @@ const Promoted = () => {
             </div>
           </div>
         </div>
-        <div className='col-8'>
+        <div className='col-8 pr-0'>
           <div className={styles.promoContainer}>
             <img
               className={styles.image}
