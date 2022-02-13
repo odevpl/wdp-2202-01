@@ -12,18 +12,19 @@ const MainLayout = ({ children }) => {
 
   useLayoutEffect(() => {
     const updateSize = () => {
-      if (window.innerWidth <= 480) {
+      if (window.screen.width <= 480) {
         setViewport('mobile');
-      } else if (window.innerWidth >= 481 && window.innerWidth <= 768) {
+      } else if (window.screen.width >= 481 && window.screen.width <= 768) {
         setViewport('tablet');
-      } else {
+      } else if (window.screen.width >= 769) {
         setViewport('desktop');
       }
       dispatch(updateViewport(viewport));
     };
 
-    window.addEventListener('resize', updateSize);
+    updateSize();
 
+    window.addEventListener('resize', updateSize);
     return () => window.removeEventListener('resize', updateSize);
   }, [dispatch, viewport]);
 
@@ -41,26 +42,3 @@ MainLayout.propTypes = {
 };
 
 export default MainLayout;
-
-/*
- function updateSize() {
-  setSize([window.innerWidth, window.innerHeight]);
-}
-
-useLayoutEffect(() => {
-    const updateSize = () => {
-      if(window.innerWidth >= 100){
-        return 'mobile';
-      } else if (window.innerWidth >= 120){
-        return 'tablet';
-      } else {
-        return 'dekstop';
-      }
-    };
-
-    window.addEventListener('resize', updateSize);
-    dispatch(updateViewport(size));
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
-
-*/
