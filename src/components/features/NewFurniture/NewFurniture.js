@@ -24,8 +24,18 @@ class NewFurniture extends React.Component {
     const { categories, products } = this.props;
     const { activeCategory, activePage } = this.state;
 
+    const productsOnPage = () => {
+      if (this.props.viewport === 'mobile') {
+        return 2;
+      } else if (this.props.viewport === 'tablet') {
+        return 4;
+      } else {
+        return 8;
+      }
+    };
+
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount = Math.ceil(categoryProducts.length / productsOnPage());
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -70,7 +80,7 @@ class NewFurniture extends React.Component {
           </div>
           <div className='row'>
             {categoryProducts
-              .slice(activePage * 8, (activePage + 1) * 8)
+              .slice(activePage * productsOnPage(), (activePage + 1) * productsOnPage())
               .map((item, index) => {
                 const dummy = this.props.favorites.find(
                   product => product.id === item.id
@@ -99,6 +109,7 @@ class NewFurniture extends React.Component {
 NewFurniture.propTypes = {
   children: PropTypes.node,
   favorites: PropTypes.array,
+  viewport: PropTypes.string,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -123,6 +134,11 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-const mapStateToProps = state => ({ favorites: state.favorites });
+const mapStateToProps = state => {
+  const { favorites } = state;
+  const { viewport } = state;
+
+  return { favorites, viewport };
+};
 
 export default connect(mapStateToProps)(NewFurniture);
