@@ -24,6 +24,8 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      favorite: true,
+      deal: true,
       addedForComparison: true,
     },
     {
