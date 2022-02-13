@@ -1,0 +1,47 @@
+@import "../../../styles/settings.scss";
+
+.wrapper {
+  position: relative;
+  height: 0;
+  top: calc(100vh / 2);
+  transform: translateY(50% -50%);
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+
+  .icon {
+    font-size: 65px;
+    color: rgba(54, 54, 54, 0.7);
+    transition: $global-transition-time;
+    z-index: 1;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:first-of-type {
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
+
+    &:last-of-type {
+      margin-right: 5vw;
+      margin-left: 5vw;
+    }
+  }
+}
+
+@media(max-width: 747px) {
+  .icon {
+
+    &:first-of-type {
+      margin-left: 1vw;
+      margin-right: 1vw;
+    }
+
+    &:last-of-type {
+      margin-right: 1vw;
+      margin-left: 1vw;
+    }
+  }
+}
