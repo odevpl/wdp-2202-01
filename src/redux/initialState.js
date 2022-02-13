@@ -226,18 +226,29 @@ const initialState = {
       newFurniture: true,
     },
   ],
-
   brands: [
     {
       id: 'brand01',
       image: 'src=../images/furniture-logo.jpg',
     },
   ],
-
   cart: {
     products: [],
   },
-  
+  deals: [
+    {
+      id: 'banner-large',
+      content: ['Guestroom', 'sofa', '-20%'],
+    },
+    {
+      id: 'banner-small-top',
+      content: ['Office', 'chair', 'collection', '$200'],
+    },
+    {
+      id: 'banner-small-bottom',
+      content: ['Special', 'collection', 'Save up 45% of furniture'],
+    },
+  ],
   opinions: [
     {
       id: 'opinion-1',
@@ -259,7 +270,8 @@ const initialState = {
       customerOpinion:
         'Good selection of furnitures, lighting and other home decor ideas. They do temperature checks and you have to wear a mask indoors. They also want you to stick with your designer at all times and within range of your buddy (whoever is visiting with you)... (Somehow you re not comfortable looking around by yourself) .. found some good ideas and will have to look online for more.. parking is in the back... They have branches in other cities too... Check out pics for some ideas...  Have fun!',
       customerPhoto: 'src=../../images/customers/customer3.jpeg',
-      
+      },
+  ],
   favorites: [
     {
       page: 0,
