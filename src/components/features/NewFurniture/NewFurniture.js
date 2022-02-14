@@ -99,31 +99,6 @@ class NewFurniture extends React.Component {
               handlePageChange={this.handlePageChange.bind(this)}
               pages={pages}
             />
-            ;
-            {categoryProducts
-              .slice(activePage * 8, (activePage + 1) * 8)
-              .map((item, index) => {
-                const favorite = this.props.favorites.find(
-                  product => product.id === item.id
-                )
-                  ? true
-                  : '';
-                const addedForComparison = this.props.comparedProducts.find(
-                  product => product.id === item.id
-                )
-                  ? true
-                  : '';
-                return (
-                  <div key={item.id} className='col-3'>
-                    <ProductBox
-                      {...item}
-                      product={item}
-                      favorite={favorite}
-                      addedForComparison={addedForComparison}
-                    />
-                  </div>
-                );
-              })}
           </div>
         </div>
       </div>
