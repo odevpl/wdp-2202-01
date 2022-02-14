@@ -1,11 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import ProductBox from '../../common/ProductBox/ProductBox';
 
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types';
+import React from 'react';
 import styles from './NewFurniture.module.scss';
-import ProductBox from '../../common/ProductBox/ProductBox';
 
+import Swipeable from '../../common/Swipeable/Swipeable';
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
@@ -30,14 +31,38 @@ class NewFurniture extends React.Component {
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : undefined}
           >
             page {i}
           </a>
         </li>
+      );
+    }
+
+    const pages = [];
+    for (let i = 0; i < pagesCount; i++) {
+      pages.push(
+        categoryProducts
+          .slice(activePage * 8, (activePage + 1) * 8)
+          .map((item, index) => {
+            const dummy = this.props.favorites.find(product => product.id === item.id)
+              ? true
+              : '';
+            return (
+              <div key={item.id} className='col-3'>
+                <ProductBox
+                  {...item}
+                  product={item}
+                  favorite={dummy}
+                  page={activePage}
+                  index={index}
+                />
+              </div>
+            );
+          })
       );
     }
 
@@ -69,6 +94,12 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <div className='row'>
+            <Swipeable
+              activePage={activePage}
+              handlePageChange={this.handlePageChange.bind(this)}
+              pages={pages}
+            />
+            ;
             {categoryProducts
               .slice(activePage * 8, (activePage + 1) * 8)
               .map((item, index) => {
