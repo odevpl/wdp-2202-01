@@ -134,11 +134,10 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-const mapStateToProps = state => {
-  const { favorites } = state;
-  const { viewport } = state;
-
-  return { favorites, viewport };
-};
+const mapStateToProps = state => ({
+  favorites: state.favorites,
+  comparedProducts: state.comparedProducts,
+  viewport: state.viewport,
+});
 
 export default connect(mapStateToProps)(NewFurniture);
