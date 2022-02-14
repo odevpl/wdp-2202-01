@@ -12,20 +12,25 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import { addFavorite, removeFavorite } from '../../../redux/favoritesRedux';
+import {
+  addComparedProduct,
+  removeComparedProduct,
+} from '../../../redux/comparedProductsRedux';
 
 const ProductBox = ({ name, price, promo, stars, ...props }) => {
   const dispatch = useDispatch();
-  const handleToggleFavorite = () => {
+  const toggleFavorite = () => {
     if (!props.favorite) {
-      dispatch(
-        addFavorite({
-          page: props.page,
-          index: props.index,
-          ...props.product,
-        })
-      );
+      dispatch(addFavorite(props.product));
     } else {
       dispatch(removeFavorite(props.id));
+    }
+  };
+  const toggleAddedForComparison = () => {
+    if (!props.addedForComparison) {
+      dispatch(addComparedProduct(props.product));
+    } else {
+      dispatch(removeComparedProduct(props.id));
     }
   };
   return (
@@ -65,7 +70,8 @@ const ProductBox = ({ name, price, promo, stars, ...props }) => {
         <div className={styles.outlines}>
           <Button
             noHover
-            onClick={handleToggleFavorite}
+            actionbtn
+            onClick={toggleFavorite}
             variant='outline'
             className={props.favorite && styles.btnActive}
           >
@@ -78,6 +84,8 @@ const ProductBox = ({ name, price, promo, stars, ...props }) => {
           </Button>
           <Button
             noHover
+            actionbtn
+            onClick={toggleAddedForComparison}
             variant='outline'
             className={props.addedForComparison && styles.btnActive}
           >
@@ -106,8 +114,8 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
-  favorite: PropTypes.oneOf([true, '']),
-  addedForComparison: PropTypes.bool,
+  favorite: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  addedForComparison: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   page: PropTypes.number,
   index: PropTypes.number,
   product: PropTypes.object,
