@@ -4,14 +4,18 @@ import initialState from './initialState';
 import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
+import dealsReducer from './dealsRedux';
 import favoritesReducer from './favoritesRedux';
+import comparedProductsReducer from './comparedProductsRedux';
 
 // define reducers
 const reducers = {
   cart: cartReducer,
   categories: categoriesReducer,
   products: productsReducer,
+  deals: dealsReducer,
   favorites: favoritesReducer,
+  comparedProducts: comparedProductsReducer,
 };
 
 // add blank reducers for initial state properties without reducers

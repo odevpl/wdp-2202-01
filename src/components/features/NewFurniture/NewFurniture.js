@@ -84,7 +84,9 @@ class NewFurniture extends React.Component {
           <div className={'row ' + activePageEffect}>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
               <div key={item.id} className={`col-6 col-md-4 col-lg-3}`}>
-                <ProductBox {...item} />
+                <ProductBox
+                {...item}
+                />
               </div>
             ))}
           </div>
@@ -97,6 +99,7 @@ class NewFurniture extends React.Component {
 NewFurniture.propTypes = {
   children: PropTypes.node,
   favorites: PropTypes.array,
+  comparedProducts: PropTypes.array,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
