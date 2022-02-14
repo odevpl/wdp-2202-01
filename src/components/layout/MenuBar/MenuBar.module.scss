@@ -4,18 +4,18 @@
   box-shadow: 2px 3.464px 6px $menuBar-box-shadow;
   background-color: $menuBar-bg;
 
-  :global(.container) > :global(.row) {
+  :global(.container)> :global(.row) {
     height: 84px;
-    
+
     .menu {
       display: flex;
       align-self: stretch;
-      
+
       ul {
         margin: 0;
         padding: 0;
         display: flex;
-        
+
         li {
           list-style: none;
           display: flex;
@@ -34,68 +34,78 @@
         border-top: 4px solid $menuBar-bg;
         font-weight: 500;
         letter-spacing: 1px;
-        
+
         &:hover,
         &.active {
           background-color: $primary;
           color: $menuBar-bg;
           border-color: $primary;
         }
-        
+
         &.active {
           border-color: $text-color;
         }
       }
     }
   }
+
   .hamburger {
     display: none;
   }
 }
 
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 578px) and (max-width: 1024px) {
   .root {
-    :global(.container) > :global(.row) {
+    :global(.container)> :global(.row) {
       height: 120px;
       flex-direction: column-reverse;
     }
-    .menu{
+
+    .menu {
       display: flex;
       align-self: stretch;
       max-width: 100%;
       margin-bottom: 5px;
     }
   }
-  
+
 }
 
-@media (max-width: 767px) {
+@media (max-width: 578px) {
   .root {
     box-shadow: none;
     height: 10px;
-     ul {
-       display: none !important;
-     }
-      .hamburger {
-        width: 52px;
-        height: 52px;
-        display: block;
-        margin-top: -5px;
-     }
-     &:hover {
+
+    ul {
+      display: none !important;
+    }
+
+    .hamburger {
+      width: 52px;
+      height: 52px;
+      display: block;
+      margin-top: -5px;
+      margin-right: 2vw;
+      transition: $global-transition-time;
+
+    }
+
+    &:hover +  {
       ul {
         display: block !important;
-        z-index:1;
+        z-index: 1;
         background-color: $menuBar-bg;
         border: $menuBar-bg;
       }
+
       .hamburger {
         display: none;
       }
+
       form {
         display: none;
       }
-     }
-   }
+    }
+  }
 }

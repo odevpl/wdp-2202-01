@@ -12,12 +12,9 @@ const MenuBar = ({ children }) => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row align-items-center'>
-        <div className='col'>
+        <div className={`col ${styles.search}`}>
           <ProductSearch />
         </div>
-        <button className={styles.hamburger}>
-          <FontAwesomeIcon className={styles.icon} icon={faBars} />
-        </button>
         <div className={'col-auto ' + styles.menu}>
           <ul>
             <li>
@@ -45,6 +42,9 @@ const MenuBar = ({ children }) => (
             </li>
           </ul>
         </div>
+        <button className={styles.hamburger}>
+          <FontAwesomeIcon className={styles.icon} icon={faBars} />
+        </button>
       </div>
     </div>
   </div>
