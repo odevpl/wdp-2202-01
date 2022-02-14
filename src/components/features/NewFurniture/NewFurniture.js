@@ -82,6 +82,7 @@ class NewFurniture extends React.Component {
                 )
                   ? true
                   : '';
+
                 return (
                   <div key={item.id} className='col-3'>
                     <ProductBox
@@ -104,6 +105,7 @@ NewFurniture.propTypes = {
   children: PropTypes.node,
   favorites: PropTypes.array,
   comparedProducts: PropTypes.array,
+
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
