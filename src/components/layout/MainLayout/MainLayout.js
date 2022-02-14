@@ -14,9 +14,9 @@ const MainLayout = ({ children }) => {
     const updateSize = () => {
       if (window.screen.width <= 480) {
         setViewport('mobile');
-      } else if (window.screen.width >= 481 && window.screen.width <= 768) {
+      } else if (window.screen.width >= 481 && window.screen.width <= 820) {
         setViewport('tablet');
-      } else if (window.screen.width >= 769) {
+      } else if (window.screen.width >= 821) {
         setViewport('desktop');
       }
       dispatch(updateViewport(viewport));
