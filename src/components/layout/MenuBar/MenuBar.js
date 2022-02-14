@@ -12,7 +12,7 @@ const MenuBar = ({ children }) => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row align-items-center'>
-        <div className={`col ${styles.search}`}>
+        <div className='col search'>
           <ProductSearch />
         </div>
         <div className={'col-auto ' + styles.menu}>
