@@ -90,7 +90,7 @@
       transition: $global-transition-time;
     }
 
-    &:hover  {
+    &:hover {
       ul {
         display: block !important;
         z-index: 1;
@@ -105,6 +105,8 @@
       form {
         display: none;
       }
+      
     }
+    
   }
 }
