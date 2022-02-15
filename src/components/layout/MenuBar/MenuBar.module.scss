@@ -76,37 +76,49 @@
   .root {
     box-shadow: none;
     height: 10px;
-
+    
     ul {
       display: none !important;
+    }
+
+    .menu {
+      justify-self: flex-end;
     }
 
     .hamburger {
       width: 52px;
       height: 52px;
       display: block;
-      margin-top: -5px;
+      margin-top: 12px;
       margin-right: 2vw;
-      transition: $global-transition-time;
+      color: $primary;
+      background: none;
+      
     }
 
-    &:hover {
+    .menu:hover {
+      display: block;
+      margin-right: 2vw;
+      margin-left: 69vw;
       ul {
-        display: block !important;
+        position: relative;
+        align-items: flex-end;
+        display: flex !important;
+        flex-direction: column;
+        flex-wrap: wrap;
         z-index: 1;
         background-color: $menuBar-bg;
-        border: $menuBar-bg;
+        border: 2px solid $menuBar-box-shadow;
+        li{
+          border-top: 4px solid $menuBar-bg;
+        }
       }
 
       .hamburger {
         display: none;
       }
 
-      form {
-        display: none;
-      }
-      
     }
-    
+
   }
 }
