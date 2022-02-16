@@ -12,8 +12,11 @@
   @media (max-width: 550px) {
     height: 300px;
   }
+  @media (max-width: 400px) {
+    height: 250px;
+  }
   @media (max-width: 350px) {
-    height: 200px;
+    height: 220px;
   }
 
   &:hover .button {
@@ -45,7 +48,10 @@
       font-weight: 300;
       text-transform: uppercase;
       @media (max-width: 600px) {
-        font-size: 35px;
+        font-size: 30px;
+      }
+      @media (max-width: 400px) {
+        font-size: 20px;
       }
       span {
         font-weight: 600;
@@ -54,6 +60,9 @@
     h2 {
       font-size: 25px;
       font-weight: 300;
+      @media (max-width: 400px) {
+        font-size: 18px;
+      }
     }
 
     &::before {
@@ -79,6 +88,14 @@
       text-transform: uppercase;
       color: $darkGray;
       font-weight: bold;
+      @media (max-width: 600px) {
+        bottom: -55px;
+      }
+      @media (max-width: 400px) {
+        bottom: -35px;
+        line-height: 40px;
+        height: 40px;
+      }
       &:hover {
         text-decoration: none;
       }

@@ -263,8 +263,8 @@ const initialState = {
     ],
     promoSlider: [
       {
-        domain: 'outdoor',
-        category: 'furniture',
+        domain: '',
+        category: 'Beds',
         message: 'Save up to 50% off all furniture',
         imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 6.jpg`,
       },

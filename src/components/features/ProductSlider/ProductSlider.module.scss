@@ -67,7 +67,7 @@
     height: 212px;
   }
   @media (max-width: 1000px) {
-    height: 162px;
+    height: 190px;
   }
 
   &:hover .button,
@@ -88,6 +88,10 @@
     transform: translate(-50%, -50%);
     text-transform: uppercase;
     transition: all static;
+    @media (max-width: 1200px) {
+      opacity: 1;
+      top: 40%;
+    }
 
     .icon {
       margin-right: 5px;
@@ -107,6 +111,10 @@
     text-transform: uppercase;
     transition: all static;
     opacity: 0;
+    @media (max-width: 1200px) {
+      opacity: 1;
+      bottom: 10%;
+    }
 
     .circle {
       display: flex;
@@ -118,13 +126,22 @@
       background: rgba(0, 0, 0, 0.8);
       border-radius: 50%;
       line-height: 25px;
+      @media (max-width: 1200px) {
+        width: 50px;
+        height: 50px;
+        font-size: 12px;
+      }
       @media (max-width: 1000px) {
         width: 40px;
         height: 40px;
+        font-size: 12px;
       }
       span {
         font-size: 25px;
         margin-top: 12px;
+        @media (max-width: 1200px) {
+          font-size: 18px;
+        }
         @media (max-width: 1000px) {
           font-size: 15px;
           margin-top: 7px;
