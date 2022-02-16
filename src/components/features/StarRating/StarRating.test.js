@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ComparisonBar from './ComparisonBar';
-import store from '../../../redux/store';
+import StarRating from './StarRating';
 import { Provider } from 'react-redux';
+import store from '../../../redux/store';
 
-describe('Component ComparisonBar', () => {
+describe('Component StarRating', () => {
   it('should render without crashing', () => {
     const component = shallow(
       <Provider store={store}>
-        <ComparisonBar />
+        <StarRating />
       </Provider>
     );
     expect(component).toBeTruthy();

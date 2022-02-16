@@ -289,6 +289,19 @@ const initialState = {
     },
   ],
   comparedProducts: [],
+  productsRatedByUser: [
+    {
+      id: 'aenean-ru-bristique-3',
+      name: 'Aenean Ru Bristique 3',
+      category: 'bed',
+      price: 30,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      addedForComparison: true,
+      userStars: '4',
+    },
+  ],
 };
 
 export default initialState;
