@@ -1,4 +1,9 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  .productSlider {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 }

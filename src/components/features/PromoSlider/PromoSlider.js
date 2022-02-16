@@ -2,34 +2,17 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import SwipeableViews from 'react-swipeable-views';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/productsRedux';
+
+import { getAll } from '../../../redux/dealsRedux';
+
 import Button from '../../common/Button/Button';
 
 import styles from './PromoSlider.module.scss';
 
 const PromoSlider = () => {
-  const slideData = [
-    {
-      domain: 'outdoor',
-      category: 'furniture',
-      message: 'Save up to 50% off all furniture',
-      imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 6.jpg`,
-    },
-    {
-      domain: '',
-      category: 'Sofas',
-      message: 'Save up to 50% off all sofas',
-      imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 8.jpg`,
-    },
-    {
-      domain: 'Indoor',
-      category: 'chairs',
-      message: 'Buy fast! Buy now! Just buy!',
-      imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 10.jpg`,
-    },
-  ];
+  const slideData = useSelector(state => getAll(state)).promoSlider;
   const [activePromo, setActivePromo] = useState(0);
 
   const previousPromo = () => {

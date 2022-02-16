@@ -246,20 +246,43 @@ const initialState = {
   cart: {
     products: [],
   },
-  deals: [
-    {
-      id: 'banner-large',
-      content: ['Guestroom', 'sofa', '-20%'],
-    },
-    {
-      id: 'banner-small-top',
-      content: ['Office', 'chair', 'collection', '$200'],
-    },
-    {
-      id: 'banner-small-bottom',
-      content: ['Special', 'collection', 'Save up 45% of furniture'],
-    },
-  ],
+  deals: {
+    banners: [
+      {
+        id: 'banner-large',
+        content: ['Guestroom', 'sofa', '-20%'],
+      },
+      {
+        id: 'banner-small-top',
+        content: ['Office', 'chair', 'collection', '$200'],
+      },
+      {
+        id: 'banner-small-bottom',
+        content: ['Special', 'collection', 'Save up 45% of furniture'],
+      },
+    ],
+    promoSlider: [
+      {
+        domain: 'outdoor',
+        category: 'furniture',
+        message: 'Save up to 50% off all furniture',
+        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 6.jpg`,
+      },
+      {
+        domain: '',
+        category: 'Sofas',
+        message: 'Save up to 50% off all sofas',
+        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 8.jpg`,
+      },
+      {
+        domain: 'Indoor',
+        category: 'chairs',
+        message: 'Buy fast! Buy now! Just buy!',
+        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 10.jpg`,
+      },
+    ],
+  },
+
   opinions: [
     {
       id: 'opinion-1',

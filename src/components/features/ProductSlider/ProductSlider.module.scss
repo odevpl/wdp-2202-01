@@ -1,7 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .hotDealPanel {
-  border: 1px solid$promoted-border-color;
+  border: 1px solid $promoted-border-color;
+
   &:hover .priceButton {
     background-color: $primary;
   }
@@ -20,12 +21,22 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 40px;
+
+    @media (max-width: 1000px) {
+      padding: 5px 10px 5px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
   }
   ul {
     display: flex;
     flex-direction: row;
     list-style: none;
     margin: 10px;
+    padding: 0;
+    @media (max-width: 1000px) {
+      margin: 3px;
+    }
     li {
       display: flex;
       align-items: center;
@@ -51,6 +62,13 @@
   position: relative;
   height: 250px;
   object-fit: cover;
+
+  @media (max-width: 1200px) {
+    height: 212px;
+  }
+  @media (max-width: 1000px) {
+    height: 162px;
+  }
 
   &:hover .button,
   &:hover .discountTime {
@@ -100,9 +118,17 @@
       background: rgba(0, 0, 0, 0.8);
       border-radius: 50%;
       line-height: 25px;
+      @media (max-width: 1000px) {
+        width: 40px;
+        height: 40px;
+      }
       span {
         font-size: 25px;
         margin-top: 12px;
+        @media (max-width: 1000px) {
+          font-size: 15px;
+          margin-top: 7px;
+        }
       }
     }
   }
@@ -111,6 +137,9 @@
 .content {
   text-align: center;
   padding: 20px;
+  @media (max-width: 1000px) {
+    padding: 7px;
+  }
 
   h5 {
     color: $darkGray;
@@ -147,6 +176,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .outlines {
+    @media (max-width: 1000px) {
+      display: none;
+    }
+  }
+
   .price {
     display: flex;
     flex-direction: row;
@@ -167,97 +203,5 @@
 
   .iconActive {
     color: white;
-  }
-}
-
-.promoContainer {
-  position: relative;
-  height: 488px;
-
-  &:hover .button {
-    opacity: 1;
-  }
-
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .promoContent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
-    color: $white;
-    h1 {
-      font-size: 50px;
-      font-weight: 300;
-      text-transform: uppercase;
-      span {
-        font-weight: 600;
-      }
-    }
-    h2 {
-      font-size: 25px;
-      font-weight: 300;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 200%;
-      top: -50%;
-      z-index: -1;
-      background: rgba(0, 0, 0, 0.6);
-    }
-    .button {
-      position: absolute;
-      transform: translateX(-50%);
-      line-height: 60px;
-      bottom: -80px;
-      width: 150px;
-      height: 60px;
-      background-color: #fff;
-      border-radius: 5px;
-      text-transform: uppercase;
-      color: $darkGray;
-      font-weight: bold;
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-  .sliderButtons {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    bottom: 0;
-
-    div {
-      width: 50%;
-      height: 40px;
-      text-align: center;
-      background-color: $darkGray;
-      transition: all $global-transition-time;
-
-      a {
-        height: 100%;
-        width: 100%;
-        line-height: 40px;
-        color: white;
-      }
-
-      &:hover {
-        background-color: $primary;
-      }
-    }
   }
 }
