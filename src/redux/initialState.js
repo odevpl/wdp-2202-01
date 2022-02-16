@@ -587,7 +587,7 @@ const initialState = {
       customerOpinion:
         'Good selection of furnitures, lighting and other home decor ideas. They do temperature checks and you have to wear a mask indoors. They also want you to stick with your designer at all times and within range of your buddy (whoever is visiting with you)... (Somehow you re not comfortable looking around by yourself) .. found some good ideas and will have to look online for more.. parking is in the back... They have branches in other cities too... Check out pics for some ideas...  Have fun!',
       customerPhoto: 'src=../../images/customers/customer3.jpeg',
-      },
+    },
   ],
   favorites: [
     {
@@ -603,6 +603,19 @@ const initialState = {
     },
   ],
   comparedProducts: [],
+  productsRatedByUser: [
+    {
+      id: 'aenean-ru-bristique-3',
+      name: 'Aenean Ru Bristique 3',
+      category: 'bed',
+      price: 30,
+      stars: 2,
+      promo: 'sale',
+      newFurniture: true,
+      addedForComparison: true,
+      userStars: '4',
+    },
+  ],
 };
 
 export default initialState;
