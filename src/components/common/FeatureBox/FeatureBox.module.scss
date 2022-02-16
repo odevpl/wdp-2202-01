@@ -4,7 +4,6 @@
   border: 1px solid $featureBox-border-color;
   text-align: center;
   margin-top: 40px;
-  height: 142px;
 
   .link {
     text-decoration: none;
@@ -77,5 +76,11 @@
     .content {
       color: $primary;
     }
+  }
+}
+
+@media(max-width: 767px) {
+  .root {
+    height: 142px;
   }
 }
