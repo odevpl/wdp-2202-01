@@ -122,7 +122,7 @@ const ProductSlider = () => {
                 </div>
                 <div className={styles.price}>
                   <div className={styles.previousPrice}>
-                    $ {hotDealProduct.price + 50}
+                    $ {hotDealProduct.oldPrice}
                   </div>
                   <Button noHover variant='small' className={styles.priceButton}>
                     $ {hotDealProduct.price}
