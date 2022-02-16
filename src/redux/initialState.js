@@ -14,6 +14,7 @@ const initialState = {
       price: 30,
       stars: 2,
       promo: 'sale',
+      hotDeal: true,
       newFurniture: true,
     },
     {
@@ -25,7 +26,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
-      deal: true,
+      hotDeal: true,
       addedForComparison: true,
     },
     {
@@ -36,6 +37,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+      hotDeal: true,
       addedForComparison: true,
     },
     {
@@ -90,6 +92,7 @@ const initialState = {
       price: 30,
       stars: 2,
       promo: 'sale',
+      hotDeal: true,
       newFurniture: true,
     },
     {
@@ -99,6 +102,7 @@ const initialState = {
       price: 30,
       stars: 2,
       promo: 'sale',
+      hotDeal: true,
       newFurniture: true,
     },
     {
