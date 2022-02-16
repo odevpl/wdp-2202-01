@@ -226,14 +226,6 @@ const initialState = {
       newFurniture: true,
     },
   ],
-
-  brands: [
-    {
-      id: 'brand01',
-      image: 'src=../images/furniture-logo.jpg',
-    },
-  ],
-
   cart: {
     products: [],
   },
@@ -248,6 +240,28 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
+    },
+  ],
+  brands: [
+    {
+      id: 'brand01',
+      image: '../images/furniture-logo.jpg',
+    },
+    {
+      id: 'brand02',
+      image: '../images/furniture-logo.jpg',
+    },
+    {
+      id: 'brand03',
+      image: '../images/furniture-logo.jpg',
+    },
+    {
+      id: 'brand04',
+      image: '../images/furniture-logo.jpg',
+    },
+    {
+      id: 'brand05',
+      image: '../images/furniture-logo.jpg',
     },
   ],
 };

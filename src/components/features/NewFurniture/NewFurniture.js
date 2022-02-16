@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { connect } from 'react-redux';
-
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 
@@ -27,13 +25,28 @@ class NewFurniture extends React.Component {
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
 
+    /* const rightAction = () => {
+      const newPage = activePage - 1;
+      if (newPage >= 0) {
+        this.setState({ activePage: newPage });
+      }
+    };
+    const leftAction = () => {
+      const newPage = activePage + 1;
+      if (newPage < pagesCount) {
+        this.setState({ activePage: newPage });
+      }
+    }; */
+
+    //DODANO FUNKCJE ODPOWIADAJĄCE ZA PRZESUWANIE ZGODNIE Z TASKIEM
+
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : ''}
           >
             page {i}
           </a>
@@ -54,7 +67,7 @@ class NewFurniture extends React.Component {
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
-                        className={item.id === activeCategory && styles.active}
+                        className={item.id === activeCategory ? styles.active : ''}
                         onClick={() => this.handleCategoryChange(item.id)}
                       >
                         {item.name}
@@ -68,28 +81,15 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts
-              .slice(activePage * 8, (activePage + 1) * 8)
-              .map((item, index) => {
-                const dummy = this.props.favorites.find(
-                  product => product.id === item.id
-                )
-                  ? true
-                  : '';
-                return (
-                  <div key={item.id} className='col-3'>
-                    <ProductBox
-                      {...item}
-                      product={item}
-                      favorite={dummy}
-                      page={activePage}
-                      index={index}
-                    />
-                  </div>
-                );
-              })}
-          </div>
+        </div>
+        <div className='row'>
+          {categoryProducts
+            .slice(activePage * 8, (activePage + 1) * 8)
+            .map((item, i) => (
+              <div key={item.id} className='col-3'>
+                <ProductBox {...item} number={i} />
+              </div>
+            ))}
         </div>
       </div>
     );
@@ -98,7 +98,6 @@ class NewFurniture extends React.Component {
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
-  favorites: PropTypes.array,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -123,6 +122,4 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-const mapStateToProps = state => ({ favorites: state.favorites });
-
-export default connect(mapStateToProps)(NewFurniture);
+export default NewFurniture;
