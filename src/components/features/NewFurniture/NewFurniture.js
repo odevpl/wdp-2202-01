@@ -48,17 +48,24 @@ class NewFurniture extends React.Component {
         categoryProducts
           .slice(activePage * 8, (activePage + 1) * 8)
           .map((item, index) => {
-            const dummy = this.props.favorites.find(product => product.id === item.id)
+            const favorite = this.props.favorites.find(
+              product => product.id === item.id
+            )
               ? true
               : '';
+            const addedForComparison = this.props.comparedProducts.find(
+              product => product.id === item.id
+            )
+              ? true
+              : '';
+
             return (
               <div key={item.id} className='col-3'>
                 <ProductBox
                   {...item}
                   product={item}
-                  favorite={dummy}
-                  page={activePage}
-                  index={index}
+                  favorite={favorite}
+                  addedForComparison={addedForComparison}
                 />
               </div>
             );
@@ -110,6 +117,7 @@ NewFurniture.propTypes = {
   children: PropTypes.node,
   favorites: PropTypes.array,
   comparedProducts: PropTypes.array,
+
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
