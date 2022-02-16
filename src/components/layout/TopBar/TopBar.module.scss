@@ -36,3 +36,12 @@
     }
   }
 }
+
+@media(max-width: 545px){
+  .topMenu ul li a {
+    font-size: 0;
+    .icon {
+      font-size: 14px;
+    }
+  }
+}
