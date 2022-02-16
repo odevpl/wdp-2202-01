@@ -11,6 +11,9 @@ $gray-210: rgb(224, 227, 237);
 $silverGray: rgb(169, 169, 169);
 $obsidianBlack: rgba(1, 2, 2, 0.2);
 $coolGray: #434343;
+$greenColor: #79ae30;
+$grayImage: #f8f8f8;
+
 
 // ASSIGNED COLORS
 
@@ -22,6 +25,9 @@ $button-border-color: $darkGray;
 $button-border-text: $darkGray;
 $button-hover-border: $darkGray;
 $button-hover-text: $white;
+
+$promoted-line-border-color: $darkGray;
+$promoted-border-color: $gray-200;
 
 $featureBox-border-color: $lightGray;
 $featureBox-icon-active: $white;
@@ -63,6 +69,23 @@ $menuBar-menu-text-active: $white;
 
 $header-topbar-bg: $coolGray;
 $topBar-root-link-text: $white;
+
+$GalleryMainBar: $gray-200;
+$gallery-boxshadow: $justGray;
+$gallery-border-color: $gray-200;
+$gallery-bg-image: $grayImage;
+$gallery-green-color: $greenColor;
+
+$feedbackMainBar: $gray-200;
+$feedback-bg: $lightBlack;
+$points-color-bg: $white;
+$points-color: $gray-200;
+
+$brand-logo-border-color: $gray-200;
+$brand-logo-bg: $white;
+$brand-border-color: $gray-200;
+$brand-button-bg: $darkGray;
+$brands-logoBox-color: $white;
 
 // FORMAT
 $base-padding: 24px;

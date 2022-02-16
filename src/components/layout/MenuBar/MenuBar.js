@@ -5,14 +5,20 @@ import ProductSearch from '../../features/ProductSearch/ProductSearch';
 
 import styles from './MenuBar.module.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 const MenuBar = ({ children }) => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row align-items-center'>
-        <div className='col'>
+        <div className='col search'>
           <ProductSearch />
         </div>
         <div className={'col-auto ' + styles.menu}>
+          <button className={styles.hamburger}>
+            <FontAwesomeIcon className={styles.icon} icon={faBars} />
+          </button>
           <ul>
             <li>
               <a href='#' className={styles.active}>

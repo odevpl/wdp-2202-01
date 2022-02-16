@@ -1,9 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 
+import { connect } from 'react-redux';
+
+import PropTypes from 'prop-types';
+import React from 'react';
+import styles from './NewFurniture.module.scss';
+
+import Swipeable from '../../common/Swipeable/Swipeable';
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
@@ -28,14 +31,45 @@ class NewFurniture extends React.Component {
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : undefined}
           >
             page {i}
           </a>
         </li>
+      );
+    }
+
+    const pages = [];
+    for (let i = 0; i < pagesCount; i++) {
+      pages.push(
+        categoryProducts
+          .slice(activePage * 8, (activePage + 1) * 8)
+          .map((item, index) => {
+            const favorite = this.props.favorites.find(
+              product => product.id === item.id
+            )
+              ? true
+              : '';
+            const addedForComparison = this.props.comparedProducts.find(
+              product => product.id === item.id
+            )
+              ? true
+              : '';
+
+            return (
+              <div key={item.id} className='col-3'>
+                <ProductBox
+                  {...item}
+                  product={item}
+                  favorite={favorite}
+                  addedForComparison={addedForComparison}
+                />
+              </div>
+            );
+          })
       );
     }
 
@@ -67,11 +101,11 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            <Swipeable
+              activePage={activePage}
+              handlePageChange={this.handlePageChange.bind(this)}
+              pages={pages}
+            />
           </div>
         </div>
       </div>
@@ -81,6 +115,9 @@ class NewFurniture extends React.Component {
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
+  favorites: PropTypes.array,
+  comparedProducts: PropTypes.array,
+
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -105,4 +142,9 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-export default NewFurniture;
+const mapStateToProps = state => ({
+  favorites: state.favorites,
+  comparedProducts: state.comparedProducts,
+});
+
+export default connect(mapStateToProps)(NewFurniture);
