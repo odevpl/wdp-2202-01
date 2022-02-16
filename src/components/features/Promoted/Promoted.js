@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { getAll } from '../../../redux/productsRedux';
 import Button from '../../common/Button/Button';
 import styles from './Promoted.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const Promoted = () => {
   const products = useSelector(getAll);
@@ -38,11 +39,13 @@ const Promoted = () => {
               <ul>{dots}</ul>
             </div>
             <div className={styles.imageContainer}>
-              <img
-                className={styles.image}
-                src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 2.jpg`}
-                alt='hot-deal'
-              />
+              <NavLink to={`product/${hotDealProduct.id}`}>
+                <img
+                  className={styles.image}
+                  src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 2.jpg`}
+                  alt='hot-deal'
+                />
+              </NavLink>
               <Button className={styles.button} variant='small'>
                 <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
                 Add to cart
@@ -63,7 +66,9 @@ const Promoted = () => {
               </div>
             </div>
             <div className={styles.content}>
-              <h5>{hotDealProduct.name}</h5>
+              <NavLink to={`product/${hotDealProduct.id}`}>
+                <h5>{hotDealProduct.name}</h5>
+              </NavLink>
               <div className={styles.stars}>
                 {[1, 2, 3, 4, 5].map(i => (
                   <a key={i} href='#'>

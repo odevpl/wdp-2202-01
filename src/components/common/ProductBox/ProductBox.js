@@ -16,6 +16,7 @@ import {
   addComparedProduct,
   removeComparedProduct,
 } from '../../../redux/comparedProductsRedux';
+import { NavLink } from 'react-router-dom';
 
 const ProductBox = ({ name, price, promo, stars, ...props }) => {
   const dispatch = useDispatch();
@@ -38,11 +39,13 @@ const ProductBox = ({ name, price, promo, stars, ...props }) => {
       <div className={styles.photo}>
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.imageContainer}>
-          <img
-            className={styles.image}
-            alt={name}
-            src={`${process.env.PUBLIC_URL}/images/products/${name}.jpg`}
-          />
+          <NavLink to={`/product/${props.id}`}>
+            <img
+              className={styles.image}
+              alt={name}
+              src={`${process.env.PUBLIC_URL}/images/products/${name}.jpg`}
+            />
+          </NavLink>
         </div>
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
@@ -52,7 +55,9 @@ const ProductBox = ({ name, price, promo, stars, ...props }) => {
         </div>
       </div>
       <div className={styles.content}>
-        <h5>{name}</h5>
+        <NavLink to={`/product/${props.id}`}>
+          <h5>{name}</h5>
+        </NavLink>
         <div className={styles.stars}>
           {[1, 2, 3, 4, 5].map(i => (
             <a key={i} href='#'>

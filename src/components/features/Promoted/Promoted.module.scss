@@ -112,14 +112,18 @@
   .content {
     text-align: center;
     padding: 20px;
+    a {
+      h5 {
+        color: $darkGray;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 1px;
+      }
 
-    h5 {
-      color: $darkGray;
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: 1px;
+      &:hover {
+        text-decoration: none;
+      }
     }
-
     .stars {
       a {
         text-decoration: none;
