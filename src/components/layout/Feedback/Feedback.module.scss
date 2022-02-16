@@ -1,0 +1,101 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  .feedbackMainBar {
+    position: relative;
+    margin-bottom: 30px;
+
+    :global(.row) > * {
+      border-bottom: 4px solid $feedbackMainBar;
+    }
+
+    .heading{
+      position: relative;
+
+      h3 {
+        color: $primary;
+        font-size: 20px;
+        line-height: 40px;
+        margin: 0;
+        text-transform: uppercase;
+      }
+
+      &::before {
+        content: "";
+        width: 100%;
+        left: 0;
+        bottom: -4px;
+        position: absolute;
+        border-bottom: 4px solid $primary;
+      }
+    }
+
+    .points {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      ul {
+        margin: 0;
+        transform: translateY(15px);
+        background-color: $points-color-bg;
+        padding: 0 0 0 1rem;
+        list-style: none;
+
+
+        li {
+          display: inline-block;
+          margin-left: 0.5rem;
+
+          a {
+            width: 13px;
+            height: 13px;
+            display: block;
+            border-radius: 6px;
+            font-size: 0;
+            background-color: $points-color;
+
+            &.active,
+            &:hover {
+              background-color: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+  .opinionArea {
+    color: $feedback-bg;
+    margin-bottom: 30px;
+    position: relative;
+    line-height: 25px;
+
+    .opinionCont {
+      width: 90%;
+      margin: 0;
+      padding-bottom: 30px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+}
+
+.spec{
+  margin-top: 3px
+}
+
+.icon {
+  font-size: 20px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.customerState {
+  font-size: 14px;
+}
+
+.customerPhoto {
+  width: 60px;
+  height: 52px;
+  border-radius: 5px;
+}

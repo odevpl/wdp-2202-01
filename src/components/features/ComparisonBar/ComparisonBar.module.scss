@@ -1,0 +1,61 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  position: fixed;
+  bottom: 0%;
+  right: 0;
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  .actionbtn {
+    background-color: $primary;
+  }
+
+  .product {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: slidein 0.5s cubic-bezier(0.47, 0.41, 0.26, 0.86);
+
+    .close {
+      opacity: 0;
+      position: absolute;
+      z-index: 10;
+      top: 5%;
+      right: 5%;
+      color: $text-color;
+      transition: all $global-transition-time;
+    }
+
+    &:hover .close {
+      opacity: 1;
+    }
+  }
+
+  .imageContainer {
+    height: 80%;
+    width: 100%;
+    position: relative;
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+  }
+}
+
+.button {
+  order: -1;
+  text-align: center;
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
