@@ -73,9 +73,12 @@ const ProductSlider = () => {
         }}
         slideStyle={{ overflow: 'hidden' }}
       >
-        {hotDealProducts.map(hotDealProduct => {
+        {hotDealProducts.map((hotDealProduct, index) => {
           return (
-            <React.Fragment key={hotDealProduct.id}>
+            <div
+              key={hotDealProduct.id}
+              className={index === activeProduct ? styles.productContainer : ''}
+            >
               <div className={styles.imageContainer}>
                 <img
                   className={styles.image}
@@ -129,7 +132,7 @@ const ProductSlider = () => {
                   </Button>
                 </div>
               </div>
-            </React.Fragment>
+            </div>
           );
         })}
       </SwipeableViews>

@@ -39,16 +39,21 @@ const PromoSlider = () => {
       >
         {slideData.map((promo, index) => {
           return (
-            <div key={promo.index} className={styles.promoContainer}>
-              <div className={styles.imageContainer}>
-                <img className={styles.image} src={promo.imageSrc} alt='hot-deal' />
-              </div>
-              <div className={styles.promoContent}>
-                <h1>
-                  {promo.domain} <span>{promo.category}</span>
-                </h1>
-                <h2>{promo.message}</h2>
-                <Button className={styles.button}>Shop now</Button>
+            <div
+              key={promo.index}
+              className={index === activePromo ? styles.fadeInContainer : ''}
+            >
+              <div className={styles.promoContainer}>
+                <div className={styles.imageContainer}>
+                  <img className={styles.image} src={promo.imageSrc} alt='hot-deal' />
+                </div>
+                <div className={styles.promoContent}>
+                  <h1>
+                    {promo.domain} <span>{promo.category}</span>
+                  </h1>
+                  <h2>{promo.message}</h2>
+                  <Button className={styles.button}>Shop now</Button>
+                </div>
               </div>
             </div>
           );
