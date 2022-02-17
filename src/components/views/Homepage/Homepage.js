@@ -5,7 +5,7 @@ import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import DealsBox from '../../features/DealsBox/DealsBox';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Feedback from '../../layout/Feedback/FeedbackContainer';
-import Brands from '../../features/Brands/Brands';
+import Brands from '../../features/Brands/BrandsContainer';
 import Promoted from '../../features/Promoted/Promoted';
 import Gallery from '../../layout/Gallery/Gallery';
 

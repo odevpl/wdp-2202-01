@@ -5,6 +5,8 @@ import ProductSearch from '../../features/ProductSearch/ProductSearch';
 
 import styles from './MenuBar.module.scss';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const MenuBar = ({ children }) => {
   return (
@@ -15,6 +17,9 @@ const MenuBar = ({ children }) => {
             <ProductSearch />
           </div>
           <div className={'col-auto ' + styles.menu}>
+            <button className={styles.hamburger}>
+              <FontAwesomeIcon className={styles.icon} icon={faBars} />
+            </button>
             <ul>
               <li>
                 <NavLink exact activeClassName={styles.active} to={'/'}>
