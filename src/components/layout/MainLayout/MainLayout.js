@@ -9,16 +9,21 @@ import ComparisonBar from '../../features/ComparisonBar/ComparisonBar';
 
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch();
-  const [viewport, setViewport] = useState('');
 
   useLayoutEffect(() => {
+    const mobile = 'mobile';
+    const tablet = 'tablet';
+    const desktop = 'desktop';
+
+    let viewport = mobile;
+
     const updateSize = () => {
       if (window.screen.width <= 480) {
-        setViewport('mobile');
+        viewport = mobile;
       } else if (window.screen.width >= 481 && window.screen.width <= 820) {
-        setViewport('tablet');
+        viewport = tablet;
       } else if (window.screen.width >= 821) {
-        setViewport('desktop');
+        viewport = desktop;
       }
       dispatch(updateViewport(viewport));
     };
@@ -27,7 +32,7 @@ const MainLayout = ({ children }) => {
 
     window.addEventListener('resize', updateSize);
     return () => window.removeEventListener('resize', updateSize);
-  }, [dispatch, viewport]);
+  }, [dispatch]);
 
   return (
     <div>
