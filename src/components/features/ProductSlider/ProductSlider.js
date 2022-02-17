@@ -17,31 +17,35 @@ import styles from './ProductSlider.module.scss';
 const ProductSlider = () => {
   const [activeProduct, setActiveProduct] = useState(0);
   const [sliderPaused, setSliderPaused] = useState(false);
+  const sliderPauseTimerRef = useRef();
   const timeOutRef = useRef();
   const products = useSelector(getAll);
   const hotDealProducts = products.filter(product => product.hotDeal === true);
 
   const handleProductChange = nextProduct => setActiveProduct(nextProduct);
+  const nextProduct = () => {
+    let product = activeProduct + 1 < hotDealProducts.length ? activeProduct + 1 : 0;
+    setActiveProduct(product);
+  };
   useEffect(() => {
-    const nextProduct = () => {
-      let product = activeProduct + 1 < hotDealProducts.length ? activeProduct + 1 : 0;
-      setActiveProduct(product);
-    };
     if (!sliderPaused) {
       const id = setTimeout(nextProduct, 3000);
       timeOutRef.current = id;
     }
 
     return () => clearTimeout(timeOutRef.current);
-  }, [activeProduct, sliderPaused, hotDealProducts.length]);
+  }, [activeProduct, sliderPaused, hotDealProducts.length, nextProduct]);
   const handleClickOnDot = dot => {
-    setActiveProduct(dot);
     setSliderPaused(true);
-    clearTimeout(timeOutRef);
-    setTimeout(() => {
-      setSliderPaused(false);
-      setActiveProduct(activeProduct => activeProduct + 1);
-    }, 10000);
+    setActiveProduct(dot);
+    clearTimeout(timeOutRef.current);
+
+    if (!sliderPauseTimerRef.current) {
+      sliderPauseTimerRef.current = setTimeout(() => {
+        setSliderPaused(false);
+        sliderPauseTimerRef.current = null;
+      }, 7000);
+    }
   };
 
   return (
