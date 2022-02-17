@@ -1,0 +1,99 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  width: 210px;
+  margin-left: 20px;
+  position: fixed;
+  top: 65%;
+  z-index: 5;
+
+  .slideOff {
+    visibility: hidden;
+  }
+
+  .slideOn {
+    visibility: visible;
+  }
+
+  .button {
+    width: 100%;
+    background-color: $button;
+    color: $window;
+    border: none;
+  }
+
+  .button:hover {
+    background-color: $primary;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .box {
+    border: 1px solid $button;
+    border-bottom: none;
+
+    .background {
+      width: 100%;
+      height: 140px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      background-color: $window;
+
+      .icon {
+        margin-bottom: 13px;
+        margin-left: 5px;
+      }
+    }
+    .message {
+      height: 30px;
+      width: 140px;
+      border-radius: 1%;
+      background-color: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+      margin-bottom: 5px;
+
+      p {
+        margin: 0;
+        font-size: 11px;
+      }
+    }
+  }
+
+  .chat {
+    form {
+      display: flex;
+    }
+
+    .iconCont {
+      width: 42px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $message;
+      border: 1px solid $button;
+      cursor: pointer;
+      border-left: none;
+    }
+
+    .iconCont:hover {
+      background-color: $message-hover;
+    }
+
+    textarea {
+      width: 80%;
+      resize: none;
+      font-size: 11px;
+      border: 1px solid $button;
+    }
+
+    textarea:focus {
+      background-color: $message;
+    }
+  }
+}
