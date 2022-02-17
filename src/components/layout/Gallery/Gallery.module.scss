@@ -26,58 +26,67 @@
         border-bottom: 4px solid $primary;
       }
     }
-    .content {
-      border: 1px solid $gray-200;
-      border-top: none;
 
-      .galleryMenu {
-        ul {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          list-style: none;
-          margin: 0;
+    .galleryMenu {
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          width: 25%;
+          text-align: center;
           padding: 0;
 
-          li {
-            width: 25%;
-            text-align: center;
+          a {
+            display: block;
+            color: $primary;
             padding: 8px 0;
+            width: 100%;
+            height: 100%;
             border: solid 1px $gray-200;
-            border-right: none;
-
-            &:first-child {
-              border-left: none;
-            }
 
             &.active {
               border-top: solid 3px $primary;
               border-bottom: none;
               background-color: $gallery-bg-image;
-
-              a {
-                color: $primary;
-              }
             }
+          }
 
-            &:hover a {
-              text-decoration: none;
-              color: $primary;
-            }
+          &:hover a {
+            text-decoration: none;
+            color: $primary;
+          }
 
-            a {
-              color: $darkGray;
-              text-transform: uppercase;
-              font-weight: bold;
-            }
+          a {
+            color: $darkGray;
+            text-transform: uppercase;
+            font-weight: bold;
           }
         }
       }
+    }
+
+    .content {
+      border: 1px solid $gray-200;
+      border-top: none;
+
       .imageContainer {
         position: relative;
         width: 100%;
         height: 350px;
         background-color: $gallery-bg-image;
+
+        img {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
 
         .outlines {
           display: flex;
@@ -182,50 +191,50 @@
           }
         }
       }
+    }
+    .carousel {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 8px;
+      border-top: 1px solid $gallery-border-color;
 
-      .carousel {
+      .thumbnails {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        padding: 8px;
-        border-top: 1px solid $gallery-border-color;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
 
-        .thumbnails {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          width: 100%;
-          height: 100%;
+        div {
+          border: 1px solid $gallery-border-color;
+          background-color: $gallery-border-color;
+          opacity: 50%;
+          width: 70px;
+          height: 70px;
 
-          div {
-            border: 1px solid $gallery-border-color;
-            min-width: 15%;
-            background-color: $gallery-border-color;
-            opacity: 50%;
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
 
-            &:after {
-              content: "";
-              display: block;
-              padding-bottom: 100%;
-            }
-
-            &.active {
-              opacity: 100%;
-            }
+          &.active {
+            opacity: 100%;
           }
         }
+      }
 
-        .button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: $darkGray;
-          width: 30px;
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $darkGray;
+        width: 30px;
 
-          p {
-            margin: 0;
-            color: $white;
-          }
+        p {
+          margin: 0;
+          color: $white;
         }
       }
     }
