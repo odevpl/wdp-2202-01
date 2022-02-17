@@ -43,7 +43,7 @@
           font-weight: 600;
 
           a {
-            color: $newFurniture-menu-link-text;
+            color: $newFurniture-bg-dots-link;
             position: relative;
             text-decoration: none;
             font-size: 18px;
@@ -97,5 +97,17 @@
         }
       }
     }
+  }
+
+//TRANSITION
+
+  .fadeIn {
+    opacity: 0;
+    transition: opacity 100ms ease-in-out;
+  }
+
+  .fadeOut {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
   }
 }

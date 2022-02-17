@@ -14,7 +14,7 @@ const DealsBox = () => {
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
-          <div className='col-6'>
+          <div className='col-xs-12 col-sm-6'>
             <div className={styles.bannerLarge}>
               <img
                 alt='sofa'
@@ -27,7 +27,10 @@ const DealsBox = () => {
               </div>
             </div>
           </div>
-          <div div className='col-6 d-flex flex-column justify-content-between'>
+          <div
+            div
+            className='col-xs-12 col-sm-6 d-flex flex-column justify-content-between'
+          >
             <div className={styles.bannerSmallTop}>
               <img
                 alt='sofa'
