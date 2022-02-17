@@ -63,11 +63,24 @@
     text-align: center;
     padding: 20px;
 
-    h5 {
-      color: $primary;
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: 1px;
+    a {
+      h5 {
+        color: $primary;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 1px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: $productBox-sale-button-content-stars;
+      }
     }
   }
 
