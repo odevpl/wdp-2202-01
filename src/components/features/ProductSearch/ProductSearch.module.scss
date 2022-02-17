@@ -111,3 +111,41 @@
     }
   }
 }
+
+@media(min-width: 350px) and (max-width: 578px){
+  .root {
+    height: 54px;
+    .searchField {
+      width: 275px;
+      padding-right:0px;
+      input {
+        width: auto;
+      }
+      button {
+        margin-left: 240px;
+        position: absolute;
+        z-index: 1;
+        justify-content: flex-end;
+      }
+    }
+  } 
+}
+
+@media (max-width: 400px) {
+  .root {
+    height: 54px;
+    .searchField {
+      width: 190px;
+      padding-right:0px;
+      input {
+        width: auto;
+      }
+      button {
+        margin-left: 150px;
+        position: absolute;
+        z-index: 1;
+        justify-content: flex-end;
+      }
+    }
+  } 
+}

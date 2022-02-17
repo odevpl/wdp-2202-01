@@ -1,36 +1,69 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border-top: 1px solid $brand-logo-border-color;
-  border-bottom: 1px solid $brand-logo-border-color;
-  margin-bottom: 30px;
-  padding: 10px 0 10px 0;
-  background-color: $brand-logo-bg;
+  padding: 20px 0 50px 0;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .brandsBar {
+    border-top: 1px solid $brand-border-color;
+    border-bottom: 1px solid $brand-border-color;
+    margin: 0;
+    padding: 15px 0 15px 0;
+    flex-wrap: nowrap;
+
+    .brandsList {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      .brand {
+        border: 1px solid $brand-logo-border-color;
+        width: 200px;
+        height: 100px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 40%;
+      }
+    }
+
+    .button {
+      position: relative;
+      width: 30px;
+      height: 100px;
+      border-radius: 5%;
+      background-color: $brand-button-bg;
+
+      .sign {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        color: $brands-logoBox-color;
+      }
+    }
   }
+}
 
-  .logoBox {
-    border: 1px solid $brand-border-color;
+@media (max-width: 1199px) {
+  .brand:nth-child(n+5) {
+     display: none;
   }
-
-  .button {
-    background-color: $brand-button-bg;
-    height: 100%;
-    width: 2%;
-    min-width: 10px;
+}
+@media (max-width: 991px) {
+  .brand:nth-child(n+4) {
+    display: none;
   }
-
-  .brandsLogoBox {
-    width: 96%;
+}
+@media (max-width: 767px) {
+  .brand:nth-child(n+3) {
+    display: none;
   }
-
-  p {
-    color: $brands-logoBox-color;
-    transform: translate( 0,30%);
-    text-align: center;
+}
+@media (max-width: 511px) {
+  .brand:nth-child(n+2) {
+    display: none;
   }
 }

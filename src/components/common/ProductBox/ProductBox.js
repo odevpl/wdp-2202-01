@@ -4,21 +4,19 @@ import { useDispatch } from 'react-redux';
 
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faStar,
-  faExchangeAlt,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import { addFavorite, removeFavorite } from '../../../redux/favoritesRedux';
+
 import {
   addComparedProduct,
   removeComparedProduct,
 } from '../../../redux/comparedProductsRedux';
 import { NavLink } from 'react-router-dom';
+import StarRating from '../../features/StarRating/StarRating';
 
-const ProductBox = ({ name, price, promo, stars, ...props }) => {
+const ProductBox = ({ name, price, promo, ...props }) => {
   const dispatch = useDispatch();
   const toggleFavorite = () => {
     if (!props.favorite) {
@@ -34,6 +32,7 @@ const ProductBox = ({ name, price, promo, stars, ...props }) => {
       dispatch(removeComparedProduct(props.id));
     }
   };
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -58,17 +57,7 @@ const ProductBox = ({ name, price, promo, stars, ...props }) => {
         <NavLink to={`/product/${props.id}`}>
           <h5>{name}</h5>
         </NavLink>
-        <div className={styles.stars}>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-              )}
-            </a>
-          ))}
-        </div>
+        <StarRating product={props.product} />
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
@@ -118,11 +107,8 @@ ProductBox.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   promo: PropTypes.string,
-  stars: PropTypes.number,
   favorite: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   addedForComparison: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  page: PropTypes.number,
-  index: PropTypes.number,
   product: PropTypes.object,
 };
 
