@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './Homepage.module.scss';
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import DealsBox from '../../features/DealsBox/DealsBox';
-import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
+// import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Feedback from '../../layout/Feedback/FeedbackContainer';
 import Brands from '../../features/Brands/BrandsContainer';
 import Promoted from '../../features/Promoted/Promoted';
@@ -14,7 +14,7 @@ const Homepage = () => (
     <Promoted />
     <FeatureBoxes />
     <DealsBox />
-    <NewFurniture />
+    {/* <NewFurniture /> */}
     <Gallery />
     <Feedback />
     <Brands />
