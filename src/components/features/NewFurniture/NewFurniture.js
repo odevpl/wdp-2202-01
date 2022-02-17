@@ -1,7 +1,5 @@
 import ProductBox from '../../common/ProductBox/ProductBox';
-
 import { connect } from 'react-redux';
-
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './NewFurniture.module.scss';
@@ -101,6 +99,12 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <div className='row'>
+
+            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
+              <div key={item.id} className='col-6 col-md-4 col-lg-3'>
+                <ProductBox {...item} />
+              </div>
+            ))}
             <Swipeable
               activePage={activePage}
               handlePageChange={this.handlePageChange.bind(this)}
@@ -117,7 +121,6 @@ NewFurniture.propTypes = {
   children: PropTypes.node,
   favorites: PropTypes.array,
   comparedProducts: PropTypes.array,
-
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -142,9 +145,4 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-const mapStateToProps = state => ({
-  favorites: state.favorites,
-  comparedProducts: state.comparedProducts,
-});
-
-export default connect(mapStateToProps)(NewFurniture);
+export default NewFurniture;
