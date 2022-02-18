@@ -7,7 +7,7 @@ import {
   faShoppingBasket,
   faWindowClose,
 } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+
 import Button from '../../common/Button/Button';
 import styles from './QuickViewModal.module.scss';
 import StarRating from '../StarRating/StarRating';
@@ -16,7 +16,10 @@ const QuickViewModal = ({ product, show, handleClose }) => {
   if (!show) return null;
   return ReactDOM.createPortal(
     <div className={styles.backdrop} onClick={handleClose}>
-      <div className={styles.modalContainer} onClick={e => e.stopPropagation()}>
+      <div
+        className={'d-none d-md-block ' + styles.modalContainer}
+        onClick={e => e.stopPropagation()}
+      >
         <Button className={styles.closeButton} onClick={() => handleClose()}>
           <FontAwesomeIcon icon={faWindowClose}></FontAwesomeIcon>
         </Button>
