@@ -61,8 +61,8 @@ class NewFurniture extends React.Component {
             onClick={() => this.handlePageChange(i)}
             className={i === activePage ? styles.active : undefined}
           >
-            page {i}{' '}
-          </a>{' '}
+            page {i}
+          </a>
         </li>
       );
     }
@@ -91,7 +91,7 @@ class NewFurniture extends React.Component {
                   product={item}
                   favorite={favorite}
                   addedForComparison={addedForComparison}
-                />{' '}
+                />
               </div>
             );
           })
@@ -104,41 +104,35 @@ class NewFurniture extends React.Component {
           <div className={styles.panelBar}>
             <div className='row no-gutters align-items-end'>
               <div className={'col-auto ' + styles.heading}>
-                <h3> New furniture </h3>{' '}
-              </div>{' '}
+                <h3> New furniture </h3>
+              </div>
               <div className={'col ' + styles.menu}>
                 <ul>
-                  {' '}
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
                         className={item.id === activeCategory && styles.active}
                         onClick={() => this.handleCategoryChange(item.id)}
                       >
-                        {item.name}{' '}
-                      </a>{' '}
+                        {item.name}
+                      </a>
                     </li>
-                  ))}{' '}
-                </ul>{' '}
-              </div>{' '}
+                  ))}
+                </ul>
+              </div>
               <div className={'col-auto ' + styles.dots}>
                 <ul>{dots}</ul>
               </div>
             </div>
           </div>
           <div className={`row ${isFading ? styles.fadeIn : styles.fadeOut}`}>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-6 col-md-4 col-lg-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
             <Swipeable
               activePage={activePage}
               handlePageChange={this.handlePageChange.bind(this)}
               pages={pages}
-            />{' '}
-          </div>{' '}
-        </div>{' '}
+            />
+          </div>
+        </div>
       </div>
     );
   }
@@ -171,5 +165,13 @@ NewFurniture.defaultProps = {
   categories: [],
   products: [],
 };
+const mapStateToProps = state => {
+  return {
+    categories: state.categories,
+    products: state.products,
+    favorites: state.favorites,
+    comparedProducts: state.comparedProducts,
+  };
+};
 
-export default NewFurniture;
+export default connect(mapStateToProps)(NewFurniture);
