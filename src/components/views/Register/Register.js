@@ -5,44 +5,28 @@ class Register extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-        <div className='row'>
-          <div className='col-2'>
-            <a href='#'>
-              <img src='images/data-space-logo.png' alt='logo' />
-            </a>
-          </div>
-          <div className={`col-6 ${styles.leftNavLink}`}>
-            <a href='#'>Zarejestruj się</a>
-          </div>
-          <div className={`col-2 ${styles.rightNavLink}`}>
-            <a href='#'>Zaloguj się</a>
-          </div>
-          <div className={`col-2 ${styles.rightNavLink}`}>
-            <a href='#'>Zarejestruj się</a>
-          </div>
-        </div>
         <div className={`container ${styles.form}`}>
-          <h5>Załóż konto</h5>
+          <h5>Create an account</h5>
           <form>
             <div className='form-group row'>
               <label className='col-4 align-self-center'>Email</label>
               <input type='email' className='col-8 form-control' />
             </div>
             <div className='form-group row'>
-              <label className='col-4 align-self-center'>Powtórz email</label>
+              <label className='col-4 align-self-center'>Repeat email</label>
               <input type='email' className='col-8 form-control' />
             </div>
             <div className='form-group row'>
-              <label className='col-4'>Hasło</label>
+              <label className='col-4'>Password</label>
               <input type='password' className='col-8 form-control' />
             </div>
             <div className='form-group row'>
-              <label className='col-4'>Powtórz hasło</label>
+              <label className='col-4'>Repeat password</label>
               <input type='password' className='col-8 form-control' />
             </div>
             <div className='form-select row'>
               <label className='col-4 form-select-label' htmlFor='exampleCheck1'>
-                Telefon
+                Phone number
               </label>
               <select className='col-2 form-control' id='exampleFormControlSelect1'>
                 <option>+48(PL)</option>
@@ -61,7 +45,7 @@ class Register extends React.Component {
                   id='exampleCheck1'
                 />
                 <label className='form-check-label' htmlFor='exampleCheck1'>
-                  Akceptuję <a href='#'>warunki korzystania</a> z serwisu
+                  I agree to <a href='#'>the terms and conditions</a> of service use
                 </label>
               </div>
               <br />
@@ -72,16 +56,14 @@ class Register extends React.Component {
                   id='exampleCheck1'
                 />
                 <label className='form-check-label' htmlFor='exampleCheck1'>
-                  Oświadczam, że zapoznałem się z{' '}
-                  <a href='#'>obowiązkiem informacyjnym</a>, dotyczącym przetwarzania
-                  danych osobowych
+                  I have read and accept <a href='#'>the Privacy Statement</a>
                 </label>
               </div>
             </div>
             <div className={styles.submit}>
               <a className='col-3'>
                 <a href='/' className={styles.submitButton}>
-                  Załóż konto
+                  Create an account
                 </a>
               </a>
             </div>
