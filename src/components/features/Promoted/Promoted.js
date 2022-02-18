@@ -23,7 +23,7 @@ const Promoted = () => {
   const dots = [];
   for (let i = 0; i < 3; i++) {
     dots.push(
-      <li>
+      <li key={i}>
         <a> </a>
       </li>
     );
