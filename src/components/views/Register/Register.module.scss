@@ -13,14 +13,18 @@
 
   .leftNavLink {
     align-self: center;
+    a {
     font-size: 16px;
     color: grey;
+  }
   }
 
   .rightNavLink {
     align-self: flex-end;
-    font-size: 14px;
-    color: grey;
+    a {
+      font-size: 14px;
+      color: grey;
+    }
   }
 
   .form {
@@ -43,6 +47,9 @@
 
       .form-check-label {
         text-align: justify;
+      }
+      a {
+        color: blue;
       }
     }
     .submit {
