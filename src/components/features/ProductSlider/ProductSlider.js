@@ -9,6 +9,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getAll } from '../../../redux/productsRedux';
 import Button from '../../common/Button/Button';
 import StarRating from '../StarRating/StarRating';
@@ -84,11 +85,13 @@ const ProductSlider = () => {
               className={index === activeProduct ? styles.productContainer : ''}
             >
               <div className={styles.imageContainer}>
-                <img
-                  className={styles.image}
-                  src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 2.jpg`}
-                  alt='hot-deal'
-                />
+                <NavLink to={`product/${hotDealProduct.id}`}>
+                  <img
+                    className={styles.image}
+                    src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 2.jpg`}
+                    alt='hot-deal'
+                  />
+                </NavLink>
                 <Button className={styles.button} variant='small'>
                   <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
                   Add to cart
@@ -109,7 +112,9 @@ const ProductSlider = () => {
                 </div>
               </div>
               <div className={styles.content}>
-                <h5>{hotDealProduct.name}</h5>
+                <NavLink to={`product/${hotDealProduct.id}`}>
+                  <h5>{hotDealProduct.name}</h5>
+                </NavLink>
                 <StarRating product={hotDealProduct} />
                 <div className={styles.line}></div>
               </div>
