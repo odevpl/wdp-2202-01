@@ -54,6 +54,9 @@ const ProductBox = ({ name, price, promo, ...props }) => {
         </div>
       </div>
       <div className={styles.content}>
+        <h5>{name}</h5>
+        <StarRating product={props.product} />
+
         <NavLink to={`/product/${props.id}`}>
           <h5>{name}</h5>
         </NavLink>
