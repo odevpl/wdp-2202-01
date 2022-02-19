@@ -79,5 +79,7 @@ const QuickViewModal = ({ product, show, handleClose }) => {
 
 QuickViewModal.propTypes = {
   product: PropTypes.object.isRequired,
+  show: PropTypes.bool,
+  handleClose: PropTypes.func,
 };
 export default QuickViewModal;
