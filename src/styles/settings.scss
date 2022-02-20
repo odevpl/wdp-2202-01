@@ -14,8 +14,6 @@ $coolGray: #434343;
 $greenColor: #79ae30;
 $grayImage: #f8f8f8;
 $mediumBlue: #57a8ff;
-
-
 // ASSIGNED COLORS
 
 $button-bg: $darkGray;
@@ -120,6 +118,7 @@ $global-transition-time: 0.25s;
     transform: translateY($translate-by);
   }
 }
+
 //2. Placeholder for text
 @mixin text-hover-animation(
   $text-color,

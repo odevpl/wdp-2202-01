@@ -2,7 +2,6 @@ import React from 'react';
 import { faCalendarAlt, faComments } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../common/Button/Button';
-
 import styles from './HomeBlog.module.scss';
 
 const HomeBlog = () => (
