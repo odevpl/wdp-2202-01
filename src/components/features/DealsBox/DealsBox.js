@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getAll } from '../../../redux/dealsRedux';
 
 const DealsBox = () => {
-  const deals = useSelector(state => getAll(state));
+  const deals = useSelector(state => getAll(state)).banners;
 
   const bannerLarge = deals.find(deal => deal.id === 'banner-large');
   const bannerSmallTop = deals.find(deal => deal.id === 'banner-small-top');
