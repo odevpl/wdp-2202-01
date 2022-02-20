@@ -1,22 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import QuickViewModal from '../../features/QuickViewModal/QuickViewModal';
 import { addFavorite, removeFavorite } from '../../../redux/favoritesRedux';
 
 import {
   addComparedProduct,
   removeComparedProduct,
 } from '../../../redux/comparedProductsRedux';
+import { NavLink } from 'react-router-dom';
 import StarRating from '../../features/StarRating/StarRating';
 
 const ProductBox = ({ name, price, promo, ...props }) => {
   const dispatch = useDispatch();
+  const [openQuickView, setOpenQuickView] = useState(false);
   const toggleFavorite = () => {
     if (!props.favorite) {
       dispatch(addFavorite(props.product));
@@ -37,21 +41,27 @@ const ProductBox = ({ name, price, promo, ...props }) => {
       <div className={styles.photo}>
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.imageContainer}>
-          <img
-            className={styles.image}
-            alt={name}
-            src={`${process.env.PUBLIC_URL}/images/products/${name}.jpg`}
-          />
+          <NavLink to={`/product/${props.id}`}>
+            <img
+              className={styles.image}
+              alt={name}
+              src={`${process.env.PUBLIC_URL}/images/products/${name}.jpg`}
+            />
+          </NavLink>
         </div>
         <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
+          <Button variant='small' onClick={() => setOpenQuickView(true)}>
+            Quick View
+          </Button>
           <Button variant='small'>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
       </div>
       <div className={styles.content}>
-        <h5>{name}</h5>
+        <NavLink to={`/product/${props.id}`}>
+          <h5>{name}</h5>
+        </NavLink>
         <StarRating product={props.product} />
       </div>
       <div className={styles.line}></div>
@@ -71,6 +81,7 @@ const ProductBox = ({ name, price, promo, ...props }) => {
               Favorite
             </FontAwesomeIcon>
           </Button>
+
           <Button
             noHover
             actionbtn
@@ -92,6 +103,11 @@ const ProductBox = ({ name, price, promo, ...props }) => {
           </Button>
         </div>
       </div>
+      <QuickViewModal
+        product={props.product}
+        show={openQuickView}
+        handleClose={() => setOpenQuickView(false)}
+      />
     </div>
   );
 };

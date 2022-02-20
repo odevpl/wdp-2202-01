@@ -1,0 +1,237 @@
+@import "../../../styles/settings.scss";
+
+.hotDealPanel {
+  border: 1px solid $promoted-border-color;
+
+  &:hover .priceButton {
+    background-color: $primary;
+  }
+}
+.dealsBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $darkGray;
+  color: $white;
+
+  h3 {
+    padding: 5px 20px 5px;
+    margin: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 40px;
+
+    @media (max-width: 1000px) {
+      padding: 5px 10px 5px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+    @media (max-width: 1000px) {
+      margin: 3px;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-right: 10px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 12px;
+        height: 12px;
+        background-color: $white;
+        border-radius: 50%;
+        &.active {
+          background-color: $primary;
+        }
+        @include element-hover-animation($primary);
+      }
+    }
+  }
+}
+.imageContainer {
+  position: relative;
+  height: 250px;
+  object-fit: cover;
+
+  @media (max-width: 1200px) {
+    height: 212px;
+  }
+  @media (max-width: 1000px) {
+    height: 190px;
+  }
+
+  &:hover .button,
+  &:hover .discountTime {
+    opacity: 1;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .button {
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    transition: all static;
+    @media (max-width: 1200px) {
+      opacity: 1;
+      top: 40%;
+    }
+
+    .icon {
+      margin-right: 5px;
+    }
+  }
+
+  .discountTime {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: $white;
+    text-transform: uppercase;
+    transition: all static;
+    opacity: 0;
+    @media (max-width: 1200px) {
+      opacity: 1;
+      bottom: 10%;
+    }
+
+    .circle {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin: 0 3px;
+      width: 72px;
+      height: 72px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 50%;
+      line-height: 25px;
+      @media (max-width: 1200px) {
+        width: 50px;
+        height: 50px;
+        font-size: 12px;
+      }
+      @media (max-width: 1000px) {
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+      }
+      span {
+        font-size: 25px;
+        margin-top: 12px;
+        @media (max-width: 1200px) {
+          font-size: 18px;
+        }
+        @media (max-width: 1000px) {
+          font-size: 15px;
+          margin-top: 7px;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  text-align: center;
+  padding: 20px;
+  @media (max-width: 1000px) {
+    padding: 7px;
+  }
+
+  h5 {
+    color: $darkGray;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+  }
+
+  .stars {
+    a {
+      text-decoration: none;
+      color: $darkGray;
+    }
+  }
+}
+
+.line {
+  margin: 15px;
+  border-bottom: 1px solid $promoted-line-border-color;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    width: 30px;
+    border-bottom: 4px solid $primary;
+    transform: translateX(-50%);
+  }
+}
+
+.actions {
+  padding: 15px 10px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .outlines {
+    @media (max-width: 1000px) {
+      display: none;
+    }
+  }
+
+  .price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .previousPrice {
+      margin-right: 10px;
+      text-decoration: line-through;
+      color: $silverGray;
+    }
+    .priceButton {
+      transition: all $global-transition-time;
+    }
+  }
+
+  .btnActive {
+    background-color: $primary;
+  }
+
+  .iconActive {
+    color: white;
+  }
+}
+
+.productContainer {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
