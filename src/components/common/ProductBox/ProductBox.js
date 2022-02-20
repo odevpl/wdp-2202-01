@@ -76,6 +76,7 @@ const ProductBox = ({ name, price, promo, ...props }) => {
               Favorite
             </FontAwesomeIcon>
           </Button>
+
           <Button
             noHover
             actionbtn
