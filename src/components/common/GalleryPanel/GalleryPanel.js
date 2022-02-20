@@ -10,32 +10,29 @@ import SwipeableViews from 'react-swipeable-views/lib/SwipeableViews';
 import StarRating from '../../features/StarRating/StarRating';
 import Button from '../Button/Button';
 import styles from './GalleryPanel.module.scss';
+import InfiniteCarousel from 'react-leaf-carousel';
+import './GalleryPanel.css';
 
 const GalleryPanel = data => {
-  const [activePromo, setActivePromo] = useState(0);
+  const [activeCarousel, setActiveCarousel] = useState(0);
 
-  const previousGallery = () => {
-    let promo = activePromo - 1 < 0 ? 0 : activePromo - 1;
-    setActivePromo(promo);
+  const handleThumbActive = index => {
+    setActiveCarousel(index);
   };
-  const nextGallery = () => {
-    let promo =
-      activePromo + 1 > data.data.length - 1 ? data.data.length - 1 : activePromo + 1;
-    setActivePromo(promo);
-  };
+  const handleGalleryChange = nextGallery => setActiveCarousel(nextGallery);
 
-  const handleGalleryChange = nextPromo => setActivePromo(nextPromo);
   return (
-    <div>
+    <div className={styles.root}>
       <SwipeableViews
         enableMouseEvents
-        index={activePromo}
+        disabled={true}
+        index={activeCarousel}
         onChangeIndex={index => {
           handleGalleryChange(index);
         }}
         slideStyle={{ overflow: 'hidden' }}
       >
-        {data.data.map((data, index) => {
+        {data.data.map(data => {
           return (
             <div className={styles.content} key={data.id}>
               <div className={styles.imageContainer}>
@@ -80,26 +77,80 @@ const GalleryPanel = data => {
           );
         })}
       </SwipeableViews>
-      <div className={styles.carousel}>
-        <div className={styles.button} onClick={previousGallery}>
-          <p> &#x2329; </p>
-        </div>
-        <div className={styles.thumbnails}>
-          {data.data.map((data, index) => {
-            return (
-              <a className={index === activePromo ? styles.active : ''} key={data.id}>
-                <img
-                  alt={`${data.name}`}
-                  src={`${process.env.PUBLIC_URL}/images/products/${data.name}.jpg`}
-                ></img>
-              </a>
-            );
-          })}
-        </div>
-        <div className={styles.button} onClick={nextGallery}>
-          <p> &#x232A; </p>
-        </div>
-      </div>
+      <InfiniteCarousel
+        breakpoints={[
+          {
+            breakpoint: 320,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 375,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            },
+          },
+          {
+            breakpoint: 425,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            },
+          },
+          {
+            breakpoint: 500,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 4,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 5,
+              slidesToScroll: 5,
+            },
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            },
+          },
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 4,
+            },
+          },
+        ]}
+        dots={false}
+        showSides={true}
+        sidesOpacity={0.5}
+        sideSize={0.5}
+        slidesToScroll={6}
+        slidesToShow={6}
+        arrows={true}
+        class
+      >
+        {data.data.map((data, index) => {
+          return (
+            <a key={data.id} className={index === activeCarousel ? 'active' : ''}>
+              <img
+                alt={`${data.name}`}
+                src={`${process.env.PUBLIC_URL}/images/products/${data.name}.jpg`}
+                style={{ width: '70px', height: '70px' }}
+                onClick={() => handleThumbActive(index)}
+              ></img>
+            </a>
+          );
+        })}
+      </InfiniteCarousel>
     </div>
   );
 };

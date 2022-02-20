@@ -3,7 +3,9 @@
 .root {
   margin-bottom: 60px;
 
+
   .firstPanel {
+    
     :global(.row) > * {
       border-bottom: 4px solid $GalleryMainBar;
     }

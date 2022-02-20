@@ -618,11 +618,10 @@ const initialState = {
     featured: [
       {
         id: 1,
-        name: 'Aenean Ru Bristique 2',
+        name: 'Aenean Ru Bristique 9',
         newPrice: 130,
         previousPrice: 100,
         stars: 4,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 2.jpg`,
       },
       {
         id: 2,
@@ -630,7 +629,6 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 2,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 3.jpg`,
       },
       {
         id: 3,
@@ -638,7 +636,6 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 4,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 6.jpg`,
       },
       {
         id: 4,
@@ -646,7 +643,6 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 4,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 10.jpg`,
       },
       {
         id: 5,
@@ -654,15 +650,27 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 2,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 12.jpg`,
       },
       {
         id: 6,
+        name: 'Aenean Ru Bristique 9',
+        newPrice: 130,
+        previousPrice: 100,
+        stars: 4,
+      },
+      {
+        id: 7,
+        name: 'Aenean Ru Bristique 12',
+        newPrice: 130,
+        previousPrice: 100,
+        stars: 2,
+      },
+      {
+        id: 8,
         name: 'Aenean Ru Bristique 2',
         newPrice: 130,
         previousPrice: 100,
         stars: 4,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 2.jpg`,
       },
     ],
     topSeller: [
@@ -672,7 +680,6 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 4,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 1.jpg`,
       },
       {
         id: 2,
@@ -680,7 +687,6 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 2,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 12.jpg`,
       },
       {
         id: 3,
@@ -688,7 +694,6 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 4,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 15.jpg`,
       },
       {
         id: 4,
@@ -696,7 +701,6 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 4,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 10.jpg`,
       },
       {
         id: 5,
@@ -704,7 +708,6 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 2,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 12.jpg`,
       },
       {
         id: 6,
@@ -712,7 +715,20 @@ const initialState = {
         newPrice: 130,
         previousPrice: 100,
         stars: 4,
-        imageSrc: `${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 15.jpg`,
+      },
+      {
+        id: 7,
+        name: 'Aenean Ru Bristique 12',
+        newPrice: 130,
+        previousPrice: 100,
+        stars: 2,
+      },
+      {
+        id: 8,
+        name: 'Aenean Ru Bristique 15',
+        newPrice: 130,
+        previousPrice: 100,
+        stars: 4,
       },
     ],
     saleOff: [

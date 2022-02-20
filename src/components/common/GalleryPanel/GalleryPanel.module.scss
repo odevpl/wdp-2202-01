@@ -1,177 +1,130 @@
 @import "../../../styles/settings.scss";
 
-.content {
-  border: 1px solid $gray-200;
-  border-top: none;
+.root {
+  .content {
+    border: 1px solid $gray-200;
+    border-top: none;
 
-  .imageContainer {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    background-color: $gallery-bg-image;
-
-    img {
-      position: absolute;
-      top: 0;
+    .imageContainer {
+      position: relative;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+      height: 350px;
+      background-color: $gallery-bg-image;
 
-    .outlines {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      height: 100%;
-
-      .icon {
-        position: relative;
-        margin: 0 0 6px 6px;
-        width: 35px;
-
-        .toolTip {
-          display: none;
-          position: absolute;
-          right: -120px;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 110px;
-          padding: 0 5px;
-          background-color: $darkGray;
-          text-align: center;
-          font-size: 12px;
-
-          &::after {
-            content: "";
-            position: absolute;
-            left: -5px;
-            top: 6px;
-            transform: rotate(45deg);
-            width: 10px;
-            height: 10px;
-            background-color: $darkGray;
-          }
-        }
-
-        &:hover .toolTip {
-          display: block;
-        }
-      }
-    }
-    .sale {
-      position: absolute;
-      right: 0;
-      bottom: 10%;
-      padding: 30px;
-      text-align: center;
-      background-color: $white;
-      box-shadow: -1px 3px 3px $gallery-boxshadow;
-
-      &::before {
-        content: "";
+      img {
         position: absolute;
         top: 0;
-        left: 0;
-        border-top: 40px solid $darkGray;
-        border-right: 40px solid transparent;
-        width: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        border-bottom: 40px solid $darkGray;
-        border-left: 40px solid transparent;
-        width: 0;
-      }
-
-      .circle {
+      .outlines {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        position: absolute;
-        left: 50%;
-        top: -80px;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 100px;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        color: $white;
-
-        span:first-child {
-          font-size: 20px;
-          font-weight: 500;
-        }
-        span:last-child {
-          font-size: 15px;
-          text-decoration: line-through;
-        }
-      }
-
-      h3 {
-        font-size: 20px;
-      }
-
-      a {
-        color: $darkGray;
-      }
-    }
-  }
-  animation: fadeIn 1s;
-}
-
-.carousel {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 8px;
-  border: 1px solid $gallery-border-color;
-
-  .thumbnails {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
-
-    a {
-      border: 1px solid $gallery-border-color;
-      background-color: $gallery-border-color;
-      opacity: 50%;
-      width: 70px;
-      height: 70px;
-
-      img {
-        object-fit: cover;
-        width: 100%;
+        align-items: flex-start;
         height: 100%;
-      }
 
-      &.active {
-        opacity: 100%;
+        .icon {
+          position: relative;
+          margin: 0 0 6px 6px;
+          width: 35px;
+
+          .toolTip {
+            display: none;
+            position: absolute;
+            right: -120px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 110px;
+            padding: 0 5px;
+            background-color: $darkGray;
+            text-align: center;
+            font-size: 12px;
+
+            &::after {
+              content: "";
+              position: absolute;
+              left: -5px;
+              top: 6px;
+              transform: rotate(45deg);
+              width: 10px;
+              height: 10px;
+              background-color: $darkGray;
+            }
+          }
+
+          &:hover .toolTip {
+            display: block;
+          }
+        }
+      }
+      .sale {
+        position: absolute;
+        right: 0;
+        bottom: 10%;
+        padding: 30px;
+        text-align: center;
+        background-color: $white;
+        box-shadow: -1px 3px 3px $gallery-boxshadow;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-top: 40px solid $darkGray;
+          border-right: 40px solid transparent;
+          width: 0;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          border-bottom: 40px solid $darkGray;
+          border-left: 40px solid transparent;
+          width: 0;
+        }
+
+        .circle {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: absolute;
+          left: 50%;
+          top: -80px;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 100px;
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 50%;
+          color: $white;
+
+          span:first-child {
+            font-size: 20px;
+            font-weight: 500;
+          }
+          span:last-child {
+            font-size: 15px;
+            text-decoration: line-through;
+          }
+        }
+
+        h3 {
+          font-size: 20px;
+        }
+
+        a {
+          color: $darkGray;
+        }
       }
     }
+    animation: fadeIn 1s;
   }
-
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $darkGray;
-    width: 30px;
-
-    p {
-      margin: 0;
-      color: $white;
-    }
-  }
-  animation: fadeIn 1s;
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;

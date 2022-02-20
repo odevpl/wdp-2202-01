@@ -1,0 +1,42 @@
+.InfiniteCarousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid #e1e1e1;
+  padding: 5px;
+}
+.InfiniteCarouselArrowIcon {
+  display: flex;
+  width: 100%;
+  height: 10px;
+  padding: 5px;
+}
+.InfiniteCarouselArrow {
+  height: 70px;
+  background-color: #2a2a2a;
+}
+
+.InfiniteCarouselArrowPrev {
+  position: unset;
+  transform: none;
+  margin-right: 5px;
+}
+.InfiniteCarouselArrowNext {
+  margin-left: 5px;
+  position: unset;
+  transform: none;
+}
+.InfiniteCarouselFrame {
+  width: 100%;
+}
+.InfiniteCarousel .InfiniteCarouselFrame ul li a {
+  height: 100%;
+  width: 100%;
+  opacity: 50%;
+  z-index: 5;
+}
+.InfiniteCarousel .InfiniteCarouselFrame ul li a.active {
+  opacity: 100%;
+}
+
