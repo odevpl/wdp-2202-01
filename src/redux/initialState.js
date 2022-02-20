@@ -865,9 +865,9 @@ const initialState = {
     ],
     galleryCategories: [
       { id: 'featured', name: 'featured' },
-      { id: 'topSeller', name: 'topSeller' },
-      { id: 'saleOff', name: 'saleOff' },
-      { id: 'topRated', name: 'topRated' },
+      { id: 'topSeller', name: 'top Seller' },
+      { id: 'saleOff', name: 'sale Off' },
+      { id: 'topRated', name: 'top Rated' },
     ],
   },
 

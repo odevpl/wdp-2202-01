@@ -3,9 +3,7 @@
 .root {
   margin-bottom: 60px;
 
-
   .firstPanel {
-    
     :global(.row) > * {
       border-bottom: 4px solid $GalleryMainBar;
     }
@@ -108,13 +106,13 @@
         padding: 15px;
         background-color: $gallery-green-color;
         border-radius: 5px;
+        text-transform: uppercase;
+        color: $white;
 
-        a {
-          text-transform: uppercase;
-          color: $white;
+        &:hover {
+          text-decoration: none;
         }
       }
     }
   }
 }
-

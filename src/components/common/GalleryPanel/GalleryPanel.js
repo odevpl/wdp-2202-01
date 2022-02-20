@@ -118,7 +118,6 @@ const GalleryPanel = data => {
                     <div className={styles.toolTip}>Add to cart</div>
                   </Button>
                 </div>
-
                 <div className={styles.sale}>
                   <div className={styles.circle}>
                     <span>${data.previousPrice}</span>

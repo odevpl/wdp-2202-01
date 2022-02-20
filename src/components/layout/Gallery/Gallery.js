@@ -68,7 +68,6 @@ const Gallery = () => {
                 ))}
               </ul>
             </div>
-
             {topSellerActive ? <TopSeller /> : ''}
             {featuredActive ? <Featured /> : ''}
             {saleOffActive ? <SaleOff /> : ''}
