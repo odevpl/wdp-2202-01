@@ -26,6 +26,8 @@ $button-border-color: $darkGray;
 $button-border-text: $darkGray;
 $button-hover-border: $darkGray;
 $button-hover-text: $white;
+$button-backgound-blog: $darkGray;
+$button-backgound-blog: $white;
 
 $promoted-line-border-color: $darkGray;
 $promoted-border-color: $gray-200;
@@ -87,9 +89,17 @@ $brand-border-color: $gray-200;
 $brand-button-bg: $darkGray;
 $brands-logoBox-color: $white;
 
-$login-button-bg: $justGray;               
+$login-button-bg: $justGray;
 $login-button-color: $darkGray;
 $login-button-text: $primary;
+
+$lastest-blog-border-bottom: $darkGray;
+$lastest-blog-header: $primary;
+$lastest-blog-underscore: $primary;
+$lastest-blog-inactive-dot: $darkGray;
+$lastest-blog-active-dot: $primary;
+$lastest-blog-background: $white;
+$lastest-blog-title: $primary;
 
 // FORMAT
 $base-padding: 24px;
