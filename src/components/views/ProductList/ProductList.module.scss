@@ -2,4 +2,34 @@
 
 .root {
   padding: $base-padding 0;
+
+  .productsContainer {
+    padding: 0 0;
+  }
+
+  .switch {
+    margin-right: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px solid $featureBox-border-color;
+
+    .switchButton {
+      border: none;
+      height: 36px;
+      width: 36px;
+      background-color: $white;
+
+      &:active {
+        color: $primary;
+      }
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.active {
+  color: $primary;
 }
