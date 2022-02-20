@@ -2,7 +2,7 @@
 
 .root {
   .content {
-    border: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-200;
     border-top: none;
 
     .imageContainer {
@@ -57,6 +57,12 @@
 
           &:hover .toolTip {
             display: block;
+            color: $gallery-boxshadow;
+          }
+          &:hover {
+            color: $primary;
+            background-color: transparent;
+            border: $primary 1px solid;
           }
         }
       }
@@ -67,7 +73,7 @@
         padding: 30px;
         text-align: center;
         background-color: $white;
-        box-shadow: -1px 3px 3px $gallery-boxshadow;
+        box-shadow: -1px 3px 8px $darkGray;
 
         &::before {
           content: "";
@@ -124,7 +130,11 @@
     }
     animation: fadeIn 1s;
   }
+  .slider {
+    animation: fadeIn 1s;
+  }
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;

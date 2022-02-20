@@ -10,8 +10,10 @@ import SwipeableViews from 'react-swipeable-views/lib/SwipeableViews';
 import StarRating from '../../features/StarRating/StarRating';
 import Button from '../Button/Button';
 import styles from './GalleryPanel.module.scss';
-import InfiniteCarousel from 'react-leaf-carousel';
-import './GalleryPanel.css';
+import './GalleryThumbs.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 const GalleryPanel = data => {
   const [activeCarousel, setActiveCarousel] = useState(0);
@@ -19,7 +21,60 @@ const GalleryPanel = data => {
   const handleThumbActive = index => {
     setActiveCarousel(index);
   };
+
   const handleGalleryChange = nextGallery => setActiveCarousel(nextGallery);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+    ],
+  };
 
   return (
     <div className={styles.root}>
@@ -77,80 +132,21 @@ const GalleryPanel = data => {
           );
         })}
       </SwipeableViews>
-      <InfiniteCarousel
-        breakpoints={[
-          {
-            breakpoint: 320,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-            },
-          },
-          {
-            breakpoint: 375,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-            },
-          },
-          {
-            breakpoint: 425,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-            },
-          },
-          {
-            breakpoint: 500,
-            settings: {
-              slidesToShow: 4,
-              slidesToScroll: 4,
-            },
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 5,
-              slidesToScroll: 5,
-            },
-          },
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-            },
-          },
-          {
-            breakpoint: 1200,
-            settings: {
-              slidesToShow: 4,
-              slidesToScroll: 4,
-            },
-          },
-        ]}
-        dots={false}
-        showSides={true}
-        sidesOpacity={0.5}
-        sideSize={0.5}
-        slidesToScroll={6}
-        slidesToShow={6}
-        arrows={true}
-        class
-      >
-        {data.data.map((data, index) => {
-          return (
-            <a key={data.id} className={index === activeCarousel ? 'active' : ''}>
-              <img
-                alt={`${data.name}`}
-                src={`${process.env.PUBLIC_URL}/images/products/${data.name}.jpg`}
-                style={{ width: '70px', height: '70px' }}
-                onClick={() => handleThumbActive(index)}
-              ></img>
-            </a>
-          );
-        })}
-      </InfiniteCarousel>
+      <div className={styles.slider}>
+        <Slider {...settings}>
+          {data.data.map((data, index) => {
+            return (
+              <a key={data.id} className={index === activeCarousel ? 'active' : ''}>
+                <img
+                  alt={`${data.name}`}
+                  src={`${process.env.PUBLIC_URL}/images/products/${data.name}.jpg`}
+                  onClick={() => handleThumbActive(index)}
+                ></img>
+              </a>
+            );
+          })}
+        </Slider>
+      </div>
     </div>
   );
 };

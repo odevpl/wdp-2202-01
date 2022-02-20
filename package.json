@@ -59,13 +59,14 @@
     "react": "^16.9.0",
     "react-alice-carousel": "^2.5.1",
     "react-dom": "^16.9.0",
-    "react-leaf-carousel": "^3.0.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
+    "react-slick": "^0.28.1",
     "react-swipeable-views": "^0.14.0",
     "react-test-renderer": "^16.9.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "husky": "^3.1.0",
