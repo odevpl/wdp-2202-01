@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import { getViewport } from './../../../redux/viewportRedux';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    boxNum: this.boxNum(this.props.viewPort),
   };
 
   handlePageChange(newPage) {
@@ -17,13 +20,30 @@ class NewFurniture extends React.Component {
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
+  boxNum(viewPort) {
+    if (viewPort === 'tablet') {
+      return 4;
+    } else if (viewPort === 'mobile') {
+      return 2;
+    } else {
+      return 8;
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.viewPort !== this.props.viewPort) {
+      this.setState(prevState => ({
+        ...prevState,
+        boxNum: this.boxNum(this.props.viewPort),
+      }));
+    }
+  }
 
   render() {
     const { categories, products } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount = Math.ceil(categoryProducts.length / this.state.boxNum);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -67,11 +87,16 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(
+                activePage * this.state.boxNum,
+                (activePage + 1) * this.state.boxNum
+              )
+              .map(item => (
+                <div key={item.id} className='col-3'>
+                  <ProductBox {...item} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
@@ -81,6 +106,7 @@ class NewFurniture extends React.Component {
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
+  viewPort: PropTypes.string,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -104,5 +130,8 @@ NewFurniture.defaultProps = {
   categories: [],
   products: [],
 };
+const mapStateToProps = state => ({
+  viewPort: getViewport(state),
+});
 
-export default NewFurniture;
+export default connect(mapStateToProps)(NewFurniture);
