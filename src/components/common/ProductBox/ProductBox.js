@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import QuickViewModal from '../../features/QuickViewModal/QuickViewModal';
 import { addFavorite, removeFavorite } from '../../../redux/favoritesRedux';
 
 import {
@@ -18,6 +20,7 @@ import StarRating from '../../features/StarRating/StarRating';
 
 const ProductBox = ({ name, price, promo, ...props }) => {
   const dispatch = useDispatch();
+  const [openQuickView, setOpenQuickView] = useState(false);
   const toggleFavorite = () => {
     if (!props.favorite) {
       dispatch(addFavorite(props.product));
@@ -47,7 +50,9 @@ const ProductBox = ({ name, price, promo, ...props }) => {
           </NavLink>
         </div>
         <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
+          <Button variant='small' onClick={() => setOpenQuickView(true)}>
+            Quick View
+          </Button>
           <Button variant='small'>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
@@ -98,6 +103,11 @@ const ProductBox = ({ name, price, promo, ...props }) => {
           </Button>
         </div>
       </div>
+      <QuickViewModal
+        product={props.product}
+        show={openQuickView}
+        handleClose={() => setOpenQuickView(false)}
+      />
     </div>
   );
 };

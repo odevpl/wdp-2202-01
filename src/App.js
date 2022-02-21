@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import login from './components/views/LoginPage/Login';
 
 import './styles/bootstrap.scss';
 import './styles/global.scss';
@@ -11,6 +12,7 @@ import Homepage from './components/views/Homepage/Homepage';
 import ProductList from './components/views/ProductList/ProductList';
 import ProductPage from './components/views/ProductPage/ProductPage';
 import BlogPage from './components/views/BlogPage/BlogPage';
+import Register from './components/views/Register/Register';
 
 const App = () => (
   <Provider store={store}>
@@ -20,7 +22,9 @@ const App = () => (
           <Route exact path={'/'} component={Homepage} />
           <Route exact path={'/shop/blog'} component={BlogPage} />
           <Route exact path={'/shop/:categoryId'} component={ProductList} />
+          <Route exact path={'/login'} component={login} />
           <Route exact path={'/product/:productId'} component={ProductPage} />
+          <Route exact path={'/register'} component={Register} />
         </Switch>
       </MainLayout>
     </BrowserRouter>

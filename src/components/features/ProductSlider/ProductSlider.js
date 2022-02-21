@@ -9,6 +9,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getAll } from '../../../redux/productsRedux';
 import Button from '../../common/Button/Button';
 import StarRating from '../StarRating/StarRating';
@@ -17,31 +18,35 @@ import styles from './ProductSlider.module.scss';
 const ProductSlider = () => {
   const [activeProduct, setActiveProduct] = useState(0);
   const [sliderPaused, setSliderPaused] = useState(false);
+  const sliderPauseTimerRef = useRef();
   const timeOutRef = useRef();
   const products = useSelector(getAll);
   const hotDealProducts = products.filter(product => product.hotDeal === true);
 
   const handleProductChange = nextProduct => setActiveProduct(nextProduct);
+  const nextProduct = () => {
+    let product = activeProduct + 1 < hotDealProducts.length ? activeProduct + 1 : 0;
+    setActiveProduct(product);
+  };
   useEffect(() => {
-    const nextProduct = () => {
-      let product = activeProduct + 1 < hotDealProducts.length ? activeProduct + 1 : 0;
-      setActiveProduct(product);
-    };
     if (!sliderPaused) {
       const id = setTimeout(nextProduct, 3000);
       timeOutRef.current = id;
     }
 
     return () => clearTimeout(timeOutRef.current);
-  }, [activeProduct, sliderPaused, hotDealProducts.length]);
+  }, [activeProduct, sliderPaused, hotDealProducts.length, nextProduct]);
   const handleClickOnDot = dot => {
-    setActiveProduct(dot);
     setSliderPaused(true);
-    clearTimeout(timeOutRef);
-    setTimeout(() => {
-      setSliderPaused(false);
-      setActiveProduct(activeProduct => activeProduct + 1);
-    }, 10000);
+    setActiveProduct(dot);
+    clearTimeout(timeOutRef.current);
+
+    if (!sliderPauseTimerRef.current) {
+      sliderPauseTimerRef.current = setTimeout(() => {
+        setSliderPaused(false);
+        sliderPauseTimerRef.current = null;
+      }, 7000);
+    }
   };
 
   return (
@@ -80,11 +85,13 @@ const ProductSlider = () => {
               className={index === activeProduct ? styles.productContainer : ''}
             >
               <div className={styles.imageContainer}>
-                <img
-                  className={styles.image}
-                  src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 2.jpg`}
-                  alt='hot-deal'
-                />
+                <NavLink to={`product/${hotDealProduct.id}`}>
+                  <img
+                    className={styles.image}
+                    src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 2.jpg`}
+                    alt='hot-deal'
+                  />
+                </NavLink>
                 <Button className={styles.button} variant='small'>
                   <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
                   Add to cart
@@ -105,7 +112,9 @@ const ProductSlider = () => {
                 </div>
               </div>
               <div className={styles.content}>
-                <h5>{hotDealProduct.name}</h5>
+                <NavLink to={`product/${hotDealProduct.id}`}>
+                  <h5>{hotDealProduct.name}</h5>
+                </NavLink>
                 <StarRating product={hotDealProduct} />
                 <div className={styles.line}></div>
               </div>
