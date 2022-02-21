@@ -5,6 +5,7 @@ import { updateViewport } from '../../../redux/viewportRedux';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import ComparisonBar from '../../features/ComparisonBar/ComparisonBar';
 
 const MainLayout = ({ children }) => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const MainLayout = ({ children }) => {
       <Header />
       {children}
       <Footer />
+      <ComparisonBar />
     </div>
   );
 };

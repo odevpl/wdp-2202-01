@@ -60,9 +60,6 @@
       font-weight: 600;
       margin: 0;
     }
-
-    p {
-    }
   }
 
   &.active {
@@ -79,5 +76,11 @@
     .content {
       color: $primary;
     }
+  }
+}
+
+@media(max-width: 992px) {
+  .root {
+    height: 142px;
   }
 }

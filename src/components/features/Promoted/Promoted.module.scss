@@ -1,0 +1,17 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  @media (max-width: 580px) {
+    margin-top: 80px;
+  }
+  .productSlider {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  .promoSlider {
+    @media (max-width: 768px) {
+      padding-left: 0;
+    }
+  }
+}
