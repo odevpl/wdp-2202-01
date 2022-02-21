@@ -14,27 +14,36 @@ class NewFurniture extends React.Component {
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({
+      activePage: newPage,
+      isFading: true,
+    });
+    if (this.state.isFading === false) {
+      setTimeout(
+        function() {
+          this.setState({
+            isFading: false,
+          });
+        }.bind(this),
+        500
+      );
+    }
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
-  }
-  boxNum(viewPort) {
-    if (viewPort === 'tablet') {
-      return 4;
-    } else if (viewPort === 'mobile') {
-      return 2;
-    } else {
-      return 8;
-    }
-  }
-  componentDidUpdate(prevProps) {
-    if (prevProps.viewPort !== this.props.viewPort) {
-      this.setState(prevState => ({
-        ...prevState,
-        boxNum: this.boxNum(this.props.viewPort),
-      }));
+    this.setState({
+      activeCategory: newCategory,
+      isFading: true,
+    });
+    if (this.state.isFading === false) {
+      setTimeout(
+        function() {
+          this.setState({
+            isFading: false,
+          });
+        }.bind(this),
+        600
+      );
     }
   }
 
