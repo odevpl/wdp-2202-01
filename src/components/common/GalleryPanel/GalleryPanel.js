@@ -6,7 +6,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import SwipeableViews from 'react-swipeable-views/lib/SwipeableViews';
 import StarRating from '../../features/StarRating/StarRating';
 import Button from '../Button/Button';
 import styles from './GalleryPanel.module.scss';
@@ -21,8 +20,6 @@ const GalleryPanel = data => {
   const handleThumbActive = index => {
     setActiveCarousel(index);
   };
-
-  const handleGalleryChange = nextGallery => setActiveCarousel(nextGallery);
 
   const settings = {
     dots: false,
@@ -78,59 +75,49 @@ const GalleryPanel = data => {
 
   return (
     <div className={styles.root}>
-      <SwipeableViews
-        enableMouseEvents
-        disabled={true}
-        index={activeCarousel}
-        onChangeIndex={index => {
-          handleGalleryChange(index);
-        }}
-        slideStyle={{ overflow: 'hidden' }}
-      >
-        {data.data.map(data => {
-          return (
-            <div className={styles.content} key={data.id}>
-              <div className={styles.imageContainer}>
-                <img
-                  className={styles.image}
-                  src={`${process.env.PUBLIC_URL}/images/products/${data.name}.jpg`}
-                  alt='hot-deal'
-                />
-                <div className={styles.outlines}>
-                  <Button className={styles.icon} variant='outline'>
-                    <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-                    <div className={styles.toolTip}>Add to favorite</div>
-                  </Button>
-                  <Button className={styles.icon} variant='outline'>
-                    <FontAwesomeIcon icon={faExchangeAlt}>
-                      Add to compare
-                    </FontAwesomeIcon>
-                    <div className={styles.toolTip}>Compare</div>
-                  </Button>
-                  <Button className={styles.icon} variant='outline'>
-                    <FontAwesomeIcon icon={faEye}>Add to compare</FontAwesomeIcon>
-                    <div className={styles.toolTip}>Quick view</div>
-                  </Button>
-                  <Button className={styles.icon} variant='outline'>
-                    <FontAwesomeIcon icon={faShoppingBasket}>
-                      Add to compare
-                    </FontAwesomeIcon>
-                    <div className={styles.toolTip}>Add to cart</div>
-                  </Button>
+      {data.data.map(data => {
+        return activeCarousel === data.id - 1 ? (
+          <div className={styles.content} key={data.id}>
+            <div className={styles.imageContainer}>
+              <img
+                className={styles.image}
+                src={`${process.env.PUBLIC_URL}/images/products/${data.name}.jpg`}
+                alt='hot-deal'
+              />
+              <div className={styles.outlines}>
+                <Button className={styles.icon} variant='outline'>
+                  <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+                  <div className={styles.toolTip}>Add to favorite</div>
+                </Button>
+                <Button className={styles.icon} variant='outline'>
+                  <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+                  <div className={styles.toolTip}>Compare</div>
+                </Button>
+                <Button className={styles.icon} variant='outline'>
+                  <FontAwesomeIcon icon={faEye}>Add to compare</FontAwesomeIcon>
+                  <div className={styles.toolTip}>Quick view</div>
+                </Button>
+                <Button className={styles.icon} variant='outline'>
+                  <FontAwesomeIcon icon={faShoppingBasket}>
+                    Add to compare
+                  </FontAwesomeIcon>
+                  <div className={styles.toolTip}>Add to cart</div>
+                </Button>
+              </div>
+              <div className={styles.sale}>
+                <div className={styles.circle}>
+                  <span>${data.previousPrice}</span>
+                  <span>${data.newPrice}</span>
                 </div>
-                <div className={styles.sale}>
-                  <div className={styles.circle}>
-                    <span>${data.previousPrice}</span>
-                    <span>${data.newPrice}</span>
-                  </div>
-                  <h3>{data.name}</h3>
-                  <StarRating product={data}></StarRating>
-                </div>
+                <h3>{data.name}</h3>
+                <StarRating product={data}></StarRating>
               </div>
             </div>
-          );
-        })}
-      </SwipeableViews>
+          </div>
+        ) : (
+          ''
+        );
+      })}
       <div className={styles.slider}>
         <Slider {...settings}>
           {data.data.map((data, index) => {

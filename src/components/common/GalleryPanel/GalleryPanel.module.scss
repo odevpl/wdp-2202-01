@@ -10,6 +10,8 @@
       width: 100%;
       height: 350px;
       background-color: $gallery-bg-image;
+      animation: fadeIn 1s;
+
 
       img {
         position: absolute;
