@@ -577,6 +577,7 @@ const initialState = {
   cart: {
     products: [],
   },
+
   deals: {
     banners: [
       {
