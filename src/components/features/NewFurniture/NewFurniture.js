@@ -74,6 +74,16 @@ class NewFurniture extends React.Component {
     const { categories, products } = this.props;
     const { activeCategory, activePage, isFading } = this.state;
 
+    const productsOnPage = () => {
+      if (this.props.viewport === 'mobile') {
+        return 2;
+      } else if (this.props.viewport === 'tablet') {
+        return 4;
+      } else {
+        return 8;
+      }
+    };
+
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / this.state.boxNum);
 
@@ -180,6 +190,7 @@ class NewFurniture extends React.Component {
 NewFurniture.propTypes = {
   viewPort: PropTypes.string,
   favorites: PropTypes.array,
+  viewport: PropTypes.string,
   comparedProducts: PropTypes.array,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
@@ -211,7 +222,7 @@ const mapStateToProps = state => {
     products: state.products,
     favorites: state.favorites,
     comparedProducts: state.comparedProducts,
-    viewPort: getViewport(state),
+    viewport: state.viewport,
   };
 };
 
