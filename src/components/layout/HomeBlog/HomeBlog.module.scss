@@ -83,6 +83,8 @@
     background-color: $lastest-blog-background;
     margin: -60px 20px 0 20px;
     padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     .blogComment{
       padding: 0;
@@ -90,6 +92,7 @@
 
     span{
       padding-left: 10px;
+      font-size: 14px;
     }
 
     svg{
@@ -101,18 +104,20 @@
       padding-top: 20px;
 
       h3 {
-        font-size: 22px;
-        font-weight: 600;
+        font-size: 19px;
+        font-weight: 500;
         color: $lastest-blog-title;
+        padding-top: 20px;
       }
     }
 
     .articleDescription{
       text-align: left;
+      padding: 5px 10px 10px 0px;
       span{
         padding-left: 0;
-        font-size: 18px;
-        font-weight: 300;
+        font-size: 17px;
+        font-weight: 280;
       }
     }
 
