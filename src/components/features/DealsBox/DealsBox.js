@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getAll } from '../../../redux/dealsRedux';
 
 const DealsBox = () => {
-  const deals = useSelector(state => getAll(state));
+  const deals = useSelector(state => getAll(state)).banners;
 
   const bannerLarge = deals.find(deal => deal.id === 'banner-large');
   const bannerSmallTop = deals.find(deal => deal.id === 'banner-small-top');
@@ -14,7 +14,7 @@ const DealsBox = () => {
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
-          <div className='col-6'>
+          <div className='col-xs-12 col-sm-6'>
             <div className={styles.bannerLarge}>
               <img
                 alt='sofa'
@@ -27,7 +27,10 @@ const DealsBox = () => {
               </div>
             </div>
           </div>
-          <div div className='col-6 d-flex flex-column justify-content-between'>
+          <div
+            div
+            className='col-xs-12 col-sm-6 d-flex flex-column justify-content-between'
+          >
             <div className={styles.bannerSmallTop}>
               <img
                 alt='sofa'

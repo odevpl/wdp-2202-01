@@ -1,7 +1,5 @@
 import ProductBox from '../../common/ProductBox/ProductBox';
-
 import { connect } from 'react-redux';
-
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './NewFurniture.module.scss';
@@ -11,19 +9,46 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    isFading: false,
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({
+      activePage: newPage,
+      isFading: true,
+    });
+    if (this.state.isFading === false) {
+      setTimeout(
+        function() {
+          this.setState({
+            isFading: false,
+          });
+        }.bind(this),
+        900
+      );
+    }
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.setState({
+      activeCategory: newCategory,
+      isFading: true,
+    });
+    if (this.state.isFading === false) {
+      setTimeout(
+        function() {
+          this.setState({
+            isFading: false,
+          });
+        }.bind(this),
+        900
+      );
+    }
   }
 
   render() {
     const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
+    const { activeCategory, activePage, isFading } = this.state;
 
     const productsOnPage = () => {
       if (this.props.viewport === 'mobile') {
@@ -89,7 +114,7 @@ class NewFurniture extends React.Component {
           <div className={styles.panelBar}>
             <div className='row no-gutters align-items-end'>
               <div className={'col-auto ' + styles.heading}>
-                <h3>New furniture</h3>
+                <h3> New furniture </h3>
               </div>
               <div className={'col ' + styles.menu}>
                 <ul>
@@ -110,7 +135,7 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
+          <div className={`row ${isFading ? styles.fadeIn : styles.fadeOut}`}>
             <Swipeable
               activePage={activePage}
               handlePageChange={this.handlePageChange.bind(this)}
@@ -128,7 +153,6 @@ NewFurniture.propTypes = {
   favorites: PropTypes.array,
   viewport: PropTypes.string,
   comparedProducts: PropTypes.array,
-
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -152,11 +176,14 @@ NewFurniture.defaultProps = {
   categories: [],
   products: [],
 };
-
-const mapStateToProps = state => ({
-  favorites: state.favorites,
-  comparedProducts: state.comparedProducts,
-  viewport: state.viewport,
-});
+const mapStateToProps = state => {
+  return {
+    categories: state.categories,
+    products: state.products,
+    favorites: state.favorites,
+    comparedProducts: state.comparedProducts,
+    viewport: state.viewport,
+  };
+};
 
 export default connect(mapStateToProps)(NewFurniture);
