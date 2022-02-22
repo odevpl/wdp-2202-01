@@ -57,7 +57,7 @@ const Login = () => {
             className='py-2 mx-2'
             required
           />
-          {renderErrorMessages('uname')}
+
           <label className='m-2'> Password </label>
           <input
             onChange={e => setPassword(e.target.value)}
@@ -66,10 +66,12 @@ const Login = () => {
             className='py-2 mx-2'
             required
           />
-          {renderErrorMessages('pass')}
+
           <p className={'m-2 ' + styles.forgotPassword}>
             Forgot password ? <a href='#'> Click here. </a>{' '}
           </p>
+          {renderErrorMessages('uname')}
+          {renderErrorMessages('pass')}
           <button
             className={'d-flex justify-content-center mx-auto m-3 ' + styles.button}
             type='submit'
