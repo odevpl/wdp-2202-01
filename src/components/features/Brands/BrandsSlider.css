@@ -1,0 +1,127 @@
+
+.slick-slider {
+  border-top: #dee2e6 1px solid;
+  border-bottom: #dee2e6 1px solid;
+  padding-top: 5px;
+}
+
+.slick-slider .slick-list {
+  margin: 20px 40px;
+}
+
+.slick-slide img {
+  border: #dee2e6 1px solid;
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slick-slider.slick-initialized .slick-prev {
+  z-index: 1;
+  position: absolute;
+  top: 49%;
+  left: 0;
+  width: 25px;
+  height: 109px;
+  cursor: pointer;
+  background: black;
+}
+
+.slick-slider.slick-initialized .slick-prev::before {
+  content: "";
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-left: 5px;
+}
+
+.slick-slider.slick-initialized .slick-next {
+  z-index: 1;
+  position: absolute;
+  top: 49%;
+  right: 0;
+  width: 25px;
+  height: 109px;
+  cursor: pointer;
+  background: black;
+}
+
+.slick-slider.slick-initialized .slick-next::before {
+  content: "";
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  margin-right: 3px;
+}
+
+.activeSlide {
+  animation: fadeIn 1s;
+}
+
+/*
+
+@media (min-width: 320px) {
+  .slick-slider .slick-list {
+    width: 80%;
+    margin-left: -5px;
+  }
+}
+@media (min-width: 375px) {
+  .slick-slider .slick-list {
+    width: 85%;
+    margin-left: 15px;
+  }
+}
+@media (min-width: 424px) {
+  .slick-slider .slick-list {
+    width: 83%;
+    margin-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .slick-slider .slick-list {
+    width: 80%;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .slick-slider .slick-list {
+    width: 85%;
+    margin-left: -2px;
+  }
+}
+@media (min-width: 1440px) {
+  .slick-slider .slick-list {
+    width: 87%;
+    margin-left: -2px;
+  }
+}
+@media (min-width: 1920px) {
+  .slick-slider .slick-list {
+    width: 88%;
+    margin-left: -2px;
+  }
+}
+@media (min-width: 2560px) {
+  .slick-slider .slick-list {
+    width: 88%;
+    margin-left: -2px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+*/
