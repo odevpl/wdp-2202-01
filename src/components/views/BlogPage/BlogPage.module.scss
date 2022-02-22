@@ -1,0 +1,44 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  .blog {
+    text-align: justify;
+    margin: 46px;
+    h1 {
+      margin: 36px 0 36px;
+    }
+
+    .blogContent {
+      img {
+        width: 100%;
+        object-fit: cover;
+        height: auto;
+        margin: 20px 0;
+      }
+    }
+
+    .blogNav {
+      display: inline-block;
+      justify-content: flex-start;
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style-type: none;
+          text-align: left;
+          padding: 10px;
+          border: 2px solid $menuBar-box-shadow;
+
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .info {
+      display: inline;
+    }
+  }
+}
