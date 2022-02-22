@@ -2,4 +2,86 @@
 
 .root {
   padding: $base-padding 0;
+  margin-top: -23px;
+  height: 700px;
+  .background {
+    background-color: #7d7d7d;
+    padding: 20px;
+    height: 300px;
+    position: relative;
+    color: #D4D4D4;
+    .nav {
+      align-self: center;
+      text-align: right;
+      font-weight: 400;
+      h6{
+        cursor: pointer;
+      }
+      a {
+        color: #D4D4D4;
+      }
+    }
+  }
+  .product {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 100px;
+    border: 1px solid black;
+    .imageContainer {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background-color: #f8f8f8;
+    }
+  }
+
+  .carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    border-top: 1px solid $gallery-border-color;
+    align-items: center;
+    
+    .arrow {
+      cursor: pointer;
+      position: static;
+      height: 20px;
+      width: 20px;
+      border: 1px solid $gallery-border-color;
+      z-index: 1;
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      height: 100%;
+
+      div {
+        border: 1px solid $gallery-border-color;
+        min-width: 21%;
+        background-color: $gallery-border-color;
+        opacity: 50%;
+
+        &:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+
+        &.active {
+          opacity: 100%;
+        }
+      }
+    }
+  }
+
+  .info {
+    h4 {
+      color: black;
+    }
+  }
+  
 }
