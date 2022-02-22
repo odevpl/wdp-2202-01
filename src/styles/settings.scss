@@ -8,11 +8,14 @@ $gray-200: #e1e1e1; //e2e2e2
 $lightBlack: #363636;
 $justGray: rgb(216, 216, 216);
 $gray-210: rgb(224, 227, 237);
+$gray-220: #dee2e6;
 $silverGray: rgb(169, 169, 169);
 $obsidianBlack: rgba(1, 2, 2, 0.2);
 $coolGray: #434343;
 $greenColor: #79ae30;
 $grayImage: #f8f8f8;
+$gray-220: #e0e3ed;
+$mediumBlue: #57a8ff;
 
 
 // ASSIGNED COLORS
@@ -56,6 +59,36 @@ $companyClaim-phoneNumber-text: $justGray;
 $companyClaim-cartBox-text: $white;
 $companyClaim-cartCounter-text: $gray-210;
 
+$cart-box-top: $silverGray;
+$cart-box-h3: $white;
+$cart-box-sign: $darkGray;
+$cart-table-color: $lightGray;
+$cart-table-top: $white;
+$cart-table-th: $darkGray;
+$cart-product-color: $darkGray;
+$cart-product-border: $darkGray;
+$cart-product-delete: $darkGray;
+$cart-product-image: $justGray;
+$cart-product-td: $primary;
+$cart-product-button: $darkGray;
+$cart-product-button-hover: $primary;
+$cart-product-button-number-top: $darkGray;
+$cart-product-button-number-bottom: $darkGray;
+$cart-coupon-border-right: $gray-220;
+$cart-coupon-border-bottom: $gray-220;
+$cart-coupon-input: $darkGray;
+$cart-coupon-input-border: $gray-220;
+$cart-coupon-code-update: $primary;
+$cart-coupon-code-update-hover: $darkGray;
+$cart-summary-border: $gray-220;
+$cart-total: $gray-220;
+$cart-total-head: $darkGray;
+$cart-total-p-border: $gray-220;
+$cart-total-p-color: $primary;
+$checkout-bg: $primary;
+$checkout-color: $white;
+$checkout-hover: $darkGray;
+
 $footer-bg: $lightBlack;
 $footer-text: $white;
 $footer-rights-text: $silverGray;
@@ -85,6 +118,15 @@ $brand-logo-border-color: $gray-200;
 $brand-border-color: $gray-200;
 $brand-button-bg: $darkGray;
 $brands-logoBox-color: $white;
+
+$button: $darkGray;
+$window: $gray-210;
+$message: $white;
+$message-hover: $silverGray;
+
+$login-button-bg: $justGray;               
+$login-button-color: $darkGray;
+$login-button-text: $primary;
 
 // FORMAT
 $base-padding: 24px;

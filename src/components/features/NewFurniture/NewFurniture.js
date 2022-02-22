@@ -24,7 +24,7 @@ class NewFurniture extends React.Component {
             isFading: false,
           });
         }.bind(this),
-        900
+        500
       );
     }
   }
@@ -41,7 +41,7 @@ class NewFurniture extends React.Component {
             isFading: false,
           });
         }.bind(this),
-        900
+        600
       );
     }
   }
