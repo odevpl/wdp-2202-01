@@ -6,7 +6,6 @@ import { faHome, faChevronRight, faTimes } from '@fortawesome/free-solid-svg-ico
 import Button from '../../common/Button/Button';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import {
   clearCart,
   getAllProductsInCart,
@@ -17,7 +16,6 @@ const Cart = () => {
   const productsInCart = useSelector(getAllProductsInCart);
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleDelete = id => {
     dispatch(removeProduct(id));
@@ -25,7 +23,6 @@ const Cart = () => {
 
   const clearProductsFromCart = () => {
     dispatch(clearCart([]));
-    history.push('/');
   };
   return (
     <div className={styles.root}>
@@ -112,7 +109,7 @@ const Cart = () => {
           <h5>Total</h5>
           <p>$92.00</p>
         </div>
-        <Link to={`/`} className={styles.checkout}>
+        <Link to={`/cart`} className={styles.checkout}>
           <Button onClick={() => clearProductsFromCart()} className={styles.checkout}>
             PROCEED TO CHECKOUT
           </Button>
