@@ -6,7 +6,20 @@ const ProductList = () => {
   return (
     <div className={styles.root}>
       <div className='container'>
-        <h1>Banner</h1>
+        <div className={styles.banner}>
+          <p>
+            Bedroom <span>furniture</span>
+          </p>
+          <p>
+            Always <span>25%</span> off or more
+          </p>
+        </div>
+        <div className={styles.navBar}>
+          <a href='/'>Home</a>
+          <p>
+            &gt;<span>Furniture</span>
+          </p>
+        </div>
       </div>
       <div className='container'>
         <div className='row'>
