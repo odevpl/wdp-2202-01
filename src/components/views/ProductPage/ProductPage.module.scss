@@ -4,29 +4,35 @@
   padding: $base-padding 0;
   margin-top: -23px;
   height: 700px;
+
   .background {
     background-color: #7d7d7d;
     padding: 20px;
     height: 300px;
     position: relative;
     color: #D4D4D4;
+
     .nav {
       align-self: center;
       text-align: right;
       font-weight: 400;
-      h6{
+
+      h6 {
         cursor: pointer;
       }
+
       a {
         color: #D4D4D4;
       }
     }
   }
+
   .product {
     background-color: white;
     padding: 20px;
     margin-bottom: 100px;
     border: 1px solid black;
+
     .imageContainer {
       position: relative;
       width: 100%;
@@ -42,14 +48,21 @@
     padding: 8px;
     border-top: 1px solid $gallery-border-color;
     align-items: center;
-    
+
     .arrow {
       cursor: pointer;
       position: static;
-      height: 20px;
-      width: 20px;
-      border: 1px solid $gallery-border-color;
+      color: black;
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
       z-index: 1;
+      transition: $global-transition-time;
+
+      &:hover {
+        background-color: $primary;
+        color: white;
+      }
     }
 
     .thumbnails {
@@ -78,10 +91,62 @@
     }
   }
 
+
+
+
   .info {
+    .header {
+      border-bottom: 1px solid #7d7d7d;
+      padding-bottom: 30px;
+    }
+
     h4 {
       color: black;
     }
+
+    .navArrows {
+      text-align: right;
+
+      .prodArrow {
+        cursor: pointer;
+        margin: 5px;
+        position: static;
+        color: black;
+        width: 30px;
+        height: 30px;
+        font-size: large;
+        border: 1px solid black;
+        z-index: 1;
+        transition: $global-transition-time;
+
+        &:hover {
+          background-color: $primary;
+          color: white;
+        }
+
+      }
+    }
+
   }
-  
+
+  .price{
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #7d7d7d;
+
+    .oldPrice {
+      color: #7d7d7d;
+      text-decoration:line-through;
+      display: inline;
+      margin: 15px;
+    }
+    .newPrice {
+      text-decoration: none;
+      padding: 3px 10px; 
+      background-color: black;
+      color: white;
+      display: inline;
+    }
+  }
+
 }
