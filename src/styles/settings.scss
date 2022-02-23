@@ -16,6 +16,7 @@ $greenColor: #79ae30;
 $grayImage: #f8f8f8;
 $gray-220: #e0e3ed;
 $mediumBlue: #57a8ff;
+$red: red;
 // ASSIGNED COLORS
 
 $button-bg: $darkGray;
@@ -125,7 +126,7 @@ $window: $gray-210;
 $message: $white;
 $message-hover: $silverGray;
 
-$login-button-bg: $justGray;               
+$login-button-bg: $justGray;
 $login-button-color: $darkGray;
 $login-button-text: $primary;
 
@@ -136,6 +137,8 @@ $lastest-blog-inactive-dot: $darkGray;
 $lastest-blog-active-dot: $primary;
 $lastest-blog-background: $white;
 $lastest-blog-title: $primary;
+
+$formErrorMessage: $red;
 
 // FORMAT
 $base-padding: 24px;
