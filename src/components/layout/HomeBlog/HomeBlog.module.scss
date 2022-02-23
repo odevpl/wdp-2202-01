@@ -1,0 +1,129 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: $base-padding;
+  height: 600px;
+
+  .panelBar {
+    margin-bottom: 30px;
+    position: relative;
+
+    :global(.row) > * {
+      border-bottom: 4px solid $lastest-blog-border-bottom;
+    }
+
+    .heading {
+      position: relative;
+      width: 92%;
+
+      h3 {
+        color: $lastest-blog-header;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 38px;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 45px;
+        border-bottom: 4px solid $lastest-blog-underscore;
+      }
+    }
+    .dots {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: $lastest-blog-background;
+        transform: translateY(15px);
+
+        li {
+          display: inline-block;
+          margin-left: 0.5rem;
+          a {
+            display: block;
+            width: 13px;
+            height: 13px;
+            border-radius: 6px;
+            background-color: $lastest-blog-inactive-dot;
+            font-size: 0;
+
+            &.active,
+            &:hover {
+              background-color: $lastest-blog-active-dot;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .blogImage{
+    height: 300px;
+
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .blogArticle{
+    position: absolute;
+    width: 80%;
+    height: 100px;
+    background-color: $lastest-blog-background;
+    margin: -60px 20px 0 20px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .blogComment{
+      padding: 0;
+    }
+
+    span{
+      padding-left: 10px;
+      font-size: 14px;
+    }
+
+    svg{
+     font-size: 18px;
+    }
+
+    .articleTitle{
+      text-align: left;
+      padding-top: 20px;
+
+      h3 {
+        font-size: 19px;
+        font-weight: 500;
+        color: $lastest-blog-title;
+        padding-top: 20px;
+      }
+    }
+
+    .articleDescription{
+      text-align: left;
+      padding: 5px 10px 10px 0px;
+      span{
+        padding-left: 0;
+        font-size: 17px;
+        font-weight: 280;
+      }
+    }
+
+    .articleButton{
+      margin-top: 25px;
+
+    }
+  }
+}
