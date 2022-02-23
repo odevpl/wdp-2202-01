@@ -584,9 +584,7 @@ const initialState = {
       id: 'brand10',
     },
   ],
-  cart: {
-    products: [],
-  },
+  cart: [],
 
   deals: {
     banners: [

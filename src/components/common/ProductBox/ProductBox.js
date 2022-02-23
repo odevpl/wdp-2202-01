@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
 import styles from './ProductBox.module.scss';
@@ -17,8 +17,9 @@ import {
 } from '../../../redux/comparedProductsRedux';
 import StarRating from '../../features/StarRating/StarRating';
 import { NavLink } from 'react-router-dom';
+import { addProduct, getAllProductsInCart } from '../../../redux/cartRedux';
 
-const ProductBox = ({ name, price, promo, ...props }) => {
+const ProductBox = ({ name, price, promo, id, ...props }) => {
   const dispatch = useDispatch();
   const [openQuickView, setOpenQuickView] = useState(false);
   const toggleFavorite = () => {
@@ -34,6 +35,11 @@ const ProductBox = ({ name, price, promo, ...props }) => {
     } else {
       dispatch(removeComparedProduct(props.id));
     }
+  };
+
+  const handleAddProduct = event => {
+    event.preventDefault();
+    dispatch(addProduct({ name, id, price }));
   };
 
   return (
@@ -53,7 +59,7 @@ const ProductBox = ({ name, price, promo, ...props }) => {
           <Button variant='small' onClick={() => setOpenQuickView(true)}>
             Quick View
           </Button>
-          <Button variant='small'>
+          <Button variant='small' onClick={handleAddProduct}>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
