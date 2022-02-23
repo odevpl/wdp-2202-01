@@ -8,6 +8,7 @@ import Feedback from '../../layout/Feedback/FeedbackContainer';
 import Brands from '../../features/Brands/BrandsContainer';
 import Promoted from '../../features/Promoted/Promoted';
 import Gallery from '../../layout/Gallery/Gallery';
+import HomeBlog from '../../layout/HomeBlog/HomeBlog';
 import ChatBox from '../../features/ChatBox/ChatBox';
 
 const Homepage = () => (
@@ -18,6 +19,7 @@ const Homepage = () => (
     <NewFurniture />
     <Gallery />
     <Feedback />
+    <HomeBlog />
     <Brands />
     <ChatBox />
   </div>
