@@ -36,6 +36,12 @@ const ProductBox = ({ name, price, promo, ...props }) => {
     }
   };
 
+  const checkForOldPrice = () => {
+    if (props.oldPrice !== undefined) {
+      return <div className={styles.oldPrice}>$ {props.oldPrice}</div>;
+    }
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -101,6 +107,7 @@ const ProductBox = ({ name, price, promo, ...props }) => {
           </Button>
         </div>
         <div className={styles.price}>
+          {checkForOldPrice()}
           <Button noHover variant='small' className={styles.priceButton}>
             $ {price}
           </Button>
@@ -121,6 +128,7 @@ ProductBox.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   promo: PropTypes.string,
+  oldPrice: PropTypes.number,
   favorite: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   addedForComparison: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   product: PropTypes.object,

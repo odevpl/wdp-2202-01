@@ -113,6 +113,7 @@ class NewFurniture extends React.Component {
                 <ProductBox
                   {...item}
                   product={item}
+                  oldPrice={item.oldPrice}
                   favorite={favorite}
                   addedForComparison={addedForComparison}
                 />
