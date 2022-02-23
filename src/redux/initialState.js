@@ -555,23 +555,33 @@ const initialState = {
   brands: [
     {
       id: 'brand01',
-      image: '../images/furniture-logo.jpg',
     },
     {
       id: 'brand02',
-      image: '../images/furniture-logo.jpg',
     },
     {
       id: 'brand03',
-      image: '../images/furniture-logo.jpg',
     },
     {
       id: 'brand04',
-      image: '../images/furniture-logo.jpg',
     },
     {
       id: 'brand05',
-      image: '../images/furniture-logo.jpg',
+    },
+    {
+      id: 'brand06',
+    },
+    {
+      id: 'brand07',
+    },
+    {
+      id: 'brand08',
+    },
+    {
+      id: 'brand09',
+    },
+    {
+      id: 'brand10',
     },
   ],
   cart: {
