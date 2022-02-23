@@ -577,6 +577,7 @@ const initialState = {
   cart: {
     products: [],
   },
+
   deals: {
     banners: [
       {
@@ -664,6 +665,7 @@ const initialState = {
       userStars: '4',
     },
   ],
+  viewport: '',
 };
 
 export default initialState;
