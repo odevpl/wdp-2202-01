@@ -1,9 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import styles from './ProductPage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faChevronRight,
+  faShoppingBasket,
+  faExchangeAlt,
+} from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 // import StarRating from '../../features/StarRating/StarRating';
+import Button from '../../common/Button/Button';
 
 const ProductPage = () => {
   return (
@@ -61,6 +68,37 @@ const ProductPage = () => {
                     <h5 className={styles.oldPrice}>$350.00</h5>
                     <h5 className={styles.newPrice}>$250.00</h5>
                   </div>
+                  <div className={`row ${styles.buttonSection}`}>
+                    <div>
+                      <Button variant='small'>
+                        <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD
+                        TO CART
+                      </Button>
+                    </div>
+                    <div>
+                      <Button noHover actionbtn variant='outline'>
+                        <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+                      </Button>
+                    </div>
+                    <div>
+                      <Button
+                        noHover
+                        actionbtn
+                        variant='outline'
+                        className={styles.btnActive}
+                      >
+                        <FontAwesomeIcon
+                          icon={faExchangeAlt}
+                          className={styles.iconActive}
+                        ></FontAwesomeIcon>
+                      </Button>
+                    </div>
+                    <div>
+                      <Button noHover actionbtn variant='outline'>
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -71,8 +109,6 @@ const ProductPage = () => {
   );
 };
 
-ProductPage.propTypes = {
-  product: PropTypes.object,
-};
+// ProductPage.propTypes = {};
 
 export default ProductPage;
