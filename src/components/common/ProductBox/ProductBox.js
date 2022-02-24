@@ -39,7 +39,7 @@ const ProductBox = ({ name, price, promo, id, ...props }) => {
 
   const handleAddProduct = event => {
     event.preventDefault();
-    dispatch(addProduct({ name, id, price }));
+    dispatch(addProduct({ ...props.product }));
   };
 
   return (

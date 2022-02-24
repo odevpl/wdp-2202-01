@@ -14,7 +14,6 @@ import {
 
 const Cart = () => {
   const productsInCart = useSelector(getAllProductsInCart);
-
   const dispatch = useDispatch();
 
   const handleDelete = id => {
