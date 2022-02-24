@@ -3,17 +3,27 @@ import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import {
   getAllComparedProducts,
   removeComparedProduct,
 } from '../../../redux/comparedProductsRedux';
+import { getAllFavorites } from '../../../redux/favoritesRedux';
 import Button from '../../common/Button/Button';
 
 import styles from './ComparisonBar.module.scss';
 
 const ComparisonBar = () => {
   const comparedProducts = useSelector(getAllComparedProducts);
+  const favoriteProducts = useSelector(getAllFavorites);
   const dispatch = useDispatch();
+
+  const isFavorite = comparedProduct => {
+    return favoriteProducts.find(
+      favoriteProduct => favoriteProduct.name === comparedProduct
+    );
+  };
+
   const renderedProducts = comparedProducts.map(product => (
     <div key={product.id} className={styles.product}>
       <span
@@ -29,8 +39,17 @@ const ComparisonBar = () => {
           src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
         />
       </div>
+      <div className={styles.productInfo}>
+        <p className={styles.name}>{product.name}</p>
+        <p className={styles.price}>{product.price}</p>
+        <p className={styles.oldPrice}>{product.oldPrice && product.oldPrice}</p>
+        <p className={styles.oldPrice}>
+          {isFavorite(product.name) && <FontAwesomeIcon icon={faHeart} />}
+        </p>
+      </div>
     </div>
   ));
+
   return (
     <>
       {comparedProducts.length > 0 && (

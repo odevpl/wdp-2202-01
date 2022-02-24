@@ -13,10 +13,11 @@
   }
 
   .product {
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    height: 200px;
     position: relative;
     animation: slidein 0.5s cubic-bezier(0.47, 0.41, 0.26, 0.86);
+    background: black;
 
     .close {
       opacity: 0;
@@ -30,6 +31,12 @@
 
     &:hover .close {
       opacity: 1;
+    }
+
+    .productInfo {
+      position: absolute;
+      font-weight: 300;
+      color: white;
     }
   }
 
