@@ -585,35 +585,7 @@ const initialState = {
     },
   ],
   cart: {
-    products: [
-      {
-        id: 'aenean-ru-bristique-60',
-        name: 'Aenean Ru Bristique 32',
-        category: 'table',
-        price: 30,
-        stars: 2,
-        promo: 'sale',
-        newFurniture: true,
-      },
-      {
-        id: 'aenean-ru-bristique-60',
-        name: 'Aenean Ru Bristique 32',
-        category: 'table',
-        price: 30,
-        stars: 2,
-        promo: 'sale',
-        newFurniture: true,
-      },
-      {
-        id: 'aenean-ru-bristique-60',
-        name: 'Aenean Ru Bristique 32',
-        category: 'table',
-        price: 30,
-        stars: 2,
-        promo: 'sale',
-        newFurniture: true,
-      },
-    ],
+    products: [],
   },
 
   deals: {
