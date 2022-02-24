@@ -17,8 +17,8 @@ import {
   addComparedProduct,
   removeComparedProduct,
 } from '../../../redux/comparedProductsRedux';
-import { NavLink } from 'react-router-dom';
 import StarRating from '../../features/StarRating/StarRating';
+import { NavLink } from 'react-router-dom';
 
 const ProductBox = ({ name, price, promo, ...props }) => {
   const dispatch = useDispatch();
@@ -67,6 +67,9 @@ const ProductBox = ({ name, price, promo, ...props }) => {
         </div>
       </div>
       <div className={styles.content}>
+        <h5>{name}</h5>
+        <StarRating product={props.product} />
+
         <NavLink to={`/product/${props.id}`}>
           <h5>{name}</h5>
         </NavLink>

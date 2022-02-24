@@ -1,48 +1,72 @@
 import ProductBox from '../../common/ProductBox/ProductBox';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
 import React from 'react';
 import styles from './NewFurniture.module.scss';
 
-import Swipeable from '../../common/Swipeable/Swipeable';
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    boxNum: this.boxNum(this.props.viewPort),
     isFading: false,
   };
 
   handlePageChange(newPage) {
-    this.setState({
+    this.setState(prevState => ({
+      ...prevState,
       activePage: newPage,
       isFading: true,
-    });
+    }));
     if (this.state.isFading === false) {
       setTimeout(
         function() {
-          this.setState({
+          this.setState(prevState => ({
+            ...prevState,
             isFading: false,
-          });
+          }));
         }.bind(this),
-        900
+        500
       );
     }
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({
+    this.setState(prevState => ({
+      ...prevState,
       activeCategory: newCategory,
       isFading: true,
-    });
+    }));
     if (this.state.isFading === false) {
       setTimeout(
         function() {
-          this.setState({
+          this.setState(prevState => ({
+            ...prevState,
             isFading: false,
-          });
+          }));
         }.bind(this),
-        900
+        600
       );
+    }
+  }
+
+  boxNum(viewPort) {
+    if (viewPort === 'tablet') {
+      return 4;
+    } else if (viewPort === 'mobile') {
+      return 2;
+    } else {
+      return 8;
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.viewPort !== this.props.viewPort) {
+      this.setState(prevState => ({
+        ...prevState,
+        boxNum: this.boxNum(this.props.viewPort),
+      }));
     }
   }
 
@@ -51,7 +75,7 @@ class NewFurniture extends React.Component {
     const { activeCategory, activePage, isFading } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount = Math.ceil(categoryProducts.length / this.state.boxNum);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -71,7 +95,7 @@ class NewFurniture extends React.Component {
     for (let i = 0; i < pagesCount; i++) {
       pages.push(
         categoryProducts
-          .slice(activePage * 8, (activePage + 1) * 8)
+          .slice(activePage * this.state.boxNum, (activePage + 1) * this.state.boxNum)
           .map((item, index) => {
             return (
               <div key={item.id} className='col-3'>
@@ -105,17 +129,26 @@ class NewFurniture extends React.Component {
                 </ul>
               </div>
               <div className={'col-auto ' + styles.dots}>
-                <ul>{dots}</ul>
+                <ul key='123'>{dots}</ul>
               </div>
             </div>
           </div>
-          <div className={`row ${isFading ? styles.fadeIn : styles.fadeOut}`}>
-            <Swipeable
-              activePage={activePage}
-              handlePageChange={this.handlePageChange.bind(this)}
-              pages={pages}
-            />
-          </div>
+
+          <SwipeableViews
+            enableMouseEvents
+            index={activePage}
+            onChangeIndex={page => this.handlePageChange(page)}
+            slideStyle={{ overflow: 'hidden' }}
+          >
+            {pages.map((page, index) => (
+              <div
+                key={index}
+                className={`row ${isFading ? styles.fadeIn : styles.fadeOut}`}
+              >
+                {page}
+              </div>
+            ))}
+          </SwipeableViews>
         </div>
       </div>
     );
@@ -123,8 +156,9 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
-  children: PropTypes.node,
+  viewPort: PropTypes.string,
   favorites: PropTypes.array,
+  viewport: PropTypes.string,
   comparedProducts: PropTypes.array,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
@@ -149,10 +183,14 @@ NewFurniture.defaultProps = {
   categories: [],
   products: [],
 };
+
 const mapStateToProps = state => {
   return {
     categories: state.categories,
     products: state.products,
+    favorites: state.favorites,
+    comparedProducts: state.comparedProducts,
+    viewport: state.viewport,
   };
 };
 
