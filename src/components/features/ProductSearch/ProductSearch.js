@@ -25,7 +25,9 @@ const ProductSearch = () => (
     <div className={styles.searchField}>
       <input placeholder='Search products...' type='text' />
       <button>
-        <FontAwesomeIcon className={styles.icon} icon={faSearch} />
+        <a href={`${process.env.PUBLIC_URL}/search`}>
+          <FontAwesomeIcon className={styles.icon} icon={faSearch} />
+        </a>
       </button>
     </div>
   </form>
