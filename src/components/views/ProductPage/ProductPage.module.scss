@@ -5,6 +5,13 @@
   margin-top: -23px;
   height: 700px;
 
+  .bottomLine {
+    height: 1px;
+    width: 100%;
+    background-color: #525252;
+    text-align: center;
+  }
+
   .background {
     background-color: #7d7d7d;
     padding: 20px;
@@ -36,7 +43,7 @@
     .imageContainer {
       position: relative;
       width: 100%;
-      height: 400px;
+      height: 450px;
       background-color: #f8f8f8;
     }
   }
@@ -96,8 +103,7 @@
 
   .info {
     .header {
-      border-bottom: 1px solid #7d7d7d;
-      padding-bottom: 30px;
+      padding-bottom: 20px;
     }
 
     h4 {
@@ -129,20 +135,21 @@
 
   }
 
-  .price{
+  .price {
     margin-top: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #7d7d7d;
+
 
     .oldPrice {
       color: #7d7d7d;
-      text-decoration:line-through;
+      text-decoration: line-through;
       display: inline;
       margin: 15px;
     }
+
     .newPrice {
       text-decoration: none;
-      padding: 3px 10px; 
+      padding: 3px 10px;
       background-color: black;
       color: white;
       display: inline;
@@ -150,9 +157,90 @@
   }
 
   .buttonSection {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: inline-block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+    align-items: center;
+
+    div {
+      margin-left: 5px;
+    }
+
+    .cart {
+      padding: 7px 10px;
+      top: -5px;
+    }
   }
 
+  .quantity {
+    margin-left: 5px;
+    font-weight: 400;
+    color: #525252;
+    align-items: center;
+
+    padding-bottom: 15px;
+
+    input {
+      margin-left: 30px;
+      width: 70px;
+      height: 35px;
+      text-align: center;
+
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    div {
+      margin-left: 5px;
+    }
+  }
+
+  .overview {
+    padding-top: 15px;
+    padding-bottom: 0;
+    h6 {
+      color: black;
+      font-weight: 600;
+    }
+    p {
+      color: #7d7d7d;
+      font-weight: 400;
+    }
+  }
+
+  .properties {
+    padding-top: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    .property, .propertyValue {
+      line-height: 0;
+    }
+    .property {
+      font-weight: 600;
+      color: black;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      color: #7d7d7d;
+      span {
+        font-weight: 600;
+        color: black;
+      }
+    }
+  }
+
+  .links {
+    margin-left: -6px;
+    margin-top: 15px;
+    div {
+      margin: 3px;
+    }
+  }
 }

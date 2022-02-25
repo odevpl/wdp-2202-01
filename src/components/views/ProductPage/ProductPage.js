@@ -3,12 +3,21 @@ import React from 'react';
 import styles from './ProductPage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faMinus,
+  faPlus,
   faChevronLeft,
   faChevronRight,
   faShoppingBasket,
   faExchangeAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import {
+  faTwitter,
+  faFacebookF,
+  faGooglePlusG,
+  faLinkedinIn,
+  faPinterestP,
+} from '@fortawesome/free-brands-svg-icons';
 // import StarRating from '../../features/StarRating/StarRating';
 import Button from '../../common/Button/Button';
 
@@ -64,13 +73,15 @@ const ProductPage = () => {
                       </button>
                     </div>
                   </div>
+                  <div className={styles.bottomLine}></div>
                   <div className={styles.price}>
                     <h5 className={styles.oldPrice}>$350.00</h5>
                     <h5 className={styles.newPrice}>$250.00</h5>
                   </div>
+                  <div className={styles.bottomLine}></div>
                   <div className={`row ${styles.buttonSection}`}>
                     <div>
-                      <Button variant='small'>
+                      <Button variant='small' className={styles.cart}>
                         <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD
                         TO CART
                       </Button>
@@ -96,6 +107,87 @@ const ProductPage = () => {
                     <div>
                       <Button noHover actionbtn variant='outline'>
                         <FontAwesomeIcon icon={faEnvelope} />
+                      </Button>
+                    </div>
+                  </div>
+                  <div className={`row ${styles.quantity}`}>
+                    <p>Quantity:</p>
+                    <input className type='number' value='2' />
+                    <div>
+                      <Button variant='outline' noHover actionbtn>
+                        <FontAwesomeIcon icon={faMinus} />
+                      </Button>
+                    </div>
+                    <div>
+                      <Button variant='outline' noHover actionbtn>
+                        <FontAwesomeIcon icon={faPlus} />
+                      </Button>
+                    </div>
+                  </div>
+                  <div className={styles.bottomLine}></div>
+                  <div className={styles.overview}>
+                    <h6>Quick Overview</h6>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Laboriosam ea sed id eos quia quas placeat. Architecto, laboriosam
+                      tenetur!
+                    </p>
+                  </div>
+                  <div className={styles.bottomLine}></div>
+                  <div className={`row ${styles.properties}`}>
+                    <div className='col-2'>
+                      <p className={styles.property}>Availability:</p>
+                    </div>
+                    <div className='col-10'>
+                      <p className={styles.propertyValue}>In Stock</p>
+                    </div>
+                  </div>
+                  <div className={`row ${styles.properties}`}>
+                    <div className='col-2'>
+                      <p className={styles.property}>Category:</p>
+                    </div>
+                    <div className='col-10'>
+                      <p className={styles.propertyValue}>Furniture</p>
+                    </div>
+                  </div>
+                  <div className={styles.bottomLine}></div>
+                  <div className={`row ${styles.links}`}>
+                    <div>
+                      <Button variant='outline' noHover actionbtn>
+                        <FontAwesomeIcon icon={faFacebookF} /> Share
+                      </Button>
+                    </div>
+                    <div>
+                      <Button variant='outline' noHover actionbtn>
+                        <FontAwesomeIcon
+                          icon={faGooglePlusG}
+                          className={styles.googleplus}
+                        />
+                        Google+
+                      </Button>
+                    </div>
+                    <div>
+                      <Button variant='outline' noHover actionbtn>
+                        <FontAwesomeIcon icon={faTwitter} className={styles.twitter} />
+                        Tweet
+                      </Button>
+                    </div>
+                    <div>
+                      <Button variant='outline' noHover actionbtn>
+                        <FontAwesomeIcon
+                          icon={faPinterestP}
+                          className={styles.pinterest}
+                        />
+                        Pinterest
+                      </Button>
+                    </div>
+                    <div>
+                      <Button variant='outline' noHover actionbtn>
+                        <FontAwesomeIcon
+                          icon={faLinkedinIn}
+                          className={styles.linkedin}
+                        />
+                        LinkedIn
                       </Button>
                     </div>
                   </div>
