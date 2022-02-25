@@ -19,8 +19,9 @@ import {
 } from '../../../redux/comparedProductsRedux';
 import StarRating from '../../features/StarRating/StarRating';
 import { NavLink } from 'react-router-dom';
+import { addProduct, getAllProductsInCart } from '../../../redux/cartRedux';
 
-const ProductBox = ({ name, price, promo, ...props }) => {
+const ProductBox = ({ name, price, promo, id, ...props }) => {
   const dispatch = useDispatch();
   const [openQuickView, setOpenQuickView] = useState(false);
   const favorites = useSelector(getAllFavorites);
@@ -44,6 +45,11 @@ const ProductBox = ({ name, price, promo, ...props }) => {
     }
   };
 
+  const handleAddProduct = event => {
+    event.preventDefault();
+    dispatch(addProduct({ ...props.product }));
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -61,7 +67,7 @@ const ProductBox = ({ name, price, promo, ...props }) => {
           <Button variant='small' onClick={() => setOpenQuickView(true)}>
             Quick View
           </Button>
-          <Button variant='small'>
+          <Button variant='small' onClick={handleAddProduct}>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
