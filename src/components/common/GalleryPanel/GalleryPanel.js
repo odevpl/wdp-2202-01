@@ -43,21 +43,14 @@ const GalleryPanel = data => {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 767,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 5,
+          slidesToScroll: 5,
         },
       },
       {
         breakpoint: 500,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-      {
-        breakpoint: 400,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -66,8 +59,8 @@ const GalleryPanel = data => {
       {
         breakpoint: 320,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],
@@ -118,20 +111,22 @@ const GalleryPanel = data => {
           ''
         );
       })}
-      <div className={styles.slider}>
-        <Slider {...settings}>
-          {data.data.map((data, index) => {
-            return (
-              <a key={data.id} className={index === activeCarousel ? 'active' : ''}>
-                <img
-                  alt={`${data.name}`}
-                  src={`${process.env.PUBLIC_URL}/images/products/${data.name}.jpg`}
-                  onClick={() => handleThumbActive(index)}
-                ></img>
-              </a>
-            );
-          })}
-        </Slider>
+      <div className='gallerySlider'>
+        <div className={styles.slider}>
+          <Slider {...settings}>
+            {data.data.map((data, index) => {
+              return (
+                <a key={data.id} className={index === activeCarousel ? 'active' : ''}>
+                  <img
+                    alt={`${data.name}`}
+                    src={`${process.env.PUBLIC_URL}/images/products/${data.name}.jpg`}
+                    onClick={() => handleThumbActive(index)}
+                  ></img>
+                </a>
+              );
+            })}
+          </Slider>
+        </div>
       </div>
     </div>
   );
