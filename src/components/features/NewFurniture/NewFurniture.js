@@ -97,26 +97,9 @@ class NewFurniture extends React.Component {
         categoryProducts
           .slice(activePage * this.state.boxNum, (activePage + 1) * this.state.boxNum)
           .map((item, index) => {
-            const favorite = this.props.favorites.find(
-              product => product.id === item.id
-            )
-              ? true
-              : '';
-            const addedForComparison = this.props.comparedProducts.find(
-              product => product.id === item.id
-            )
-              ? true
-              : '';
-
             return (
               <div key={item.id} className='col-3'>
-                <ProductBox
-                  {...item}
-                  product={item}
-                  oldPrice={item.oldPrice}
-                  favorite={favorite}
-                  addedForComparison={addedForComparison}
-                />
+                <ProductBox {...item} product={item} />
               </div>
             );
           })

@@ -1,22 +1,22 @@
 
-.slick-slider {
+.brandsSlider .slick-slider {
   border-top: #dee2e6 1px solid;
   border-bottom: #dee2e6 1px solid;
   padding-top: 5px;
 }
 
-.slick-slider .slick-list {
+.brandsSlider .slick-slider .slick-list {
   margin: 20px 40px;
 }
 
-.slick-slide img {
+.brandsSlider .slick-slide img {
   border: #dee2e6 1px solid;
   width: 90%;
   height: 100%;
   object-fit: cover;
 }
 
-.slick-slider.slick-initialized .slick-prev {
+.brandsSlider .slick-slider.slick-initialized .slick-prev {
   z-index: 1;
   position: absolute;
   top: 49%;
@@ -27,7 +27,7 @@
   background: black;
 }
 
-.slick-slider.slick-initialized .slick-prev::before {
+.brandsSlider .slick-slider.slick-initialized .slick-prev::before {
   content: "";
   border: solid white;
   border-width: 0 3px 3px 0;
@@ -38,7 +38,7 @@
   margin-left: 5px;
 }
 
-.slick-slider.slick-initialized .slick-next {
+.brandsSlider .slick-slider.slick-initialized .slick-next {
   z-index: 1;
   position: absolute;
   top: 49%;
@@ -49,7 +49,7 @@
   background: black;
 }
 
-.slick-slider.slick-initialized .slick-next::before {
+.brandsSlider .slick-slider.slick-initialized .slick-next::before {
   content: "";
   border: solid white;
   border-width: 0 3px 3px 0;
@@ -60,6 +60,6 @@
   margin-right: 3px;
 }
 
-.activeSlide {
+.brandsSlider .activeSlide {
   animation: fadeIn 1s;
 }

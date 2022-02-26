@@ -51,7 +51,7 @@ class Brands extends React.Component {
 
     return (
       <div className={styles.root}>
-        <div className='container'>
+        <div className='container brandsSlider'>
           <Slider {...settings}>
             {brands.map(brand => {
               return (
