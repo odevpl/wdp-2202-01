@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
 import styles from './ProductBox.module.scss';
@@ -10,30 +10,44 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import QuickViewModal from '../../features/QuickViewModal/QuickViewModal';
 import { addFavorite, removeFavorite } from '../../../redux/favoritesRedux';
+import { getAllFavorites } from '../../../redux/favoritesRedux';
+import { getAllComparedProducts } from '../../../redux/comparedProductsRedux';
 
 import {
   addComparedProduct,
   removeComparedProduct,
 } from '../../../redux/comparedProductsRedux';
-import { NavLink } from 'react-router-dom';
 import StarRating from '../../features/StarRating/StarRating';
+import { NavLink } from 'react-router-dom';
+import { addProduct, getAllProductsInCart } from '../../../redux/cartRedux';
 
-const ProductBox = ({ name, price, promo, ...props }) => {
+const ProductBox = ({ name, price, promo, id, ...props }) => {
   const dispatch = useDispatch();
   const [openQuickView, setOpenQuickView] = useState(false);
+  const favorites = useSelector(getAllFavorites);
+  const comparedProducts = useSelector(getAllComparedProducts);
+  const favorite = favorites.find(item => item.id === props.product.id) ? true : '';
+  const addedForComparison = comparedProducts.find(item => item.id === props.product.id)
+    ? true
+    : '';
   const toggleFavorite = () => {
-    if (!props.favorite) {
+    if (!favorite) {
       dispatch(addFavorite(props.product));
     } else {
       dispatch(removeFavorite(props.id));
     }
   };
   const toggleAddedForComparison = () => {
-    if (!props.addedForComparison) {
+    if (!addedForComparison) {
       dispatch(addComparedProduct(props.product));
     } else {
       dispatch(removeComparedProduct(props.id));
     }
+  };
+
+  const handleAddProduct = event => {
+    event.preventDefault();
+    dispatch(addProduct({ ...props.product }));
   };
 
   return (
@@ -53,12 +67,15 @@ const ProductBox = ({ name, price, promo, ...props }) => {
           <Button variant='small' onClick={() => setOpenQuickView(true)}>
             Quick View
           </Button>
-          <Button variant='small'>
+          <Button variant='small' onClick={handleAddProduct}>
             <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
           </Button>
         </div>
       </div>
       <div className={styles.content}>
+        <h5>{name}</h5>
+        <StarRating product={props.product} />
+
         <NavLink to={`/product/${props.id}`}>
           <h5>{name}</h5>
         </NavLink>
@@ -72,12 +89,9 @@ const ProductBox = ({ name, price, promo, ...props }) => {
             actionbtn
             onClick={toggleFavorite}
             variant='outline'
-            className={props.favorite && styles.btnActive}
+            className={favorite && styles.btnActive}
           >
-            <FontAwesomeIcon
-              icon={faHeart}
-              className={props.favorite && styles.iconActive}
-            >
+            <FontAwesomeIcon icon={faHeart} className={favorite && styles.iconActive}>
               Favorite
             </FontAwesomeIcon>
           </Button>
@@ -87,11 +101,11 @@ const ProductBox = ({ name, price, promo, ...props }) => {
             actionbtn
             onClick={toggleAddedForComparison}
             variant='outline'
-            className={props.addedForComparison && styles.btnActive}
+            className={addedForComparison && styles.btnActive}
           >
             <FontAwesomeIcon
               icon={faExchangeAlt}
-              className={props.addedForComparison && styles.iconActive}
+              className={addedForComparison && styles.iconActive}
             >
               Add to compare
             </FontAwesomeIcon>
@@ -118,8 +132,6 @@ ProductBox.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   promo: PropTypes.string,
-  favorite: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  addedForComparison: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   product: PropTypes.object,
 };
 

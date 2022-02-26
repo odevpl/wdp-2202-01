@@ -2,4 +2,94 @@
 
 .root {
   padding: $base-padding 0;
+
+  .productsContainer {
+    padding: 0 0;
+  }
+
+  .switch {
+    margin-right: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px solid $featureBox-border-color;
+
+    .switchButton {
+      border: none;
+      height: 36px;
+      width: 36px;
+      background-color: $white;
+
+      &:active {
+        color: $primary;
+      }
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.active {
+  color: $primary;
+  .banner {
+    width: 100%;
+    height: 200px;
+    background-color: $lightBlack;
+    text-align: center;
+
+    p {
+      font-weight: 200;
+      text-transform: uppercase;
+      color: $white;
+    }
+
+    p:first-child {
+      padding-top: 42px;
+      font-size: 52px;
+      letter-spacing: 0.05em;
+      span {
+        font-weight: bold;
+      }
+    }
+    p:nth-child(2) {
+      font-size: 25px;
+      letter-spacing: 0.51em;
+      text-indent: 0.5em;
+      margin-top: -30px;
+      span {
+        color: $dirtyOrange;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .navBar {
+    width: 100%;
+    height: 47px;
+    background-color: $gray-200;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+
+    a {
+      margin-left: 15px;
+      color: $lightBlack;
+      font-weight: 300;
+    }
+
+    p {
+      margin: 0 0 0 15px;
+      color: $lightBlack;
+      font-weight: 400;
+
+      span {
+        margin-left: 15px;
+        color: $dirtyOrange;
+        font-weight: 500;
+      }
+    }
+  }
 }

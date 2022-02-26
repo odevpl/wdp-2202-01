@@ -3,6 +3,12 @@
 .root {
   max-width: 500px;
   margin: 50px;
+
+  form {
+    .error {
+      color: red;
+    }
+  }
 }
 
 p {
@@ -20,7 +26,6 @@ p {
   font-weight: 400;
   font-size: 14px;
   text-align: center;
-
 }
 
 .button {
@@ -31,5 +36,4 @@ p {
   color: $login-button-color;
   max-width: 150px;
   text-decoration: none !important;
-
 }
