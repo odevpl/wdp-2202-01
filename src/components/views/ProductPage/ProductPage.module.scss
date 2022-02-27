@@ -43,8 +43,26 @@
     .imageContainer {
       position: relative;
       width: 100%;
-      height: 450px;
+      height: 475px;
       background-color: #f8f8f8;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      .expand {
+        font-size: 20px;
+        color: black;
+        margin: 5px;
+        padding: 6px;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: $global-transition-time;
+        &:hover {
+          background-color: $primary;
+          color: white;
+        }
+      }
     }
   }
 
@@ -102,10 +120,7 @@
 
 
   .info {
-    .header {
-      padding-bottom: 20px;
-    }
-
+    
     h4 {
       color: black;
     }
@@ -133,6 +148,18 @@
       }
     }
 
+    .stars {
+      margin-left: 12px;
+      div {
+        margin: 0 5px;
+      }
+      p, a {
+        font-size: 14px;
+        line-height: 27px;
+        font-weight: 400;
+        color:#525252
+      }
+    }
   }
 
   .price {
@@ -164,6 +191,7 @@
 
     div {
       margin-left: 5px;
+      cursor: pointer;
     }
 
     .cart {
@@ -177,15 +205,16 @@
     font-weight: 400;
     color: #525252;
     align-items: center;
-
     padding-bottom: 15px;
+    div {
+      cursor: pointer;
+    }
 
     input {
       margin-left: 30px;
       width: 70px;
       height: 35px;
       text-align: center;
-
     }
 
     input::-webkit-outer-spin-button,
@@ -197,15 +226,23 @@
     div {
       margin-left: 5px;
     }
+
+    .plusMinus:hover {
+      background-color: white;
+      color: $primary;
+      border-color: $primary;
+    }
   }
 
   .overview {
     padding-top: 15px;
     padding-bottom: 0;
+
     h6 {
       color: black;
       font-weight: 600;
     }
+
     p {
       color: #7d7d7d;
       font-weight: 400;
@@ -217,18 +254,23 @@
     margin-top: 15px;
     margin-bottom: 15px;
     padding-bottom: 15px;
-    .property, .propertyValue {
+
+    .property,
+    .propertyValue {
       line-height: 0;
     }
+
     .property {
       font-weight: 600;
       color: black;
     }
+
     p {
       font-size: 14px;
       font-weight: 400;
       margin: 0;
       color: #7d7d7d;
+
       span {
         font-weight: 600;
         color: black;
@@ -239,8 +281,89 @@
   .links {
     margin-left: -6px;
     margin-top: 15px;
+
     div {
       margin: 3px;
+      cursor: pointer;
+
+      .facebook {
+        .icon {
+          color: #4267B2;
+        }
+
+        &:hover {
+          background-color: #4267B2;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+
+      .googlePlus {
+        .icon {
+          color: #db4a39;
+        }
+
+        &:hover {
+          background-color: #db4a39;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+
+      .twitter {
+        .icon {
+          color: #00acee;
+        }
+
+        &:hover {
+          background-color: #00acee;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+
+      .pinterest {
+        .icon {
+          color: #c8232c;
+        }
+
+        &:hover {
+          background-color: #c8232c;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+
+      .linkedin {
+        .icon {
+          color: #0072b1;
+        }
+
+        &:hover {
+          background-color: #0072b1;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+    }
+
+    .icon {
+      margin-right: 3px;
     }
   }
 }

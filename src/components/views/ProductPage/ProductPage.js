@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './ProductPage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,6 +9,7 @@ import {
   faChevronRight,
   faShoppingBasket,
   faExchangeAlt,
+  faExpandAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -18,10 +19,10 @@ import {
   faLinkedinIn,
   faPinterestP,
 } from '@fortawesome/free-brands-svg-icons';
-// import StarRating from '../../features/StarRating/StarRating';
+import StarRating from '../../features/StarRating/StarRating';
 import Button from '../../common/Button/Button';
 
-const ProductPage = () => {
+const ProductPage = ({ ...props }) => {
   return (
     <div className={styles.root}>
       <div className={styles.background}>
@@ -42,7 +43,9 @@ const ProductPage = () => {
           <div className={styles.product}>
             <div className='row'>
               <div className={`col-5 ${styles.gallery}`}>
-                <div className={styles.imageContainer}></div>
+                <div className={styles.imageContainer}>
+                  <FontAwesomeIcon className={styles.expand} icon={faExpandAlt} />
+                </div>
                 <div className={styles.carousel}>
                   <button className={styles.arrow}>
                     <FontAwesomeIcon icon={faChevronLeft} />
@@ -71,6 +74,12 @@ const ProductPage = () => {
                       <button className={styles.prodArrow}>
                         <FontAwesomeIcon icon={faChevronRight} />
                       </button>
+                    </div>
+                    <div className={`row ${styles.stars}`}>
+                      <StarRating product />
+                      <p>(0 reviews)</p>
+                      <div>|</div>
+                      <a href='#'>Add your review</a>
                     </div>
                   </div>
                   <div className={styles.bottomLine}></div>
@@ -114,12 +123,22 @@ const ProductPage = () => {
                     <p>Quantity:</p>
                     <input className type='number' value='2' />
                     <div>
-                      <Button variant='outline' noHover actionbtn>
+                      <Button
+                        variant='outline'
+                        noHover
+                        actionbtn
+                        className={styles.plusMinus}
+                      >
                         <FontAwesomeIcon icon={faMinus} />
                       </Button>
                     </div>
                     <div>
-                      <Button variant='outline' noHover actionbtn>
+                      <Button
+                        variant='outline'
+                        noHover
+                        actionbtn
+                        className={styles.plusMinus}
+                      >
                         <FontAwesomeIcon icon={faPlus} />
                       </Button>
                     </div>
@@ -153,40 +172,57 @@ const ProductPage = () => {
                   <div className={styles.bottomLine}></div>
                   <div className={`row ${styles.links}`}>
                     <div>
-                      <Button variant='outline' noHover actionbtn>
-                        <FontAwesomeIcon icon={faFacebookF} /> Share
+                      <Button
+                        variant='outline'
+                        noHover
+                        actionbtn
+                        className={styles.facebook}
+                      >
+                        <FontAwesomeIcon className={styles.icon} icon={faFacebookF} />{' '}
+                        Share
                       </Button>
                     </div>
                     <div>
-                      <Button variant='outline' noHover actionbtn>
-                        <FontAwesomeIcon
-                          icon={faGooglePlusG}
-                          className={styles.googleplus}
-                        />
+                      <Button
+                        variant='outline'
+                        noHover
+                        actionbtn
+                        className={styles.googlePlus}
+                      >
+                        <FontAwesomeIcon icon={faGooglePlusG} className={styles.icon} />
                         Google+
                       </Button>
                     </div>
                     <div>
-                      <Button variant='outline' noHover actionbtn>
-                        <FontAwesomeIcon icon={faTwitter} className={styles.twitter} />
+                      <Button
+                        variant='outline'
+                        noHover
+                        actionbtn
+                        className={styles.twitter}
+                      >
+                        <FontAwesomeIcon className={styles.icon} icon={faTwitter} />
                         Tweet
                       </Button>
                     </div>
                     <div>
-                      <Button variant='outline' noHover actionbtn>
-                        <FontAwesomeIcon
-                          icon={faPinterestP}
-                          className={styles.pinterest}
-                        />
+                      <Button
+                        variant='outline'
+                        noHover
+                        actionbtn
+                        className={styles.pinterest}
+                      >
+                        <FontAwesomeIcon icon={faPinterestP} className={styles.icon} />
                         Pinterest
                       </Button>
                     </div>
                     <div>
-                      <Button variant='outline' noHover actionbtn>
-                        <FontAwesomeIcon
-                          icon={faLinkedinIn}
-                          className={styles.linkedin}
-                        />
+                      <Button
+                        variant='outline'
+                        noHover
+                        actionbtn
+                        className={styles.linkedin}
+                      >
+                        <FontAwesomeIcon icon={faLinkedinIn} className={styles.icon} />
                         LinkedIn
                       </Button>
                     </div>
@@ -201,6 +237,8 @@ const ProductPage = () => {
   );
 };
 
-// ProductPage.propTypes = {};
+ProductPage.propTypes = {
+  product: PropTypes.object,
+};
 
 export default ProductPage;
