@@ -113,5 +113,16 @@
     .iconActive {
       color: white;
     }
+    .price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .oldPrice {
+        margin-right: 8px;
+        text-decoration: line-through;
+        color: $silverGray;
+      }
+    }
   }
 }
