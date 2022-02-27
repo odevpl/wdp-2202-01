@@ -109,6 +109,10 @@
       background-color: transparent;
       outline: none;
     }
+
+    a {
+       color: black;
+     }
   }
 }
 
@@ -128,7 +132,7 @@
         justify-content: flex-end;
       }
     }
-  } 
+  }
 }
 
 @media (max-width: 400px) {
@@ -147,5 +151,5 @@
         justify-content: flex-end;
       }
     }
-  } 
+  }
 }

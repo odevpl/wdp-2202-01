@@ -14,6 +14,7 @@ import ProductPage from './components/views/ProductPage/ProductPage';
 import Cart from './components/layout/Cart/Cart';
 import BlogPage from './components/views/BlogPage/BlogPage';
 import Register from './components/views/Register/Register';
+import Search from './components/views/Search/Search';
 
 const App = () => (
   <Provider store={store}>
@@ -27,6 +28,7 @@ const App = () => (
           <Route exact path={'/product/:productId'} component={ProductPage} />
           <Route exact path={'/cart'} component={Cart} />
           <Route exact path={'/register'} component={Register} />
+          <Route exact path={'/search'} component={Search} />
         </Switch>
       </MainLayout>
     </BrowserRouter>
