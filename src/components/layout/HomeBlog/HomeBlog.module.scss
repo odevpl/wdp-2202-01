@@ -2,7 +2,6 @@
 
 .root {
   padding: $base-padding;
-  height: 600px;
 
   .panelBar {
     margin-bottom: 30px;
@@ -33,10 +32,11 @@
         border-bottom: 4px solid $lastest-blog-underscore;
       }
     }
+
     .dots {
       position: absolute;
       right: 0;
-      top: 0;
+      bottom: 0;
 
       ul {
         margin: 0;
@@ -66,64 +66,73 @@
     }
   }
 
-  .blogImage{
-    height: 300px;
+  .article {
+    .imageContainer {
+      position: relative;
+      height: 250px;
 
-    img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .top {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $white;
+
+        p {
+          font-size: 13px;
+          font-weight: 300;
+          margin: 10px;
+        }
+      }
     }
-  }
-
-  .blogArticle{
-    position: absolute;
-    width: 80%;
-    height: 100px;
-    background-color: $lastest-blog-background;
-    margin: -60px 20px 0 20px;
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    .blogComment{
-      padding: 0;
-    }
-
-    span{
-      padding-left: 10px;
-      font-size: 14px;
-    }
-
-    svg{
-     font-size: 18px;
-    }
-
-    .articleTitle{
-      text-align: left;
-      padding-top: 20px;
+    .articleBody {
+      width: 90%;
+      margin: 0 auto;
 
       h3 {
+        margin-top: 10px;
         font-size: 19px;
         font-weight: 500;
         color: $lastest-blog-title;
         padding-top: 20px;
       }
-    }
 
-    .articleDescription{
-      text-align: left;
-      padding: 5px 10px 10px 0px;
-      span{
-        padding-left: 0;
+      p {
         font-size: 17px;
-        font-weight: 280;
+        font-weight: 200;
+        margin-bottom: 40px;
       }
     }
+    .button {
+      text-align: center;
+    }
+  }
+}
 
-    .articleButton{
-      margin-top: 25px;
+@media (max-width: 991px) {
+  .root {
+    padding-bottom: 0;
+    margin-bottom: -20px;
 
+    .article {
+      margin-bottom: 40px;
+      .imageContainer {
+        .top {
+          width: 75%;
+        }
+      }
+      .articleBody {
+        width: 75%;
+      }
     }
   }
 }
