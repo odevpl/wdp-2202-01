@@ -45,6 +45,11 @@ const ProductBox = ({ name, price, promo, id, ...props }) => {
     }
   };
 
+  const checkForOldPrice = () => {
+    if (props.oldPrice !== undefined) {
+      return <div className={styles.oldPrice}>$ {props.oldPrice}</div>;
+    }
+  };
   const handleAddProduct = event => {
     event.preventDefault();
     dispatch(addProduct({ ...props.product }));
@@ -112,6 +117,7 @@ const ProductBox = ({ name, price, promo, id, ...props }) => {
           </Button>
         </div>
         <div className={styles.price}>
+          {checkForOldPrice()}
           <Button noHover variant='small' className={styles.priceButton}>
             $ {price}
           </Button>
@@ -132,6 +138,9 @@ ProductBox.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   promo: PropTypes.string,
+  oldPrice: PropTypes.number,
+  favorite: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  addedForComparison: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   product: PropTypes.object,
 };
 

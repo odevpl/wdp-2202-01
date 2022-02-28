@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faTable } from '@fortawesome/free-solid-svg-icons';
+import Brands from '../../features/Brands/BrandsContainer';
 
 // import PropTypes from 'prop-types';
 
@@ -75,7 +76,7 @@ const ProductList = () => {
         </div>
       </div>
       <div className='container'>
-        <h1>Brands</h1>
+        <Brands />
       </div>
     </div>
   );
