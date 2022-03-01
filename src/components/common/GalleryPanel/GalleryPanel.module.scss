@@ -12,7 +12,6 @@
       background-color: $gallery-bg-image;
       animation: fadeIn 1s;
 
-
       img {
         position: absolute;
         top: 0;
@@ -143,5 +142,23 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (min-width: 320px) {
+  .root .content .imageContainer .sale {
+    padding: 20px 15px;
+    h3 {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (min-width: 425px) {
+  .root .content .imageContainer .sale {
+    padding: 30px;
+    h3 {
+      font-size: 16px;
+    }
   }
 }
