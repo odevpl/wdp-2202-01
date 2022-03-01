@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import styles from './Cart.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,14 +7,21 @@ import Button from '../../common/Button/Button';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  increment,
   clearCart,
   getAllProductsInCart,
   removeProduct,
+  decrement,
+  getTotalPrice,
+  totalPriceIncrement,
+  totalPriceDecrement,
 } from '../../../redux/cartRedux';
+import { render } from 'enzyme';
 
 const Cart = () => {
   const productsInCart = useSelector(getAllProductsInCart);
   const dispatch = useDispatch();
+  const subtotalPrice = useSelector(getTotalPrice);
 
   const handleDelete = id => {
     dispatch(removeProduct(id));
@@ -23,6 +30,21 @@ const Cart = () => {
   const clearProductsFromCart = () => {
     dispatch(clearCart([]));
   };
+  const incrementQuantity = (event, id, quantity) => {
+    event.preventDefault();
+    if (quantity < 10 && quantity >= 1) {
+      dispatch(increment(id));
+    }
+    dispatch(totalPriceIncrement(id));
+  };
+  const decrementQuantity = (event, id, quantity) => {
+    event.preventDefault();
+    if (quantity > 1 && quantity <= 10) {
+      dispatch(decrement(id));
+    }
+    dispatch(totalPriceDecrement(id));
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.top}>
@@ -72,18 +94,32 @@ const Cart = () => {
                 <td className='align-middle'>$ {product.price}</td>
                 <td className='align-middle'>
                   <div className={styles.quantity}>
-                    <Button className={styles.button1} variant='outline'>
+                    <Button
+                      onClick={event =>
+                        incrementQuantity(event, product.id, product.quantity)
+                      }
+                      className={styles.button1}
+                      variant='outline'
+                    >
                       +
                     </Button>
                     <div className={styles.number}>
-                      <input></input>
+                      <input value={product.quantity}></input>
                     </div>
-                    <Button className={styles.button2} variant='outline'>
+                    <Button
+                      onClick={event =>
+                        decrementQuantity(event, product.id, product.quantity)
+                      }
+                      className={styles.button2}
+                      variant='outline'
+                    >
                       -
                     </Button>
                   </div>
                 </td>
-                <td className='align-middle text-center pl-5'>$ {product.price}</td>
+                <td className='align-middle text-center pl-5'>
+                  $ {product.price * product.quantity}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -102,11 +138,11 @@ const Cart = () => {
         <h3 style={{ color: 'black' }}>Cart totals</h3>
         <div className={styles.subtotal}>
           <h5>Subtotal</h5>
-          <p>$92.00</p>
+          <p>$ {subtotalPrice}</p>
         </div>
         <div className={styles.total}>
           <h5>Total</h5>
-          <p>$92.00</p>
+          <p>$ {subtotalPrice + 20}</p>
         </div>
         <Link to={`/cart`} className={styles.checkout}>
           <Button onClick={() => clearProductsFromCart()} className={styles.checkout}>

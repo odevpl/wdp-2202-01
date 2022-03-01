@@ -622,6 +622,7 @@ const initialState = {
   ],
   cart: {
     products: [],
+    subtotal: 0,
   },
 
   deals: {
