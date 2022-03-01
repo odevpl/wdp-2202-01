@@ -2,4 +2,368 @@
 
 .root {
   padding: $base-padding 0;
+  margin-top: -23px;
+  height: 700px;
+
+  .bottomLine {
+    height: 1px;
+    width: 100%;
+    background-color: #525252;
+    text-align: center;
+  }
+
+  .background {
+    background-color: #7d7d7d;
+    padding: 20px;
+    height: 300px;
+    position: relative;
+    color: #D4D4D4;
+
+    .nav {
+      align-self: center;
+      text-align: right;
+      font-weight: 400;
+
+      h6 {
+        cursor: pointer;
+      }
+
+      a {
+        color: #D4D4D4;
+      }
+    }
+  }
+
+  .product {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 100px;
+    border: 1px solid black;
+
+    .imageContainer {
+      position: relative;
+      width: 100%;
+      height: 475px;
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      .expand {
+        font-size: 20px;
+        color: black;
+        margin: 5px;
+        padding: 6px;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: $global-transition-time;
+        &:hover {
+          background-color: $primary;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    border-top: 1px solid $gallery-border-color;
+    align-items: center;
+
+    .arrow {
+      cursor: pointer;
+      position: static;
+      color: black;
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+      z-index: 1;
+      transition: $global-transition-time;
+
+      &:hover {
+        background-color: $primary;
+        color: white;
+      }
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      height: 100%;
+
+      div {
+        border: 1px solid $gallery-border-color;
+        min-width: 21%;
+        background-color: $gallery-border-color;
+        opacity: 50%;
+
+        &:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+
+        &.active {
+          opacity: 100%;
+        }
+      }
+    }
+  }
+
+
+
+
+  .info {
+    
+    h4 {
+      color: black;
+    }
+
+    .navArrows {
+      text-align: right;
+
+      .prodArrow {
+        cursor: pointer;
+        margin: 5px;
+        position: static;
+        color: black;
+        width: 30px;
+        height: 30px;
+        font-size: large;
+        border: 1px solid black;
+        z-index: 1;
+        transition: $global-transition-time;
+
+        &:hover {
+          background-color: $primary;
+          color: white;
+        }
+
+      }
+    }
+
+    .stars {
+      margin-left: 12px;
+      div {
+        margin: 0 5px;
+      }
+      p, a {
+        font-size: 14px;
+        line-height: 27px;
+        font-weight: 400;
+        color:#525252
+      }
+    }
+  }
+
+  .price {
+    margin-top: 20px;
+    padding-bottom: 20px;
+
+
+    .oldPrice {
+      color: #7d7d7d;
+      text-decoration: line-through;
+      display: inline;
+      margin: 15px;
+    }
+
+    .newPrice {
+      text-decoration: none;
+      padding: 3px 10px;
+      background-color: black;
+      color: white;
+      display: inline;
+    }
+  }
+
+  .buttonSection {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+    align-items: center;
+
+    div {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    .cart {
+      padding: 7px 10px;
+      top: -5px;
+    }
+  }
+
+  .quantity {
+    margin-left: 5px;
+    font-weight: 400;
+    color: #525252;
+    align-items: center;
+    padding-bottom: 15px;
+    div {
+      cursor: pointer;
+    }
+
+    input {
+      margin-left: 30px;
+      width: 70px;
+      height: 35px;
+      text-align: center;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    div {
+      margin-left: 5px;
+    }
+
+    .plusMinus:hover {
+      background-color: white;
+      color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  .overview {
+    padding-top: 15px;
+    padding-bottom: 0;
+
+    h6 {
+      color: black;
+      font-weight: 600;
+    }
+
+    p {
+      color: #7d7d7d;
+      font-weight: 400;
+    }
+  }
+
+  .properties {
+    padding-top: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+
+    .property,
+    .propertyValue {
+      line-height: 0;
+    }
+
+    .property {
+      font-weight: 600;
+      color: black;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0;
+      color: #7d7d7d;
+
+      span {
+        font-weight: 600;
+        color: black;
+      }
+    }
+  }
+
+  .links {
+    margin-left: -6px;
+    margin-top: 15px;
+
+    div {
+      margin: 3px;
+      cursor: pointer;
+
+      .facebook {
+        .icon {
+          color: #4267B2;
+        }
+
+        &:hover {
+          background-color: #4267B2;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+
+      .googlePlus {
+        .icon {
+          color: #db4a39;
+        }
+
+        &:hover {
+          background-color: #db4a39;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+
+      .twitter {
+        .icon {
+          color: #00acee;
+        }
+
+        &:hover {
+          background-color: #00acee;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+
+      .pinterest {
+        .icon {
+          color: #c8232c;
+        }
+
+        &:hover {
+          background-color: #c8232c;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+
+      .linkedin {
+        .icon {
+          color: #0072b1;
+        }
+
+        &:hover {
+          background-color: #0072b1;
+          color: white;
+
+          .icon {
+            color: white;
+          }
+        }
+      }
+    }
+
+    .icon {
+      margin-right: 3px;
+    }
+  }
 }
