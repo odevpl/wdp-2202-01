@@ -3,13 +3,14 @@
 .root {
   .panelBar {
     margin-bottom: 30px;
-    position: relative;
-
-    :global(.row) > * {
-      border-bottom: 4px solid $newFurniture-panelbar-border;
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid $newFurniture-panelbar-border;
 
     .heading {
+      flex: 1;
       position: relative;
 
       h3 {
@@ -24,7 +25,7 @@
       &::before {
         content: "";
         position: absolute;
-        bottom: -4px;
+        bottom: -5px;
         left: 0;
         width: 45px;
         border-bottom: 4px solid $primary;
@@ -32,11 +33,14 @@
     }
 
     .menu {
+      flex: 3;
       text-align: center;
+
       ul {
-        margin: 0;
         padding: 0;
+        margin: 0;
         list-style: none;
+
         li {
           display: inline-block;
           margin: 0 0.5rem;
@@ -54,7 +58,7 @@
               &::before {
                 content: "";
                 position: absolute;
-                bottom: -4px;
+                bottom: -10px;
                 left: 0;
                 width: 100%;
                 border-bottom: 4px solid $primary;
@@ -66,16 +70,16 @@
     }
 
     .dots {
-      position: absolute;
-      right: 0;
-      top: 0;
+      flex: 1;
+      position: relative;
 
       ul {
-        margin: 0;
-        padding: 0 0 0 1rem;
+        position: absolute;
+        padding-left: 15px;
+        right: 0;
+        top: -3px;
         list-style: none;
         background-color: $newFurniture-bg-dots-ul;
-        transform: translateY(15px);
 
         li {
           display: inline-block;
@@ -109,5 +113,97 @@
   .fadeOut {
     opacity: 1;
     transition: opacity 500ms ease-in-out;
+  }
+}
+
+@media (max-width: 991px) {
+  .root {
+    .panelBar {
+      .heading {
+        flex: 2;
+      }
+      .menu {
+        flex: 4;
+      }
+      .dots {
+        flex: 2;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .root {
+    .panelBar {
+      position: relative;
+      .heading {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        &::before {
+         display: none;
+        }
+      }
+      .menu {
+        ul {
+          top: -20px;
+          li {
+            a {
+              &.active,
+              &:hover {
+                &::before {
+                  bottom: -5px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .dots {
+        top: -6px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    .panelBar {
+      border: none;
+      .heading {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -170%);
+        h3 {
+          white-space: nowrap;
+        }
+        &::before {
+         display: none;
+        }
+      }
+      .menu {
+        ul {
+          flex: 3;
+          li {
+            margin-bottom: 5px;
+            a {
+              &.active,
+              &:hover {
+                &::before {
+                  bottom: -5px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .dots {
+        flex: 3;
+        ul {
+          right: 5px;
+          transform: translateY(-50%);
+        }
+      }
+    }
   }
 }
