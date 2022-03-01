@@ -19,7 +19,7 @@ import {
 } from '../../../redux/comparedProductsRedux';
 import StarRating from '../../features/StarRating/StarRating';
 import { NavLink } from 'react-router-dom';
-import { addProduct, getAllProductsInCart } from '../../../redux/cartRedux';
+import { addProduct } from '../../../redux/cartRedux';
 
 const ProductBox = ({ name, price, promo, id, ...props }) => {
   const dispatch = useDispatch();
@@ -50,9 +50,13 @@ const ProductBox = ({ name, price, promo, id, ...props }) => {
       return <div className={styles.oldPrice}>$ {props.oldPrice}</div>;
     }
   };
+
+  const quantity = 1;
+  const total = 1;
+
   const handleAddProduct = event => {
     event.preventDefault();
-    dispatch(addProduct({ ...props.product }));
+    dispatch(addProduct({ ...props.product, quantity, total }));
   };
 
   return (
