@@ -12,12 +12,16 @@ import {
   getAllProductsInCart,
   removeProduct,
   decrement,
+  getTotalPrice,
+  totalPriceIncrement,
+  totalPriceDecrement,
 } from '../../../redux/cartRedux';
 import { render } from 'enzyme';
 
 const Cart = () => {
   const productsInCart = useSelector(getAllProductsInCart);
   const dispatch = useDispatch();
+  const subtotalPrice = useSelector(getTotalPrice);
 
   const handleDelete = id => {
     dispatch(removeProduct(id));
@@ -26,17 +30,19 @@ const Cart = () => {
   const clearProductsFromCart = () => {
     dispatch(clearCart([]));
   };
-  const incrementQuantity = (event, id, quantity, total) => {
+  const incrementQuantity = (event, id, quantity) => {
     event.preventDefault();
     if (quantity < 10 && quantity >= 1) {
       dispatch(increment(id));
     }
+    dispatch(totalPriceIncrement(id));
   };
-  const decrementQuantity = (event, id, quantity, total) => {
+  const decrementQuantity = (event, id, quantity) => {
     event.preventDefault();
     if (quantity > 1 && quantity <= 10) {
       dispatch(decrement(id));
     }
+    dispatch(totalPriceDecrement(id));
   };
 
   return (
@@ -90,12 +96,7 @@ const Cart = () => {
                   <div className={styles.quantity}>
                     <Button
                       onClick={event =>
-                        incrementQuantity(
-                          event,
-                          product.id,
-                          product.quantity,
-                          product.price * (product.quantity + 1)
-                        )
+                        incrementQuantity(event, product.id, product.quantity)
                       }
                       className={styles.button1}
                       variant='outline'
@@ -107,12 +108,7 @@ const Cart = () => {
                     </div>
                     <Button
                       onClick={event =>
-                        decrementQuantity(
-                          event,
-                          product.id,
-                          product.quantity,
-                          product.price * (product.quantity + 1)
-                        )
+                        decrementQuantity(event, product.id, product.quantity)
                       }
                       className={styles.button2}
                       variant='outline'
@@ -142,11 +138,11 @@ const Cart = () => {
         <h3 style={{ color: 'black' }}>Cart totals</h3>
         <div className={styles.subtotal}>
           <h5>Subtotal</h5>
-          <p>$</p>
+          <p>$ {subtotalPrice}</p>
         </div>
         <div className={styles.total}>
           <h5>Total</h5>
-          <p>$</p>
+          <p>$ {subtotalPrice + 20}</p>
         </div>
         <Link to={`/cart`} className={styles.checkout}>
           <Button onClick={() => clearProductsFromCart()} className={styles.checkout}>

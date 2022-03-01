@@ -621,19 +621,7 @@ const initialState = {
     },
   ],
   cart: {
-    products: [
-      {
-        id: 'aenean-ru-bristique-60',
-        name: 'Aenean Ru Bristique 38',
-        category: 'furniture',
-        price: 30,
-        stars: 2,
-        promo: 'sale',
-        newFurniture: true,
-        quantity: 1,
-        total: 1,
-      },
-    ],
+    products: [],
     subtotal: 0,
   },
 

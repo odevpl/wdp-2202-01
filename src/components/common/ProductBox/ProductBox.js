@@ -50,13 +50,12 @@ const ProductBox = ({ name, price, promo, id, ...props }) => {
       return <div className={styles.oldPrice}>$ {props.oldPrice}</div>;
     }
   };
-
   const quantity = 1;
-  const total = 1;
+  const totalPrice = price;
 
   const handleAddProduct = event => {
     event.preventDefault();
-    dispatch(addProduct({ ...props.product, quantity, total }));
+    dispatch(addProduct({ ...props.product, quantity, totalPrice }));
   };
 
   return (
