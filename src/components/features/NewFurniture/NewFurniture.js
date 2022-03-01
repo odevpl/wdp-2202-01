@@ -53,7 +53,7 @@ class NewFurniture extends React.Component {
 
   boxNum(viewPort) {
     if (viewPort === 'tablet') {
-      return 4;
+      return 3;
     } else if (viewPort === 'mobile') {
       return 2;
     } else {
@@ -98,7 +98,7 @@ class NewFurniture extends React.Component {
           .slice(activePage * this.state.boxNum, (activePage + 1) * this.state.boxNum)
           .map((item, index) => {
             return (
-              <div key={item.id} className='col-3'>
+              <div key={item.id} className='col-12 col-sm-4 col-lg-3'>
                 <ProductBox {...item} product={item} />
               </div>
             );
@@ -110,27 +110,25 @@ class NewFurniture extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
-            <div className='row no-gutters align-items-end'>
-              <div className={'col-auto ' + styles.heading}>
-                <h3> New furniture </h3>
-              </div>
-              <div className={'col ' + styles.menu}>
-                <ul>
-                  {categories.map(item => (
-                    <li key={item.id}>
-                      <a
-                        className={item.id === activeCategory && styles.active}
-                        onClick={() => this.handleCategoryChange(item.id)}
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className={'col-auto ' + styles.dots}>
-                <ul key='123'>{dots}</ul>
-              </div>
+            <div className={styles.heading}>
+              <h3> New furniture </h3>
+            </div>
+            <div className={styles.menu}>
+              <ul>
+                {categories.map(item => (
+                  <li key={item.id}>
+                    <a
+                      className={item.id === activeCategory && styles.active}
+                      onClick={() => this.handleCategoryChange(item.id)}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.dots}>
+              <ul key='123'>{dots}</ul>
             </div>
           </div>
 
